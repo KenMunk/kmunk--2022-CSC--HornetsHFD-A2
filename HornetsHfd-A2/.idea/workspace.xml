@@ -4,18 +4,57 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="" />
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_codenameone_codenameone_core_7_0_57.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_codenameone_codenameone_javase_7_0_57.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jhlabs_filters_2_0_235_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xerial_sqlite_jdbc_3_7_15_M1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HornetsHfd-A2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/HornetsHfd-A2-common.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/commands/Accelerate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Building.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Helicopter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Helipad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/River.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/Drawable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/Steerable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ControlCluster.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/GlassCockpit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/MapView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javase/HornetsHfd-A2-javase.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
-      </MavenGeneralSettings>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="vmOptionsForImporter" value="-Xmx768m" />
@@ -32,6 +71,9 @@
     <option name="skipTests" value="true" />
   </component>
   <component name="ProjectId" id="1occntywqhF2GI6rzQO8tgiLMHt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -39,6 +81,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.14306152" />
@@ -117,47 +161,6 @@
             <option name="goals">
               <list>
                 <option value="cn1:settings" />
-                <option value="-e" />
-              </list>
-            </option>
-            <option name="pomFileName" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-      <method v="2" />
-    </configuration>
-    <configuration name="Update Codename One" type="MavenRunConfiguration" factoryName="Maven" folderName="Tools">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings">
-          <MavenRunnerSettings>
-            <option name="delegateBuildToMaven" value="true" />
-            <option name="environmentProperties">
-              <map />
-            </option>
-            <option name="jreName" value="#USE_PROJECT_JDK" />
-            <option name="mavenProperties">
-              <map />
-            </option>
-            <option name="passParentEnv" value="true" />
-            <option name="runMavenInBackground" value="true" />
-            <option name="skipTests" value="true" />
-            <option name="vmOptions" value="" />
-          </MavenRunnerSettings>
-        </option>
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list>
-                <option value="cn1:update" />
                 <option value="-e" />
               </list>
             </option>
@@ -484,6 +487,47 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <configuration name="Update Codename One" type="MavenRunConfiguration" factoryName="Maven" folderName="Tools">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings">
+          <MavenRunnerSettings>
+            <option name="delegateBuildToMaven" value="true" />
+            <option name="environmentProperties">
+              <map />
+            </option>
+            <option name="jreName" value="#USE_PROJECT_JDK" />
+            <option name="mavenProperties">
+              <map />
+            </option>
+            <option name="passParentEnv" value="true" />
+            <option name="runMavenInBackground" value="true" />
+            <option name="skipTests" value="true" />
+            <option name="vmOptions" value="" />
+          </MavenRunnerSettings>
+        </option>
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="cn1:update" />
+                <option value="-e" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
     <configuration name="Windows Desktop Build" type="MavenRunConfiguration" factoryName="Maven" folderName="Build Server">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -766,6 +810,17 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
     <state x="604" y="148" width="801" height="672" key="#Project_Structure" timestamp="1613667632061">
       <screen x="0" y="23" width="2560" height="1417" />
@@ -831,5 +886,4 @@
     </state>
     <state x="368" y="195" width="670" height="675" key="run.anything.popup/0.25.1440.817@0.25.1440.817" timestamp="1613589686494" />
   </component>
-
 </project>

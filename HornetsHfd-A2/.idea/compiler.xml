@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="HornetsHfd-A2" target="8" />
+      <module name="HornetsHfd-A2" target="1.8" />
       <module name="HornetsHfd-A2-common" target="1.8" />
       <module name="HornetsHfd-A2-javase" target="1.8" />
     </bytecodeTargetLevel>
