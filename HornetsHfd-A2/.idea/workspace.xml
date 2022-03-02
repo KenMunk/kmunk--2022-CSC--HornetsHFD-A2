@@ -4,35 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_codenameone_codenameone_core_7_0_57.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_codenameone_codenameone_javase_7_0_57.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jhlabs_filters_2_0_235_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xerial_sqlite_jdbc_3_7_15_M1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HornetsHfd-A2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/HornetsHfd-A2-common.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/commands/Accelerate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Building.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fire.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Helicopter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Helipad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/River.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/Drawable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/Steerable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ControlCluster.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/GlassCockpit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/MapView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javase/HornetsHfd-A2-javase.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="File Staging">
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/commands/Brake.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/commands/Drink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/commands/Exit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/commands/Fight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/commands/TurnLeft.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/commands/TurnRight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -808,6 +786,14 @@
       <option name="presentableId" value="Default" />
       <updated>1613589489573</updated>
     </task>
+    <task id="LOCAL-00001" summary="File Staging">
+      <created>1646173608923</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1646173608923</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -821,69 +807,8 @@
       </map>
     </option>
   </component>
-  <component name="WindowStateProjectService">
-    <state x="604" y="148" width="801" height="672" key="#Project_Structure" timestamp="1613667632061">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="340" y="97" width="801" height="672" key="#Project_Structure/0.25.1440.817@0.25.1440.817" timestamp="1613589576153" />
-    <state x="604" y="148" key="#Project_Structure/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1613667632061" />
-    <state x="297" y="88" width="1071" height="779" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1613675369173">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="167" y="63" width="1071" height="779" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.817@0.25.1440.817" timestamp="1613591898592" />
-    <state x="297" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1613675369173" />
-    <state width="1857" height="258" key="GridCell.Tab.0.bottom" timestamp="1613673746962">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1400" height="258" key="GridCell.Tab.0.bottom/0.25.1440.817@0.25.1440.817" timestamp="1613592228433" />
-    <state width="1857" height="258" key="GridCell.Tab.0.bottom/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1613673746962" />
-    <state width="1857" height="258" key="GridCell.Tab.0.center" timestamp="1613673746961">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1400" height="258" key="GridCell.Tab.0.center/0.25.1440.817@0.25.1440.817" timestamp="1613592228433" />
-    <state width="1857" height="258" key="GridCell.Tab.0.center/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1613673746961" />
-    <state width="1857" height="258" key="GridCell.Tab.0.left" timestamp="1613673746960">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1400" height="258" key="GridCell.Tab.0.left/0.25.1440.817@0.25.1440.817" timestamp="1613592228432" />
-    <state width="1857" height="258" key="GridCell.Tab.0.left/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1613673746960" />
-    <state width="1857" height="258" key="GridCell.Tab.0.right" timestamp="1613673746961">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1400" height="258" key="GridCell.Tab.0.right/0.25.1440.817@0.25.1440.817" timestamp="1613592228433" />
-    <state width="1857" height="258" key="GridCell.Tab.0.right/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1613673746961" />
-    <state width="1857" height="258" key="GridCell.Tab.1.bottom" timestamp="1613673760461">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1400" height="258" key="GridCell.Tab.1.bottom/0.25.1440.817@0.25.1440.817" timestamp="1613592228434" />
-    <state width="1857" height="258" key="GridCell.Tab.1.bottom/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1613673760461" />
-    <state width="1857" height="258" key="GridCell.Tab.1.center" timestamp="1613673760460">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1400" height="258" key="GridCell.Tab.1.center/0.25.1440.817@0.25.1440.817" timestamp="1613592228434" />
-    <state width="1857" height="258" key="GridCell.Tab.1.center/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1613673760459" />
-    <state width="1857" height="258" key="GridCell.Tab.1.left" timestamp="1613673760459">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1400" height="258" key="GridCell.Tab.1.left/0.25.1440.817@0.25.1440.817" timestamp="1613592228434" />
-    <state width="1857" height="258" key="GridCell.Tab.1.left/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1613673760459" />
-    <state width="1857" height="258" key="GridCell.Tab.1.right" timestamp="1613673760460">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1400" height="258" key="GridCell.Tab.1.right/0.25.1440.817@0.25.1440.817" timestamp="1613592228434" />
-    <state width="1857" height="258" key="GridCell.Tab.1.right/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1613673760460" />
-    <state x="377" y="99" key="SettingsEditor" timestamp="1613667715096">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="212" y="69" key="SettingsEditor/0.25.1440.817@0.25.1440.817" timestamp="1613589796525" />
-    <state x="377" y="99" key="SettingsEditor/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1613667715096" />
-    <state x="395" y="264" key="com.intellij.ide.util.TipDialog" timestamp="1613592243503">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state x="395" y="264" key="com.intellij.ide.util.TipDialog/0.25.1440.817@0.25.1440.817" timestamp="1613592243503" />
-    <state x="368" y="195" width="670" height="675" key="run.anything.popup" timestamp="1613589686494">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state x="368" y="195" width="670" height="675" key="run.anything.popup/0.25.1440.817@0.25.1440.817" timestamp="1613589686494" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="File Staging" />
+    <option name="LAST_COMMIT_MESSAGE" value="File Staging" />
   </component>
 </project>
