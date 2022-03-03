@@ -1,6 +1,8 @@
 package org.csc133.a2;
 
 import static com.codename1.ui.CN.*;
+
+import com.codename1.charts.util.ColorUtil;
 import com.codename1.system.Lifecycle;
 import com.codename1.ui.*;
 import com.codename1.ui.layouts.*;
@@ -13,19 +15,12 @@ import com.codename1.ui.util.Resources;
  * of building native mobile applications using Java.
  */
 public class AppMain extends Lifecycle {
+
+    private Game fireGame;
+
     @Override
     public void runApp() {
-        Form hi = new Form("Hi World", BoxLayout.y());
-        Button helloButton = new Button("Hello World");
-        hi.add(helloButton);
-        helloButton.addActionListener(e -> hello());
-        hi.getToolbar().addMaterialCommandToSideMenu("Hello Command",
-        FontImage.MATERIAL_CHECK, 4, e -> hello());
-        hi.show();
-    }
-
-    private void hello() {
-        Dialog.show("Hello Codename One", "Welcome to Codename One", "OK", null);
+        fireGame = new Game();
     }
 
 }

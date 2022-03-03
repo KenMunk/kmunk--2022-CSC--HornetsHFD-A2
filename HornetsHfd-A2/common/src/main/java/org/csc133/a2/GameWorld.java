@@ -21,15 +21,18 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
+import org.csc133.a2.gameobjects.GameObject;
 import org.csc133.a2.interfaces.GameState;
 
 //using singleton design
 
 public class GameWorld {
 
-    private static GameWorld gameWorldInstance = null;
+    private static final GameWorld gameWorldInstance = new GameWorld();
 
     private GameState gameState;
+
+    private ArrayList<GameObject> gameObject;
 
     // [TODO] Add in the components of the gameworld
 
@@ -40,11 +43,12 @@ public class GameWorld {
 
     }
 
+    public ArrayList<GameObject> getGameObjects(){
+        return(gameObject);
+    }
+
     public static GameWorld getInstance(){
 
-        if(gameWorldInstance == null){
-            gameWorldInstance = new GameWorld();
-        }
         return(gameWorldInstance);
     }
 

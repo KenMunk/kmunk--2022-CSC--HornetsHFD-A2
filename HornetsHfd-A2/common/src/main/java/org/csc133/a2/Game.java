@@ -13,8 +13,12 @@ import com.codename1.ui.Button;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
+import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.util.UITimer;
 import com.codename1.util.MathUtil;
+import org.csc133.a2.views.ControlCluster;
+import org.csc133.a2.views.GlassCockpit;
+import org.csc133.a2.views.MapView;
 //import org.jetbrains.annotations.NotNull;
 
 //import java.math.RoundingMode;
@@ -28,13 +32,39 @@ import java.util.Random;
 public class Game extends Form implements Runnable{
 
     private GameWorld gameWorld;
+    private ControlCluster bottomControlCluster;
+    private GlassCockpit topGlassCockpit;
+    private MapView middleMapView;
 
     public Game(){
         gameWorld = GameWorld.getInstance();
+
+        bottomControlCluster = new ControlCluster(gameWorld);
+        topGlassCockpit = new GlassCockpit(gameWorld);
+        middleMapView = new MapView(gameWorld);
+
+        setTitle("Hornet Fire Defense A2");
+
+        UITimer timer = new UITimer(this);
+        timer.schedule(100,true,this);
+
+        this.setLayout(new BorderLayout());
+
+        this.add(BorderLayout.NORTH,topGlassCockpit);
+        this.add(BorderLayout.SOUTH,bottomControlCluster);
+        this.add(BorderLayout.CENTER,middleMapView);
+
+        this.show();
+
     }
 
     @Override
     public void run(){
 
+    }
+
+    @Override
+    public void paint(Graphics context){
+        super.paint(context);
     }
 }
