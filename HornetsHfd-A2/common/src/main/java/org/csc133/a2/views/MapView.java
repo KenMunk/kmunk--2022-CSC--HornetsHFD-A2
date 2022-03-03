@@ -1,4 +1,9 @@
 package org.csc133.a2.views;
 
-public class MapView {
+import com.codename1.ui.Container;
+
+public class MapView extends Container {
+
+
+
 }
