@@ -4,22 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="File Staging&#10;Commands">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/FireState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/GameState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/HelicopterState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/FireIsBurning.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/FireIsExtinguished.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/FireIsNotStarted.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GameLoss.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GamePlaying.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GameStopped.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GameWin.java" afterDir="false" />
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Staging states for fire, helicopter, and world">
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GameNotStartedYet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/commands/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/commands/Exit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/FireIsBurning.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/IsBurning.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/FireIsExtinguished.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/IsExtinguished.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/FireIsNotStarted.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/IsNotStarted.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -816,7 +807,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646185575965</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Staging states for fire, helicopter, and world">
+      <created>1646201340108</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1646201340108</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -833,6 +831,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="File Staging" />
     <MESSAGE value="File Staging&#10;Commands" />
-    <option name="LAST_COMMIT_MESSAGE" value="File Staging&#10;Commands" />
+    <MESSAGE value="Staging states for fire, helicopter, and world" />
+    <option name="LAST_COMMIT_MESSAGE" value="Staging states for fire, helicopter, and world" />
   </component>
 </project>

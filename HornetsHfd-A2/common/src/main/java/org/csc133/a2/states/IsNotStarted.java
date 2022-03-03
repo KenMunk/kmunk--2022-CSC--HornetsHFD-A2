@@ -3,7 +3,7 @@ package org.csc133.a2.states;
 import org.csc133.a2.gameobjects.Fire;
 import org.csc133.a2.interfaces.FireState;
 
-public class FireIsNotStarted implements FireState {
+public class IsNotStarted implements FireState {
 
     @Override
     public void fireUpdate(Fire context) {

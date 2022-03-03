@@ -4,6 +4,6 @@ import org.csc133.a2.GameWorld;
 
 public interface GameState {
 
-    public void currentState(GameWorld context);
+    public void update(GameWorld context);
 
 }
