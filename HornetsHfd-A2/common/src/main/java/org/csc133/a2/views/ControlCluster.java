@@ -4,6 +4,8 @@ import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Container;
 import com.codename1.ui.Display;
 import com.codename1.ui.Graphics;
+import com.codename1.ui.layouts.BorderLayout;
+import com.codename1.ui.layouts.FlowLayout;
 import org.csc133.a2.GameWorld;
 
 public class ControlCluster extends Container {
@@ -22,8 +24,8 @@ public class ControlCluster extends Container {
         context.setColor(ColorUtil.YELLOW);
         context.fillRect
         (
-                200,
-                200,
+                400,
+                400,
                 Display.getInstance().getDisplayWidth(),
                 200
         );

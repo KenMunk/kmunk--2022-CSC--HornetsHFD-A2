@@ -8,12 +8,15 @@ public class GlassCockpit extends Container {
 
     private GameWorld gameWorld;
 
+
+
     public GlassCockpit(GameWorld referenceOfGameWorld){
 
         gameWorld = referenceOfGameWorld;
 
     }
 
+    /**
     @Override
     public void paint(Graphics context){
         super.paint(context);
@@ -22,6 +25,6 @@ public class GlassCockpit extends Container {
         // [TODO] Present heading
         // [TODO] Present fuel
 
-    }
+    }//*/
 
 }

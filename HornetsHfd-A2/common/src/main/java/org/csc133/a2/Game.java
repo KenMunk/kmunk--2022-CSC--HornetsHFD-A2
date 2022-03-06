@@ -31,17 +31,17 @@ import java.util.Random;
 
 public class Game extends Form implements Runnable{
 
-    private GameWorld gameWorld;
-    private ControlCluster bottomControlCluster;
-    private GlassCockpit topGlassCockpit;
-    private MapView middleMapView;
+    GameWorld gameWorld;
+    ControlCluster bottomControlCluster;
+    GlassCockpit topGlassCockpit;
+    MapView middleMapView;
 
     public Game(){
-        gameWorld = GameWorld.getInstance();
+        this.gameWorld = GameWorld.getInstance();
 
-        bottomControlCluster = new ControlCluster(gameWorld);
-        topGlassCockpit = new GlassCockpit(gameWorld);
-        middleMapView = new MapView(gameWorld);
+        bottomControlCluster = new ControlCluster(this.gameWorld);
+        topGlassCockpit = new GlassCockpit(this.gameWorld);
+        middleMapView = new MapView(this.gameWorld);
 
         setTitle("Hornet Fire Defense A2");
 
@@ -54,17 +54,22 @@ public class Game extends Form implements Runnable{
         this.add(BorderLayout.SOUTH,bottomControlCluster);
         this.add(BorderLayout.CENTER,middleMapView);
 
+
         this.show();
 
     }
 
     @Override
     public void run(){
-
+        repaint();
     }
 
     @Override
     public void paint(Graphics context){
         super.paint(context);
+
+        middleMapView.paint(context);
+        topGlassCockpit.paint(context);
+        bottomControlCluster.paint(context);
     }
 }
