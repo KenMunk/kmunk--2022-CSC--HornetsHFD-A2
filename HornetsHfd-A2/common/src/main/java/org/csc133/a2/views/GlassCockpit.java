@@ -2,29 +2,46 @@ package org.csc133.a2.views;
 
 import com.codename1.ui.Container;
 import com.codename1.ui.Graphics;
+import com.codename1.ui.Label;
+import com.codename1.ui.layouts.BorderLayout;
+import com.codename1.ui.layouts.GridLayout;
+import com.codename1.ui.layouts.mig.Grid;
 import org.csc133.a2.GameWorld;
+
+import java.util.ArrayList;
 
 public class GlassCockpit extends Container {
 
     private GameWorld gameWorld;
 
-
+    private ArrayList<HudSegment> hudSegments;
 
     public GlassCockpit(GameWorld referenceOfGameWorld){
 
         gameWorld = referenceOfGameWorld;
+        this.setLayout(new GridLayout(1,6));
+        
+        hudSegments = new ArrayList<>();
 
+        hudSegments.add(new ViewHeading(gameWorld));
+        hudSegments.add(new ViewSpeed(gameWorld));
+        hudSegments.add(new ViewFuel(gameWorld));
+
+
+        for(HudSegment segment : hudSegments){
+            this.add(segment);
+        }
     }
 
-    /**
+
     @Override
     public void paint(Graphics context){
         super.paint(context);
 
-        // [TODO] Present speed
-        // [TODO] Present heading
-        // [TODO] Present fuel
+        for(HudSegment segment: hudSegments){
+            segment.update();
+        }
 
-    }//*/
+    }
 
 }

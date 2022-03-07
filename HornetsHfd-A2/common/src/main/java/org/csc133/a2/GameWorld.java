@@ -118,4 +118,19 @@ public class GameWorld {
         );
         Display.getInstance().exitApplication();
     }
+
+    public int getHelicopterHeading(){
+
+        return(0);
+    }
+
+    public int getHelicopterSpeed(){
+
+        return(0);
+    }
+
+    public int getHelicopterFuel(){
+
+        return(0);
+    }
 }
