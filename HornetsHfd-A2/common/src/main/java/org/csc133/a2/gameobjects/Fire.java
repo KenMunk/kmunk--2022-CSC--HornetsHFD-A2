@@ -26,6 +26,10 @@ public class Fire extends Fixed{
         }//*/
     }
 
+    public int getSize(){
+        return(size);
+    }
+
     public int category(){
         return(((this.size - (this.size % 2000))/2000)+1);
     }

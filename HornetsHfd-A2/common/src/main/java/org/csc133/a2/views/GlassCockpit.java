@@ -19,14 +19,17 @@ public class GlassCockpit extends Container {
     public GlassCockpit(GameWorld referenceOfGameWorld){
 
         gameWorld = referenceOfGameWorld;
-        this.setLayout(new GridLayout(1,6));
+        this.setLayout(new GridLayout(1,7));
         
         hudSegments = new ArrayList<>();
 
         hudSegments.add(new ViewHeading(gameWorld));
         hudSegments.add(new ViewSpeed(gameWorld));
         hudSegments.add(new ViewFuel(gameWorld));
-
+        hudSegments.add(new ViewFires(gameWorld));
+        hudSegments.add(new ViewFireSize(gameWorld));
+        hudSegments.add(new ViewDamage(gameWorld));
+        hudSegments.add(new ViewLoss(gameWorld));
 
         for(HudSegment segment : hudSegments){
             this.add(segment);

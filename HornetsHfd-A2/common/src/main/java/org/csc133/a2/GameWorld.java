@@ -21,10 +21,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.csc133.a2.gameobjects.GameObject;
-import org.csc133.a2.gameobjects.Helicopter;
-import org.csc133.a2.gameobjects.Helipad;
-import org.csc133.a2.gameobjects.River;
+import org.csc133.a2.gameobjects.*;
 import org.csc133.a2.interfaces.GameState;
 
 //using singleton design
@@ -171,5 +168,32 @@ public class GameWorld {
     public int getHelicopterFuel(){
 
         return(0);
+    }
+
+    public String getFireCount() {
+        int fireCount = 0;
+        for(GameObject go: gameObject){
+            if(go instanceof Fire){
+                fireCount++;
+            }
+        }
+        return(fireCount+"");
+    }
+
+    public String getFireSize() {
+
+        int fireSize = 0;
+        for(GameObject go: gameObject){
+            if(go instanceof Fire){
+                Fire fire = (Fire)go;
+                fireSize+=fire.getSize();
+            }
+        }
+        return(fireSize+"");
+    }
+
+    public String getLoss() {
+
+        return("Everything");
     }
 }
