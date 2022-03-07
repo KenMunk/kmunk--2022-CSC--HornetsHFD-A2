@@ -43,6 +43,23 @@ public class GameWorld {
 
     }
 
+    private void init(){
+
+        Display thisDisplay = Display.getInstance();
+
+        int maxX = thisDisplay.getDisplayWidth();
+        int maxY = thisDisplay.getDisplayHeight();
+
+        //add the river (easy)
+
+        //add the firebase (easy)
+
+        //add the buildings (easy)
+
+        //add the fires
+
+    }
+
     public ArrayList<GameObject> getGameObjects(){
         return(gameObject);
     }

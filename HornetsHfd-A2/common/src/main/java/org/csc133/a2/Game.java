@@ -16,6 +16,7 @@ import com.codename1.ui.geom.Point;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.util.UITimer;
 import com.codename1.util.MathUtil;
+import org.csc133.a2.commands.*;
 import org.csc133.a2.views.ControlCluster;
 import org.csc133.a2.views.GlassCockpit;
 import org.csc133.a2.views.MapView;
@@ -54,6 +55,13 @@ public class Game extends Form implements Runnable{
         this.add(BorderLayout.SOUTH,bottomControlCluster);
         this.add(BorderLayout.CENTER,middleMapView);
 
+        addKeyListener('Q', new Exit(gameWorld));
+        addKeyListener('f', new Fight(gameWorld));
+        addKeyListener('d', new Drink(gameWorld));
+        addKeyListener(-91, new Accelerate(gameWorld));
+        addKeyListener(-92, new Brake(gameWorld));
+        addKeyListener(-93, new TurnLeft(gameWorld));
+        addKeyListener(-94, new TurnRight(gameWorld));
 
         this.show();
 

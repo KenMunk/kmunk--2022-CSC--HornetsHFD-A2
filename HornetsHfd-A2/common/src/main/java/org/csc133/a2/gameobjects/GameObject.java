@@ -7,7 +7,7 @@ import com.codename1.ui.geom.Point;
 import org.csc133.a2.ColorInt;
 import org.csc133.a2.interfaces.Drawable;
 
-public abstract class GameObject implements Drawable {
+public class GameObject implements Drawable {
 
     private Point pos;
     private Dimension dimensions;
@@ -20,6 +20,14 @@ public abstract class GameObject implements Drawable {
     public Point setPos(Point newPos) {
         this.pos = newPos;
         return(pos);
+    }
+
+    public ColorInt getColor(){
+        return(color);
+    }
+
+    public void setColor(int colorValue){
+        color = new ColorInt(colorValue);
     }
 
     public void setDimensions(Dimension newDimensions){
@@ -53,6 +61,10 @@ public abstract class GameObject implements Drawable {
 
     @Override
     public void draw(Graphics g, Point containerOrigin) {
+
+    }
+
+    public void update(){
 
     }
 }

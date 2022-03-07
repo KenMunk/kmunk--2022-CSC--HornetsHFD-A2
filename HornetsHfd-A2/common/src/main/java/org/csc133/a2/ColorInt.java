@@ -4,7 +4,7 @@ public class ColorInt {
 
     private int value;
 
-    public void ColorInt(int value){
+    public ColorInt(int value){
 
         this.value = value;
 
