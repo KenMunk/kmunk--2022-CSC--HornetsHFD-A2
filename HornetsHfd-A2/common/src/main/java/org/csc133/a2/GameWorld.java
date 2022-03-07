@@ -62,4 +62,60 @@ public class GameWorld {
         );
 
     }
+
+    public void turnHelicopterLeft() {
+        System.err.println
+        (
+            this.getClass().getSimpleName()
+            + " " +
+            "Turning Left"
+        );
+    }
+
+    public void turnHelicopterRight() {
+        System.err.println
+        (
+            this.getClass().getSimpleName()
+            + " " +
+            "Turning Right"
+        );
+    }
+
+    public void helicopterDump() {
+        System.err.println
+        (
+            this.getClass().getSimpleName()
+                    + " " +
+                    "Dumping"
+        );
+    }
+
+    public void helicopterDrink() {
+        System.err.println
+        (
+            this.getClass().getSimpleName()
+            + " " +
+            "Drinking"
+        );
+    }
+
+    public void helicopterBrake() {
+        System.err.println
+        (
+            this.getClass().getSimpleName()
+            + " " +
+            "Braking"
+        );
+
+    }
+
+    public void exit() {
+        System.err.println
+        (
+            this.getClass().getSimpleName()
+            + " " +
+            "Exiting"
+        );
+        Display.getInstance().exitApplication();
+    }
 }

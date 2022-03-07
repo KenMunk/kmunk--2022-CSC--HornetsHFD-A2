@@ -69,7 +69,5 @@ public class Game extends Form implements Runnable{
         super.paint(context);
 
         middleMapView.paint(context);
-        topGlassCockpit.paint(context);
-        bottomControlCluster.paint(context);
     }
 }

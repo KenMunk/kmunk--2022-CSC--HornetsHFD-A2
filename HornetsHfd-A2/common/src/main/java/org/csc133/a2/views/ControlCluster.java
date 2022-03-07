@@ -5,44 +5,114 @@ import com.codename1.ui.*;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.FlowLayout;
+import com.codename1.ui.layouts.GridLayout;
+import com.codename1.ui.layouts.mig.Grid;
 import com.codename1.ui.plaf.Style;
 import org.csc133.a2.GameWorld;
-import org.csc133.a2.commands.Accelerate;
+import org.csc133.a2.commands.*;
 
 import javax.swing.border.Border;
+import java.util.ArrayList;
 
 public class ControlCluster extends Container {
 
     private GameWorld gameWorld;
 
     //Left Side Buttons
-    Button leftBtn;
-    Button rightBtn;
-    Button fightBtn;
+    private Button leftBtn;
+    private Button rightBtn;
+    private Button fightBtn;
 
     //Center Buttons
-    Button exitBtn;
+    private Button exitBtn;
 
     //Right Side Buttons
-    Button drinkBtn;
-    Button brakeBtn;
-    Button accelBtn;
+    private Button drinkBtn;
+    private Button brakeBtn;
+    private Button accelBtn;
+
+
+    private final Container leftSideButtons =
+            (
+                    new Container(new GridLayout(1,3))
+            );
+
+    private final Container rightSideButtons =
+            (
+                    new Container(new GridLayout(1,3))
+            );
 
     public ControlCluster(GameWorld referenceOfGameWorld){
+
+
 
         gameWorld = GameWorld.getInstance();
 
         leftBtn = this.buttonMaker
         (
-            new Accelerate(gameWorld),
-            "Accel"
+            new TurnLeft(gameWorld),
+            "Left"
+        );
+
+        rightBtn = this.buttonMaker
+        (
+            new TurnRight(gameWorld),
+            "Right"
+        );
+
+        fightBtn = this.buttonMaker(
+            new Fight(gameWorld),
+            "Fight"
+        );
+
+        exitBtn = this.buttonMaker(
+            new Exit(gameWorld),
+            "Exit"
+        );
+
+        drinkBtn = this.buttonMaker(
+            new Drink(gameWorld),
+            "Drink"
+        );
+
+        brakeBtn = this.buttonMaker(
+                new Brake(gameWorld),
+                "Brake"
+        );
+
+        accelBtn = this.buttonMaker(
+                new Accelerate(gameWorld),
+                "Accel"
         );
 
         setButtonStyle(leftBtn);
+        setButtonStyle(rightBtn);
+        setButtonStyle(fightBtn);
+        setButtonStyle(exitBtn);
+        setButtonStyle(accelBtn);
+        setButtonStyle(drinkBtn);
+        setButtonStyle(brakeBtn);
 
-        this.setLayout(new BorderLayout());
+        leftSideButtons.add(leftBtn);
+        leftSideButtons.add(rightBtn);
+        leftSideButtons.add(fightBtn);
 
-        this.add(BorderLayout.WEST,leftBtn);
+        rightSideButtons.add(drinkBtn);
+        rightSideButtons.add(brakeBtn);
+        rightSideButtons.add(accelBtn);
+
+        this.setLayout(new GridLayout(1,5));
+
+        ArrayList<Container> emptyContainer = new ArrayList<>();
+        emptyContainer.add(new Container());
+        emptyContainer.add(new Container());
+
+        this.add(leftSideButtons);
+        this.add(emptyContainer.get(0));
+        this.add(exitBtn);
+        this.add(emptyContainer.get(1));
+        this.add(rightSideButtons);
+
 
     }
 
@@ -50,16 +120,15 @@ public class ControlCluster extends Container {
         Button outputButton = new Button(buttonCommand);
         outputButton.setText(name);
 
-
-
         return(outputButton);
     }
 
     private void setButtonStyle(Button b){
 
-        Style buttonStyle = b.getAllStyles();
+        Style buttonStyle = b.getStyle();
 
-        buttonStyle.setBgColor(ColorUtil.rgb(100,100,100));
+        buttonStyle.setBgColor(ColorUtil.rgb(200,200,200));
+        buttonStyle.setBgTransparency(255);
         buttonStyle.setFont
         (
             Font.createSystemFont
@@ -75,7 +144,6 @@ public class ControlCluster extends Container {
     @Override
     public void paint(Graphics context){
         super.paint(context);
-
 
 
     }
