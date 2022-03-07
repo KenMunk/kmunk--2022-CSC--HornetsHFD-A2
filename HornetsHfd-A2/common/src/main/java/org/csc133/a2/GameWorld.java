@@ -52,4 +52,14 @@ public class GameWorld {
         return(gameWorldInstance);
     }
 
+    public void accelerateHelicopter() {
+
+        System.err.println
+        (
+            this.getClass().getSimpleName()
+            + " " +
+            "Accelerating"
+        );
+
+    }
 }

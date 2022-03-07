@@ -21,13 +21,6 @@ public class MapView extends Container {
         super.paint(context);
 
         /**
-         * [Reminder]
-         * The gameworld is a singleton, don't need pass
-         * that stuff around as a parameter
-         *
-         */
-
-        /**
         for
         (
                 GameObject aGameObject
@@ -38,6 +31,9 @@ public class MapView extends Container {
             // [TODO] um... render the map view I guess...
 
         }//*/
+
+
+
 
     }
 
