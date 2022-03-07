@@ -22,6 +22,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import org.csc133.a2.gameobjects.GameObject;
+import org.csc133.a2.gameobjects.Helicopter;
+import org.csc133.a2.gameobjects.Helipad;
+import org.csc133.a2.gameobjects.River;
 import org.csc133.a2.interfaces.GameState;
 
 //using singleton design
@@ -38,6 +41,25 @@ public class GameWorld {
 
     private GameWorld(){
 
+        gameObject = new ArrayList<>();
+
+        Display thisDisplay = Display.getInstance();
+        int maxX = thisDisplay.getDisplayWidth();
+        int maxY = thisDisplay.getDisplayHeight();
+
+        Helipad helipad = new Helipad
+                (
+                    new Point
+                    (
+                        maxX/2,
+                        maxY-(maxY/3)
+                    )
+                );
+
+        River aRiver = new River(new Point(-50,300));
+
+        gameObject.add(aRiver);
+        gameObject.add(helipad);
 
         // [TODO] Add the deployments here
 
