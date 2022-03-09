@@ -59,7 +59,7 @@ public class GameWorld {
                         new Point
                                 (
                                         maxX/2,
-                                        maxY-(maxY/3)
+                                        maxY-(2*maxY/5)
                                 )
                 );
 

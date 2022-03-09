@@ -39,7 +39,7 @@ public class Helipad extends Fixed {
         int width = thisDisplay.getDisplayWidth();
         int height = thisDisplay.getDisplayHeight();
 
-        int offsetValue = width/20;
+        int offsetValue = width/30;
         this.width = offsetValue*2;
 
         //Create offset origin position
