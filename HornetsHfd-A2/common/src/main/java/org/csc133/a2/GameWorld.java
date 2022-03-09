@@ -38,6 +38,16 @@ public class GameWorld {
 
     private GameWorld(){
 
+        this.init();
+
+        // [TODO] Add the deployments here
+
+    }
+
+
+
+    private void init(){
+
         gameObject = new ArrayList<>();
 
         Display thisDisplay = Display.getInstance();
@@ -46,32 +56,17 @@ public class GameWorld {
 
         Helipad helipad = new Helipad
                 (
-                    new Point
-                    (
-                        maxX/2,
-                        maxY-(maxY/3)
-                    )
+                        new Point
+                                (
+                                        maxX/2,
+                                        maxY-(maxY/3)
+                                )
                 );
 
         River aRiver = new River(new Point(-50,300));
 
         gameObject.add(aRiver);
         gameObject.add(helipad);
-
-        // [TODO] Add the deployments here
-
-    }
-
-    private void init(){
-
-        Display thisDisplay = Display.getInstance();
-
-        int maxX = thisDisplay.getDisplayWidth();
-        int maxY = thisDisplay.getDisplayHeight();
-
-        //add the river (easy)
-
-        //add the firebase (easy)
 
         //add the buildings (easy)
 

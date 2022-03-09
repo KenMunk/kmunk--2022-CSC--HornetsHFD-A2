@@ -23,6 +23,7 @@ import org.csc133.a2.views.MapView;
 //import org.jetbrains.annotations.NotNull;
 
 //import java.math.RoundingMode;
+import javax.swing.text.View;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -42,7 +43,15 @@ public class Game extends Form implements Runnable{
 
         bottomControlCluster = new ControlCluster(this.gameWorld);
         topGlassCockpit = new GlassCockpit(this.gameWorld);
-        middleMapView = new MapView(this.gameWorld);
+
+        ViewOffsets viewOffsets = new ViewOffsets
+            (
+                topGlassCockpit.getAbsoluteY(),
+                bottomControlCluster.getAbsoluteY()
+            );
+
+        middleMapView = new MapView(this.gameWorld,viewOffsets);
+
 
         setTitle("Hornet Fire Defense A2");
 
@@ -69,7 +78,7 @@ public class Game extends Form implements Runnable{
 
     @Override
     public void run(){
-        repaint();
+        //repaint();
     }
 
     @Override

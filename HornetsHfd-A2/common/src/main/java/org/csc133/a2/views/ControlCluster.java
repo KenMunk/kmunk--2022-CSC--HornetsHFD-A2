@@ -3,11 +3,13 @@ package org.csc133.a2.views;
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.*;
 import com.codename1.ui.events.ActionListener;
+import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.layouts.GridLayout;
 import com.codename1.ui.layouts.mig.Grid;
 import com.codename1.ui.plaf.Style;
+import com.codename1.util.MathUtil;
 import org.csc133.a2.GameWorld;
 import org.csc133.a2.commands.*;
 
@@ -113,12 +115,17 @@ public class ControlCluster extends Container {
         this.add(emptyContainer.get(1));
         this.add(rightSideButtons);
 
-
+        Dimension thickBottom = this.getPreferredSize();
+        thickBottom.setHeight(thickBottom.getHeight()*2);
     }
 
     private Button buttonMaker(Command buttonCommand, String name){
         Button outputButton = new Button(buttonCommand);
         outputButton.setText(name);
+
+        Dimension buttonSize = outputButton.getPreferredSize();
+        buttonSize.setHeight(MathUtil.round(buttonSize.getHeight()*1.5f));
+        outputButton.setPreferredSize(buttonSize);
 
         return(outputButton);
     }
@@ -135,6 +142,7 @@ public class ControlCluster extends Container {
             (
                 Font.FACE_MONOSPACE,
                 Font.STYLE_BOLD,
+                //The font size could really be resizable
                 Font.SIZE_MEDIUM
             )
         );
