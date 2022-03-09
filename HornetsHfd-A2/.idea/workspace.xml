@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Enabled flexible UI scaling for map view so that the map view isn't as hard coded.">
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Helipad.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Helipad.java" afterDir="false" />
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Adjusted helipad scaling">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Building.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -885,7 +887,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646805434344</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Adjusted helipad scaling">
+      <created>1646805917647</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1646805917647</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -915,6 +924,7 @@
     <MESSAGE value="Finishing up the foundations and cross referencing A1 to limit repeat work while avoiding errors from A1" />
     <MESSAGE value="River and helibase completed(ish)" />
     <MESSAGE value="Enabled flexible UI scaling for map view so that the map view isn't as hard coded." />
-    <option name="LAST_COMMIT_MESSAGE" value="Enabled flexible UI scaling for map view so that the map view isn't as hard coded." />
+    <MESSAGE value="Adjusted helipad scaling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusted helipad scaling" />
   </component>
 </project>

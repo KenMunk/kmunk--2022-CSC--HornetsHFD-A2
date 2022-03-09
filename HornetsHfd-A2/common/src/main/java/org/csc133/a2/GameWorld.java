@@ -10,6 +10,7 @@ import com.codename1.ui.*;
 import com.codename1.ui.Button;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.Graphics;
+import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
 import com.codename1.ui.util.UITimer;
 import com.codename1.util.MathUtil;
@@ -55,18 +56,42 @@ public class GameWorld {
         int maxY = thisDisplay.getDisplayHeight();
 
         Helipad helipad = new Helipad
-                (
-                        new Point
-                                (
-                                        maxX/2,
-                                        maxY-(2*maxY/5)
-                                )
-                );
+        (
+            new Point
+            (
+                maxX/2,
+                maxY-(2*maxY/5)
+            )
+        );
 
         River aRiver = new River(new Point(-50,300));
 
         gameObject.add(aRiver);
         gameObject.add(helipad);
+        gameObject.add
+        (
+            new Building
+            (
+                new Point(maxX/10, maxY/3),
+                new Dimension(maxY/6, maxY/4)
+            )
+        );
+        gameObject.add
+        (
+            new Building
+            (
+                new Point(maxX - 2*maxX/10, maxY/3),
+                new Dimension(maxY/6, maxY/4)
+            )
+        );
+        gameObject.add
+        (
+            new Building
+            (
+                new Point(maxX/3, maxY/30),
+                new Dimension(maxX/3, maxY/8)
+            )
+        );
 
         //add the buildings (easy)
 
