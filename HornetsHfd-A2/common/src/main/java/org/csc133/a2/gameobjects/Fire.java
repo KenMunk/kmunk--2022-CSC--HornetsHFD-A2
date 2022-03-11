@@ -4,6 +4,7 @@ import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.interfaces.FireState;
+import org.csc133.a2.states.IsNotStarted;
 
 import java.util.Random;
 
@@ -14,12 +15,19 @@ public class Fire extends Fixed{
     private FireState currentState;
 
     public Fire(){
+        init();
+    }
+
+    public void init(){
+
+        setColor(ColorUtil.MAGENTA);
+        setState(new IsNotStarted());
+        setSize(new Random().nextInt(150)+150);
 
     }
 
-    @Override
     public void update(){
-
+        currentState.fireUpdate(this);
     }
 
     public void grow(){
@@ -27,10 +35,29 @@ public class Fire extends Fixed{
         if(this.size > 0){
             this.size += (
                     new Random()
-                            .nextInt((10*this.category())+1)
+                            .nextInt((10*this.category())+2)
             );
 
         }//*/
+
+        updatePeakSize();
+
+    }
+
+    public void setState(FireState someState){
+
+        currentState = someState;
+
+    }
+
+    public void updatePeakSize(){
+        if(this.peakSize < this.size){
+            this.peakSize = this.size;
+        }
+    }
+
+    public void setSize(int newSize){
+        size = newSize;
     }
 
     public int getSize(){
@@ -42,10 +69,12 @@ public class Fire extends Fixed{
     }
 
     public void extinguish(int amount){
-        this.size -= amount / this.category();
+        if(!(currentState instanceof IsNotStarted)){
+            this.size -= amount / this.category();
 
-        if(this.size < 0){
-            this.size = 0;
+            if(this.size < 0){
+                this.size = 0;
+            }
         }
     }
 
@@ -81,17 +110,33 @@ public class Fire extends Fixed{
 
     @Override
     public void draw(Graphics gfxContext, Point containerOrigin){
+
+        currentState.drawUpdate
+        (
+            this,
+            gfxContext,
+            containerOrigin
+        );
+    }
+
+    public void drawCharred(Graphics gfxContext,
+                           Point containerOrigin){
+
         int peakRadiusInt = this.peakRadius();
         gfxContext.setColor(ColorUtil.BLACK);
         gfxContext.fillArc(
                 this.getPos().getX() + containerOrigin.getX()
-                    - (peakRadiusInt),
+                        - (peakRadiusInt),
                 this.getPos().getY() + containerOrigin.getY()
-                    - (peakRadiusInt),
+                        - (peakRadiusInt),
                 peakRadiusInt*2+1,
                 peakRadiusInt*2+1,
                 0,360
         );
+
+    }
+
+    public void drawBurns(Graphics gfxContext, Point containerOrigin){
 
         int radiusInt = this.radius();
         String radiusString = "" + this.size;
@@ -116,6 +161,7 @@ public class Fire extends Fixed{
                 this.getPos().getY()+containerOrigin.getY()
                         +radiusInt+20
         );
+
     }
 
 }

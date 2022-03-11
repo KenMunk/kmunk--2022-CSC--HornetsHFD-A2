@@ -24,6 +24,7 @@ import java.util.Random;
 
 import org.csc133.a2.gameobjects.*;
 import org.csc133.a2.interfaces.GameState;
+import org.csc133.a2.states.IsBurning;
 
 //using singleton design
 
@@ -92,11 +93,27 @@ public class GameWorld {
                 new Dimension(maxX/3, maxY/8)
             )
         );
+        for(int i = 1; i<7; i++){
+            Fire aFire = new Fire();
+            aFire.setPos(new Point(maxX/(i+1), maxY/2));
+            aFire.setState(new IsBurning());
+            gameObject.add(aFire);
+        }
+
 
         //add the buildings (easy)
 
         //add the fires
 
+    }
+
+    public void update(){
+        for(GameObject go : gameObject){
+            go.update();
+
+            //I think I need to run the updates on a per-instance
+            // basis...
+        }
     }
 
     public ArrayList<GameObject> getGameObjects(){
