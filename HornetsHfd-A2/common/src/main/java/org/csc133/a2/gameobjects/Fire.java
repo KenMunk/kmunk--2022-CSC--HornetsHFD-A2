@@ -5,6 +5,8 @@ import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.interfaces.FireState;
 
+import java.util.Random;
+
 public class Fire extends Fixed{
 
     private int size;
@@ -15,8 +17,13 @@ public class Fire extends Fixed{
 
     }
 
+    @Override
+    public void update(){
+
+    }
+
     public void grow(){
-        /**
+
         if(this.size > 0){
             this.size += (
                     new Random()

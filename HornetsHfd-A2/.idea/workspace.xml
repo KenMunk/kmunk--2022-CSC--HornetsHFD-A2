@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Adjusted helipad scaling">
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Building class work started&#10;Buildings render&#10;Fire modification class staged">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fire.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -894,7 +894,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646805917647</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Building class work started&#10;Buildings render&#10;Fire modification class staged">
+      <created>1646807591018</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1646807591018</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -925,6 +932,7 @@
     <MESSAGE value="River and helibase completed(ish)" />
     <MESSAGE value="Enabled flexible UI scaling for map view so that the map view isn't as hard coded." />
     <MESSAGE value="Adjusted helipad scaling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusted helipad scaling" />
+    <MESSAGE value="Building class work started&#10;Buildings render&#10;Fire modification class staged" />
+    <option name="LAST_COMMIT_MESSAGE" value="Building class work started&#10;Buildings render&#10;Fire modification class staged" />
   </component>
 </project>
