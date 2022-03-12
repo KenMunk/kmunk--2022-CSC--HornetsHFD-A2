@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Building class value and destruction methods implemented">
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Fire class mostly implemented&#10;Fire class renders properly&#10;Fire class instances properly&#10;&#10;[needs attention]&#10;Fire class not updating properly,&#10;this might be attributed to the fact that the object updates are being pushed as the original object rather than the permutations.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/FireState.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/FireState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/IsBurning.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/IsBurning.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/IsExtinguished.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/IsExtinguished.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/IsNotStarted.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/IsNotStarted.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -913,7 +908,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646960603622</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Fire class mostly implemented&#10;Fire class renders properly&#10;Fire class instances properly&#10;&#10;[needs attention]&#10;Fire class not updating properly,&#10;this might be attributed to the fact that the object updates are being pushed as the original object rather than the permutations.">
+      <created>1646980845343</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1646980845343</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -946,6 +948,7 @@
     <MESSAGE value="Adjusted helipad scaling" />
     <MESSAGE value="Building class work started&#10;Buildings render&#10;Fire modification class staged" />
     <MESSAGE value="Building class value and destruction methods implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Building class value and destruction methods implemented" />
+    <MESSAGE value="Fire class mostly implemented&#10;Fire class renders properly&#10;Fire class instances properly&#10;&#10;[needs attention]&#10;Fire class not updating properly,&#10;this might be attributed to the fact that the object updates are being pushed as the original object rather than the permutations." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fire class mostly implemented&#10;Fire class renders properly&#10;Fire class instances properly&#10;&#10;[needs attention]&#10;Fire class not updating properly,&#10;this might be attributed to the fact that the object updates are being pushed as the original object rather than the permutations." />
   </component>
 </project>

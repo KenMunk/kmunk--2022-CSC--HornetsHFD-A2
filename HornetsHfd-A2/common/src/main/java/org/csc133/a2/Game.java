@@ -79,7 +79,7 @@ public class Game extends Form implements Runnable{
     @Override
     public void run(){
         gameWorld.update();
-        //repaint();
+        repaint();
     }
 
     @Override

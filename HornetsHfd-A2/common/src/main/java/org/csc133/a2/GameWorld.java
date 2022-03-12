@@ -110,9 +110,6 @@ public class GameWorld {
     public void update(){
         for(GameObject go : gameObject){
             go.update();
-
-            //I think I need to run the updates on a per-instance
-            // basis...
         }
     }
 
