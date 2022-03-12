@@ -69,6 +69,11 @@ public class GameWorld {
 
         gameObject.add(aRiver);
         gameObject.add(helipad);
+
+        for(int i = 0; i<3; i++){
+            gameObject.add(new Fire());
+        }
+
         gameObject.add
         (
             new Building
@@ -77,6 +82,7 @@ public class GameWorld {
                 new Dimension(maxY/6, maxY/4)
             )
         );
+
         gameObject.add
         (
             new Building
@@ -93,15 +99,6 @@ public class GameWorld {
                 new Dimension(maxX/3, maxY/8)
             )
         );
-        for(int i = 1; i<7; i++){
-            Fire aFire = new Fire();
-            aFire.setPos(new Point(maxX/(i+1), maxY/2));
-            aFire.setState(new IsBurning());
-            gameObject.add(aFire);
-        }
-
-
-        //add the buildings (easy)
 
         //add the fires
 

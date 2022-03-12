@@ -1,5 +1,6 @@
 package org.csc133.a2.views;
 
+import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Container;
 import com.codename1.ui.Display;
 import com.codename1.ui.Graphics;
@@ -32,6 +33,8 @@ public class MapView extends Container {
         int screenWidth = referenceDisplay.getDisplayWidth();
         int screenHeight = referenceDisplay.getDisplayHeight();
 
+        context.setColor(ColorUtil.BLACK);
+
         context.fillRect
         (
             -1,
@@ -55,6 +58,10 @@ public class MapView extends Container {
 
 
 
+    }
+
+    public void update(){
+        this.repaint();
     }
 
 }

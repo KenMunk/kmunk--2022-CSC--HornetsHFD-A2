@@ -4,6 +4,8 @@ import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.interfaces.FireState;
+import org.csc133.a2.states.IsBurning;
+import org.csc133.a2.states.IsExtinguished;
 import org.csc133.a2.states.IsNotStarted;
 
 import java.util.Random;
@@ -26,6 +28,12 @@ public class Fire extends Fixed{
 
     }
 
+    public Fire spawnFire(){
+        Fire fireSpawn = new Fire();
+        fireSpawn.init();
+        return(fireSpawn);
+    }
+
     public void update(){
         currentState.fireUpdate(this);
     }
@@ -44,10 +52,14 @@ public class Fire extends Fixed{
 
     }
 
-    public void setState(FireState someState){
+    private void setState(FireState someState){
 
         currentState = someState;
 
+    }
+
+    public void start(){
+        setState(new IsBurning());
     }
 
     public void updatePeakSize(){
@@ -75,6 +87,10 @@ public class Fire extends Fixed{
             if(this.size < 0){
                 this.size = 0;
             }
+        }
+
+        if(this.size <= 0){
+            setState(new IsExtinguished());
         }
     }
 

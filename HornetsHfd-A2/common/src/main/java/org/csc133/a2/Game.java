@@ -56,7 +56,7 @@ public class Game extends Form implements Runnable{
         setTitle("Hornet Fire Defense A2");
 
         UITimer timer = new UITimer(this);
-        timer.schedule(100,true,this);
+        timer.schedule(17,true,this);
 
         this.setLayout(new BorderLayout());
 
@@ -79,7 +79,7 @@ public class Game extends Form implements Runnable{
     @Override
     public void run(){
         gameWorld.update();
-        repaint();
+        middleMapView.update();
     }
 
     @Override
