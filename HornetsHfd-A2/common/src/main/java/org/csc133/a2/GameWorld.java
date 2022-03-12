@@ -100,6 +100,7 @@ public class GameWorld {
             )
         );
 
+        ingniteAllBuildings();
         //add the fires
 
     }
@@ -226,5 +227,17 @@ public class GameWorld {
     public String getLoss() {
 
         return("Everything");
+    }
+
+    private void ingniteAllBuildings(){
+        int startingGOLength = gameObject.size();
+        for(int i = 0; i<startingGOLength; i++){
+            if(gameObject.get(i) instanceof Building){
+                Building aBuilding = (Building)gameObject.get(i);
+                Fire aBuildingFire = new Fire();
+                aBuilding.setFireInBuilding(aBuildingFire);
+                gameObject.add(aBuildingFire);
+            }
+        }
     }
 }

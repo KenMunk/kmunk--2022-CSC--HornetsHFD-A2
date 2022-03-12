@@ -143,7 +143,14 @@ public class Building extends Fixed{
     }
 
     public void setFireInBuilding(Fire fire){
-        //do stuff
+        int fireX = new Random().nextInt(getDimensions().getWidth());
+        int fireY = new Random().nextInt(getDimensions().getHeight());
+
+        fireX += getPos().getX();
+        fireY += getPos().getY();
+
+        fire.setPos(new Point(fireX,fireY));
+        fire.start();
     }
 
 }
