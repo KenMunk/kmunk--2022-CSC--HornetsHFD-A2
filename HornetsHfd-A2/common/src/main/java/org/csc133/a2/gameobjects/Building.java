@@ -21,7 +21,7 @@ public class Building extends Fixed{
         setPos(origin);
         setDimensions(dimensions);
         setColor(ColorUtil.rgb(255,0,0));
-        setInitialValue(new Random().nextInt(900) + 100);
+        setInitialValue(getSize());
 
     }
 
@@ -53,7 +53,9 @@ public class Building extends Fixed{
 
                 if(containsPoint(pF.getPos())){
 
-                    burns += ((Fire) pF).getSize();
+                    if(((Fire) pF).isBurning()){
+                        burns += ((Fire) pF).getPeakSize();
+                    }
 
                 }
 

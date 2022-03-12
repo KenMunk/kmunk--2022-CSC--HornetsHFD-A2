@@ -70,10 +70,6 @@ public class GameWorld {
         gameObject.add(aRiver);
         gameObject.add(helipad);
 
-        for(int i = 0; i<3; i++){
-            gameObject.add(new Fire());
-        }
-
         gameObject.add
         (
             new Building
@@ -109,6 +105,7 @@ public class GameWorld {
         for(GameObject go : gameObject){
             go.update();
         }
+        calculateBuildingBurns();
     }
 
     public ArrayList<GameObject> getGameObjects(){
@@ -202,31 +199,80 @@ public class GameWorld {
         return(0);
     }
 
-    public String getFireCount() {
+    public int getFireCount() {
+
         int fireCount = 0;
+
         for(GameObject go: gameObject){
             if(go instanceof Fire){
-                fireCount++;
+                Fire someFire = (Fire)go;
+                if(someFire.isBurning()){
+                    fireCount++;
+                }
             }
         }
-        return(fireCount+"");
+
+        return(fireCount);
     }
 
-    public String getFireSize() {
+    public int getFireSize() {
 
         int fireSize = 0;
+
         for(GameObject go: gameObject){
             if(go instanceof Fire){
-                Fire fire = (Fire)go;
-                fireSize+=fire.getSize();
+                Fire someFire = (Fire)go;
+                if(someFire.isBurning()){
+                    fireSize += someFire.getSize();
+                }
             }
         }
-        return(fireSize+"");
+
+        return(fireSize);
+
+    }
+
+    public int getFireDamage() {
+        int buildingDamage = 0;
+
+        for(GameObject go: gameObject){
+            if(go instanceof Building){
+                Building aBuilding = (Building)go;
+                buildingDamage += aBuilding.getBurnAmount();
+
+            }
+        }
+
+        return(buildingDamage * 300);
     }
 
     public String getLoss() {
+        int totalSize = 0;
+        int totalDamage = 0;
 
+        for(GameObject go: gameObject){
+            if(go instanceof Building){
+                Building aBuilding = (Building)go;
+                totalSize += aBuilding.getSize();
+                totalDamage  += aBuilding.getBurnAmount();
+            }
+        }
+
+        //Initial value will have to be calculated based
+        //of an initial pixel area to a value within
+        //the bounds set by the project
+        //If said value is based off of a standard rate
+        //between all buildings that would mean
+        //that the percentage loss would be easier to compute
         return("Everything");
+    }
+
+    private void calculateBuildingBurns(){
+        for(GameObject go: gameObject){
+            if(go instanceof Building){
+                ((Building)go).updateBurns(gameObject);
+            }
+        }
     }
 
     private void ingniteAllBuildings(){

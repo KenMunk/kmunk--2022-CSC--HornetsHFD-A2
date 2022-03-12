@@ -36,6 +36,9 @@ public class GlassCockpit extends Container {
         }
     }
 
+    public void update(){
+        this.repaint();
+    }
 
     @Override
     public void paint(Graphics context){

@@ -15,11 +15,9 @@ public class MapView extends Container {
 
     private GameWorld gameWorld;
     private ViewOffsets viewOffsets;
-    Point containerOffset;
 
     public MapView(GameWorld referenceOfGameWorld,
                    ViewOffsets viewOffsets){
-        containerOffset = new Point(0,325);
         gameWorld = referenceOfGameWorld;
         this.viewOffsets = viewOffsets;
     }
@@ -38,7 +36,7 @@ public class MapView extends Container {
         context.fillRect
         (
             -1,
-            this.getAbsoluteY(),
+            this.getAbsoluteY()-130,
             screenWidth+2,
             this.getHeight()
         );
@@ -50,7 +48,8 @@ public class MapView extends Container {
                 GameWorld.getInstance().getGameObjects()
         ){
 
-            aGameObject.draw(context,containerOffset);
+            aGameObject.draw(context,new Point(getAbsoluteX(),
+                    getAbsoluteY()-130));
             // [TODO] um... render the map view I guess...
 
         }//*/

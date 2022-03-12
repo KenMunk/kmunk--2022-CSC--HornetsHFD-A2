@@ -16,6 +16,6 @@ public class ViewFireSize extends HudSegment{
 
     @Override
     public void update(){
-        this.updateDataValue(gw.getFireSize());
+        this.updateDataValue(gw.getFireSize()+"");
     }
 }

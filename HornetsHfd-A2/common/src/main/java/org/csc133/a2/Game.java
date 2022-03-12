@@ -80,6 +80,7 @@ public class Game extends Form implements Runnable{
     public void run(){
         gameWorld.update();
         middleMapView.update();
+        topGlassCockpit.update();
     }
 
     @Override

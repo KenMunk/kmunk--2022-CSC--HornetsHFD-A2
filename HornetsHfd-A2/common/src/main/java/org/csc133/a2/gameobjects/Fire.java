@@ -180,4 +180,11 @@ public class Fire extends Fixed{
 
     }
 
+    public int getPeakSize(){
+        return(peakSize);
+    }
+
+    public boolean isBurning() {
+        return(currentState instanceof IsBurning);
+    }
 }

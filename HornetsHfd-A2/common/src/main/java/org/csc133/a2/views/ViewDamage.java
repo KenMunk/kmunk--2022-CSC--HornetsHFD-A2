@@ -16,6 +16,6 @@ public class ViewDamage extends HudSegment{
 
     @Override
     public void update(){
-        this.updateDataValue(gw.getFireCount()+"");
+        this.updateDataValue(gw.getFireDamage()+"");
     }
 }

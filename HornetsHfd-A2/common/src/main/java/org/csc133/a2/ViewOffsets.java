@@ -20,4 +20,5 @@ public class ViewOffsets {
     public int getTotalOffset(){
         return(bottomOffset+topOffset);
     }
+
 }
