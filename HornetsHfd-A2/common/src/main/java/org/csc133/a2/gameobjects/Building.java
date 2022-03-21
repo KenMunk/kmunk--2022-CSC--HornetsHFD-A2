@@ -136,7 +136,8 @@ public class Building extends Fixed{
             lowerCorner.getY()
         );
 
-        String percentDestroyed = "D: " + getDestroyPercentage();
+        String percentDestroyed = "D: " + getDestroyPercentage() +
+                "%";
 
         context.drawChars
         (
