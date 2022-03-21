@@ -40,7 +40,7 @@ public class Building extends Fixed{
     public int getSize(){
 
         Dimension buildingDimension = getDimensions();
-        return(buildingDimension.getHeight() * buildingDimension.getWidth());
+        return((buildingDimension.getHeight() * buildingDimension.getWidth()));
 
     }
 
@@ -54,7 +54,9 @@ public class Building extends Fixed{
                 if(containsPoint(pF.getPos())){
 
                     if(((Fire) pF).isBurning()){
-                        burns += ((Fire) pF).getPeakSize();
+                        Fire aFire = (Fire)pF;
+                        int someBurns = aFire.getPeakSize();
+                        burns+=someBurns;
                     }
 
                 }
@@ -75,11 +77,13 @@ public class Building extends Fixed{
     }
 
     public int getDestroyPercentage(){
+        float amountBurned = getBurnAmount();
+        float buildingSize = getSize();
         int destroyedPercentage =
         MathUtil.round(
-                100
-                        *
-                        ((float) getBurnAmount() / getSize())
+            100
+            *
+            (amountBurned / buildingSize)
         );
         return(destroyedPercentage);
     }

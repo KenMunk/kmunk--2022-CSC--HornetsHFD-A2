@@ -25,6 +25,7 @@ public class Fire extends Fixed{
         setColor(ColorUtil.MAGENTA);
         setState(new IsNotStarted());
         setSize(new Random().nextInt(150)+10);
+        initPeakSize();
 
     }
 
@@ -68,6 +69,10 @@ public class Fire extends Fixed{
         }
     }
 
+    private void initPeakSize(){
+        this.peakSize = 0;
+    }
+
     public void setSize(int newSize){
         size = newSize;
     }
@@ -99,7 +104,7 @@ public class Fire extends Fixed{
         String radiusString = ""+(longRadius);
         //SO dirty but the clean way wasn't working
         int radiusInt = Integer.parseInt(radiusString);
-        return(radiusInt);
+        return(radiusInt/3);
     }
 
     public int peakRadius(){
@@ -107,7 +112,7 @@ public class Fire extends Fixed{
         String radiusString = ""+(longRadius);
         //SO dirty but the clean way wasn't working
         int radiusInt = Integer.parseInt(radiusString);
-        return(radiusInt);
+        return(radiusInt/20);
     }
 
     @Override
@@ -181,7 +186,8 @@ public class Fire extends Fixed{
     }
 
     public int getPeakSize(){
-        return(peakSize);
+        int currentPeakSize = peakSize;
+        return(currentPeakSize);
     }
 
     public boolean isBurning() {

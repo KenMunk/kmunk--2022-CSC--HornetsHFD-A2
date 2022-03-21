@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Buildings are now on fire">
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Updated some of the status view methods to show relevent data&#10;&#10;Stopping point (show percentage of loss)&#10;//Initial value will have to be calculated based&#10;&#10;        //of an initial pixel area to a value within&#10;        //the bounds set by the project&#10;        //If said value is based off of a standard rate&#10;        //between all buildings that would mean&#10;        //that the percentage loss would be easier to compute">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/ViewOffsets.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/ViewOffsets.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Building.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/GlassCockpit.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/GlassCockpit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/MapView.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/MapView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewDamage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewFireSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewFireSize.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -943,7 +937,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647055067577</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Updated some of the status view methods to show relevent data&#10;&#10;Stopping point (show percentage of loss)&#10;//Initial value will have to be calculated based&#10;&#10;        //of an initial pixel area to a value within&#10;        //the bounds set by the project&#10;        //If said value is based off of a standard rate&#10;        //between all buildings that would mean&#10;        //that the percentage loss would be easier to compute">
+      <created>1647061271216</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1647061271216</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -980,15 +981,16 @@
     <MESSAGE value="Found that repaint call still needs to be made... unfortunately" />
     <MESSAGE value="About to start working on getting the fire setting system setup" />
     <MESSAGE value="Buildings are now on fire" />
-    <option name="LAST_COMMIT_MESSAGE" value="Buildings are now on fire" />
+    <MESSAGE value="Updated some of the status view methods to show relevent data&#10;&#10;Stopping point (show percentage of loss)&#10;//Initial value will have to be calculated based&#10;&#10;        //of an initial pixel area to a value within&#10;        //the bounds set by the project&#10;        //If said value is based off of a standard rate&#10;        //between all buildings that would mean&#10;        //that the percentage loss would be easier to compute" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated some of the status view methods to show relevent data&#10;&#10;Stopping point (show percentage of loss)&#10;//Initial value will have to be calculated based&#10;&#10;        //of an initial pixel area to a value within&#10;        //the bounds set by the project&#10;        //If said value is based off of a standard rate&#10;        //between all buildings that would mean&#10;        //that the percentage loss would be easier to compute" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Building.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="2" />
+          <line>81</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

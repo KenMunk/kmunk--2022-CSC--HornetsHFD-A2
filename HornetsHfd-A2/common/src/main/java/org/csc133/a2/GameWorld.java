@@ -103,6 +103,9 @@ public class GameWorld {
 
     public void update(){
         for(GameObject go : gameObject){
+            if(go instanceof Building){
+                ((Building)go).updateBurns(gameObject);
+            }
             go.update();
         }
         calculateBuildingBurns();
