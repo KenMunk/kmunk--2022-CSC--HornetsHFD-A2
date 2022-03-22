@@ -16,6 +16,7 @@ public class Helipad extends Fixed {
         this.updateBounds();
     }
 
+    @Override
     public boolean containsPoint(Point checkPoint){
         return(
 
@@ -58,9 +59,10 @@ public class Helipad extends Fixed {
     public void draw(Graphics gfxContext, Point containerOrigin){
 
         //Draw the helipad
-        this.updateBounds();
+        //this.updateBounds();
 
         gfxContext.setColor(ColorUtil.GRAY);
+
 
         gfxContext.drawRect(
                 this.lowerBound.getX() + containerOrigin.getX(),

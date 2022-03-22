@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Updated some of the status view methods to show relevent data&#10;&#10;Stopping point (show percentage of loss)&#10;//Initial value will have to be calculated based&#10;&#10;        //of an initial pixel area to a value within&#10;        //the bounds set by the project&#10;        //If said value is based off of a standard rate&#10;        //between all buildings that would mean&#10;        //that the percentage loss would be easier to compute">
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Adjusting the wording of the display for the buildings so that it makes more sense">
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/HelicopterIntakeState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/IntakeCanDrink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/IntakeCannotDrink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/IntakeIsDry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Building.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Helicopter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Helicopter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Helipad.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Helipad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/HelicopterState.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +74,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -944,7 +952,21 @@
       <option name="project" value="LOCAL" />
       <updated>1647061271216</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Updated the building and fire classes to make the percentage of damage more noticable">
+      <created>1647825234236</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1647825234236</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Adjusting the wording of the display for the buildings so that it makes more sense">
+      <created>1647825363525</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1647825363525</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -982,17 +1004,8 @@
     <MESSAGE value="About to start working on getting the fire setting system setup" />
     <MESSAGE value="Buildings are now on fire" />
     <MESSAGE value="Updated some of the status view methods to show relevent data&#10;&#10;Stopping point (show percentage of loss)&#10;//Initial value will have to be calculated based&#10;&#10;        //of an initial pixel area to a value within&#10;        //the bounds set by the project&#10;        //If said value is based off of a standard rate&#10;        //between all buildings that would mean&#10;        //that the percentage loss would be easier to compute" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated some of the status view methods to show relevent data&#10;&#10;Stopping point (show percentage of loss)&#10;//Initial value will have to be calculated based&#10;&#10;        //of an initial pixel area to a value within&#10;        //the bounds set by the project&#10;        //If said value is based off of a standard rate&#10;        //between all buildings that would mean&#10;        //that the percentage loss would be easier to compute" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Building.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Updated the building and fire classes to make the percentage of damage more noticable" />
+    <MESSAGE value="Adjusting the wording of the display for the buildings so that it makes more sense" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusting the wording of the display for the buildings so that it makes more sense" />
   </component>
 </project>

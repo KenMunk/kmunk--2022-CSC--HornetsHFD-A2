@@ -1,8 +1,13 @@
 package org.csc133.a2.gameobjects;
 
+import com.codename1.charts.util.ColorUtil;
+import com.codename1.ui.Display;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
+import org.csc133.a2.interfaces.HelicopterIntakeState;
 import org.csc133.a2.interfaces.Steerable;
+import org.csc133.a2.states.IntakeCannotDrink;
+import org.csc133.a2.states.IntakeIsDry;
 
 import java.util.ArrayList;
 
@@ -14,7 +19,8 @@ public class Helicopter extends Movable implements Steerable {
 
     private int waterLevel;
     private int fuelLevel;
-    private boolean canDrink;
+
+    private HelicopterIntakeState waterIntakeState;
 
     public Helicopter(Helipad helipad){
 
@@ -25,9 +31,9 @@ public class Helicopter extends Movable implements Steerable {
 
         this.setHeading(0);
         this.setSpeed(0);
+        setColor(ColorUtil.YELLOW);
 
-        this.canDrink = false;
-
+        waterIntakeState = new IntakeCannotDrink();
 
     }
 
@@ -38,6 +44,8 @@ public class Helicopter extends Movable implements Steerable {
                 aFire.extinguish(this.waterLevel);
             }
         }
+
+        waterIntakeState = new IntakeIsDry();
 
         this.waterLevel = 0;
     }
@@ -52,10 +60,6 @@ public class Helicopter extends Movable implements Steerable {
         }
     }
 
-    public void addWater(){
-
-    }
-
     public int getPoints(){
         return(this.fuelLevel);
     }
@@ -66,7 +70,29 @@ public class Helicopter extends Movable implements Steerable {
 
     @Override
     public void draw(Graphics context, Point containerOrigin){
+        Display thisDisplay = Display.getInstance();
 
+        int heliSize = thisDisplay.getDisplayHeight()/40;
+        context.setColor(this.getColor().getValue());
+
+        Point offsetPoint = getOffsetPoint(containerOrigin);
+
+        context.fillArc
+        (
+                offsetPoint.getX()-heliSize,
+                offsetPoint.getY()-heliSize,
+                heliSize*2,
+                heliSize*2,
+                0,
+                360
+        );
+
+    }
+
+    //controlled actions
+
+    public void drink(){
+        waterLevel += waterIntakeState.drinkUpdate();
     }
 
     @Override
@@ -77,5 +103,17 @@ public class Helicopter extends Movable implements Steerable {
     @Override
     public void turnRight(double amount) {
 
+    }
+
+    public int getFuel() {
+
+        int tempFuel = fuelLevel;
+        return(tempFuel);
+
+    }
+
+    public int getWater(){
+        int tempWater = waterLevel;
+        return(tempWater);
     }
 }

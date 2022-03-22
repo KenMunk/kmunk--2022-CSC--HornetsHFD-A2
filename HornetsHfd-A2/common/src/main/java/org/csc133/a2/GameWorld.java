@@ -56,19 +56,23 @@ public class GameWorld {
         int maxX = thisDisplay.getDisplayWidth();
         int maxY = thisDisplay.getDisplayHeight();
 
+
         Helipad helipad = new Helipad
         (
             new Point
             (
                 maxX/2,
-                maxY-(2*maxY/5)
+                maxY - (2*maxY/6)
             )
         );
+
+        Helicopter player = new Helicopter(helipad);
 
         River aRiver = new River(new Point(-50,300));
 
         gameObject.add(aRiver);
         gameObject.add(helipad);
+        gameObject.add(player);
 
         gameObject.add
         (
@@ -96,6 +100,8 @@ public class GameWorld {
             )
         );
 
+
+
         ingniteAllBuildings();
         //add the fires
 
@@ -118,6 +124,23 @@ public class GameWorld {
     public static GameWorld getInstance(){
 
         return(gameWorldInstance);
+    }
+
+    public Helicopter getPlayer(){
+        Helicopter playerHelicopter;
+
+        //First helicopter found is player helicopter
+
+        playerHelicopter = null;
+
+        for(GameObject go : gameObject){
+            if(go instanceof Helicopter){
+                playerHelicopter = ((Helicopter) go);
+                break;
+            }
+        }
+
+        return(playerHelicopter);
     }
 
     public void accelerateHelicopter() {
@@ -187,19 +210,19 @@ public class GameWorld {
         Display.getInstance().exitApplication();
     }
 
-    public int getHelicopterHeading(){
-
-        return(0);
+    public double getHelicopterHeading(){
+        double heading = getPlayer().getHeading();
+        return(heading);
     }
 
-    public int getHelicopterSpeed(){
-
-        return(0);
+    public double getHelicopterSpeed(){
+        double playerSpeed = getPlayer().getSpeed();
+        return(playerSpeed);
     }
 
     public int getHelicopterFuel(){
-
-        return(0);
+        int fuelLevel = getPlayer().getFuel();
+        return(fuelLevel);
     }
 
     public int getFireCount() {

@@ -21,7 +21,7 @@ public class Building extends Fixed{
         setPos(origin);
         setDimensions(dimensions);
         setColor(ColorUtil.rgb(255,0,0));
-        setInitialValue(getSize());
+        setInitialValue(getSize()*300);
 
     }
 

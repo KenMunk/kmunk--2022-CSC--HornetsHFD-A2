@@ -14,7 +14,7 @@ public class GameObject implements Drawable {
     private ColorInt color;
 
     public Point getPos(){
-        return(pos);
+        return(new Point(pos.getX(),pos.getY()));
     }
 
     public Point setPos(Point newPos) {
@@ -36,6 +36,13 @@ public class GameObject implements Drawable {
 
     public Dimension getDimensions(){
         return(dimensions);
+    }
+
+    public Point getOffsetPoint(Point offsetPoint){
+        Point outputPoint = new Point(getPos().getX(), getPos().getY());
+        outputPoint.setX(outputPoint.getX()+offsetPoint.getX());
+        outputPoint.setY(outputPoint.getY()+offsetPoint.getY());
+        return(outputPoint);
     }
 
     public boolean containsPoint(Point reference){
