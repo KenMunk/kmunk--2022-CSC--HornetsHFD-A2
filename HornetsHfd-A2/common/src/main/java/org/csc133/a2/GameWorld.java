@@ -152,6 +152,8 @@ public class GameWorld {
             "Accelerating"
         );
 
+        getPlayer().toAccelerate();
+
     }
 
     public void turnHelicopterLeft() {
@@ -161,6 +163,8 @@ public class GameWorld {
             + " " +
             "Turning Left"
         );
+
+        getPlayer().toTurnLeft();
     }
 
     public void turnHelicopterRight() {
@@ -170,6 +174,8 @@ public class GameWorld {
             + " " +
             "Turning Right"
         );
+
+        getPlayer().toTurnRight();
     }
 
     public void helicopterDump() {
@@ -179,6 +185,7 @@ public class GameWorld {
                     + " " +
                     "Dumping"
         );
+        getPlayer().toDump(gameObject);
     }
 
     public void helicopterDrink() {
@@ -188,6 +195,7 @@ public class GameWorld {
             + " " +
             "Drinking"
         );
+        getPlayer().toDrink();
     }
 
     public void helicopterBrake() {
@@ -198,6 +206,7 @@ public class GameWorld {
             "Braking"
         );
 
+        getPlayer().toSlowDown();
     }
 
     public void exit() {

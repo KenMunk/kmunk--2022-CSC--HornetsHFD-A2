@@ -116,4 +116,22 @@ public class Helicopter extends Movable implements Steerable {
         int tempWater = waterLevel;
         return(tempWater);
     }
+
+    public void toAccelerate() {
+    }
+
+    public void toTurnLeft() {
+    }
+
+    public void toTurnRight() {
+    }
+
+    public void toDump(ArrayList<GameObject> gameObject) {
+    }
+
+    public void toDrink() {
+    }
+
+    public void toSlowDown() {
+    }
 }
