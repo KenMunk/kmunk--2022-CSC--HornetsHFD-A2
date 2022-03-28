@@ -18,7 +18,7 @@ public class Movable extends GameObject{
     }
 
     public void adjustSpeed(double byAmount){
-        this.heading += byAmount;
+        this.speed += byAmount;
     }
 
     public void setHeading(double heading){

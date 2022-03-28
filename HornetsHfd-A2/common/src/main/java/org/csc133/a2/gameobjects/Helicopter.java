@@ -37,11 +37,16 @@ public class Helicopter extends Movable implements Steerable {
 
     }
 
-    public void attackFires(ArrayList<Fire> aBunchOfFires){
+    private void attackFires(ArrayList<GameObject> aBunchOfFires){
 
-        for(Fire aFire: aBunchOfFires){
-            if(aFire.nearPosition(this.getPos())){
-                aFire.extinguish(this.waterLevel);
+        for(GameObject go: aBunchOfFires){
+            if(go instanceof Fire){
+
+                Fire aFire = (Fire)go;
+
+                if(aFire.nearPosition(this.getPos())){
+                    aFire.extinguish(this.waterLevel);
+                }
             }
         }
 
@@ -97,12 +102,12 @@ public class Helicopter extends Movable implements Steerable {
 
     @Override
     public void turnLeft(double amount) {
-
+        adjustHeading(amount);
     }
 
     @Override
     public void turnRight(double amount) {
-
+        adjustHeading(-amount);
     }
 
     public int getFuel() {
@@ -118,20 +123,31 @@ public class Helicopter extends Movable implements Steerable {
     }
 
     public void toAccelerate() {
+        adjustSpeed(0.05);
+        if(getSpeed() > MAX_SPEED){
+            setSpeed(MAX_SPEED);
+        }
     }
 
     public void toTurnLeft() {
+        turnLeft(0.05);
     }
 
     public void toTurnRight() {
+        turnRight(0.05);
     }
 
     public void toDump(ArrayList<GameObject> gameObject) {
+        attackFires(gameObject);
     }
 
     public void toDrink() {
     }
 
     public void toSlowDown() {
+        adjustSpeed(-0.1);
+        if(getSpeed() < 0){
+            setSpeed(0);
+        }
     }
 }
