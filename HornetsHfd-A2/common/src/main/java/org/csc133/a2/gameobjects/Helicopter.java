@@ -6,6 +6,7 @@ import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.interfaces.HelicopterIntakeState;
 import org.csc133.a2.interfaces.Steerable;
+import org.csc133.a2.states.IntakeCanDrink;
 import org.csc133.a2.states.IntakeCannotDrink;
 import org.csc133.a2.states.IntakeIsDry;
 
@@ -66,7 +67,18 @@ public class Helicopter extends Movable implements Steerable {
     }
 
     public void riverCheck(ArrayList<GameObject> potentialRiver){
-
+        for(GameObject go : potentialRiver){
+            if(go instanceof River){
+                if(go.containsPoint(getPos())){
+                    if(waterLevel < 1000){
+                        waterIntakeState = new IntakeCanDrink();
+                    }
+                    else{
+                        waterIntakeState = new IntakeCannotDrink();
+                    }
+                }
+            }
+        }
     }
 
     public int getPoints(){
@@ -158,6 +170,7 @@ public class Helicopter extends Movable implements Steerable {
     }
 
     public void toDrink() {
+        drink();
     }
 
     public void toSlowDown() {

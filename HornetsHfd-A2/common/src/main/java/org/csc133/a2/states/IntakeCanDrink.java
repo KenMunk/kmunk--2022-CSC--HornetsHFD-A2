@@ -6,7 +6,7 @@ import org.csc133.a2.interfaces.HelicopterIntakeState;
 public class IntakeCanDrink implements HelicopterIntakeState {
 
     public int drinkUpdate(){
-        return(5);
+        return(100);
     }
 
 }

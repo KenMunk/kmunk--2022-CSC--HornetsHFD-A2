@@ -342,7 +342,7 @@ public class GameWorld {
             if(gameObject.get(i) instanceof Building){
                 Building burningBuilding = ((Building)gameObject.get(i));
 
-                int sparkRoll = new Random().nextInt(120);
+                int sparkRoll = new Random().nextInt(5000);
 
                 if(sparkRoll<3){
                     Fire aFire = new Fire();
@@ -377,5 +377,10 @@ public class GameWorld {
 
     public void updateHelicopter(){
         getPlayer().move();
+        getPlayer().riverCheck(gameObject);
+    }
+
+    public int getHelicopterWater() {
+        return(getPlayer().getWater());
     }
 }

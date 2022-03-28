@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Introducing helicopter movement&#10;&#10;TODO -- movement update implementation&#10;&#10;Cleared out issues with flicker">
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Realized problem with fire spread">
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewWater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Building.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Helicopter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Helicopter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/IntakeCanDrink.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/IntakeCanDrink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/GlassCockpit.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/GlassCockpit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -987,7 +992,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648462085441</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Realized problem with fire spread">
+      <created>1648462617311</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1648462617311</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1005,7 +1017,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Staging states for fire, helicopter, and world" />
     <MESSAGE value="Refactoring State names again" />
     <MESSAGE value="Priority shift -- pushing to get the views done first" />
     <MESSAGE value="Views staged, need to figure out what's going on with the painting..." />
@@ -1030,6 +1041,7 @@
     <MESSAGE value="Introducing helicopter control implementations&#10;&#10;Todo -- drink implementation&#10;     -- movement update implementation" />
     <MESSAGE value="Introducing helicopter movement&#10;&#10;TODO -- movement update implementation" />
     <MESSAGE value="Introducing helicopter movement&#10;&#10;TODO -- movement update implementation&#10;&#10;Cleared out issues with flicker" />
-    <option name="LAST_COMMIT_MESSAGE" value="Introducing helicopter movement&#10;&#10;TODO -- movement update implementation&#10;&#10;Cleared out issues with flicker" />
+    <MESSAGE value="Realized problem with fire spread" />
+    <option name="LAST_COMMIT_MESSAGE" value="Realized problem with fire spread" />
   </component>
 </project>

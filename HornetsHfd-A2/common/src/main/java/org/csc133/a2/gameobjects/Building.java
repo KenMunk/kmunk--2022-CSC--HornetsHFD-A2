@@ -115,8 +115,7 @@ public class Building extends Fixed{
             5
         );
 
-        //String marketValue = "V: " + initialValue;
-        String marketValue = "Size: " + getSize();
+        String marketValue = "V: " + initialValue;
         context.setFont
         (
             Font.createSystemFont
@@ -137,8 +136,7 @@ public class Building extends Fixed{
             lowerCorner.getY()
         );
 
-        //String percentDestroyed = "D: " + getDestroyPercentage() + "%";
-        String percentDestroyed = "Burn Size: " + getBurnAmount();
+        String percentDestroyed = "D: " + getDestroyPercentage() + "%";
 
         context.drawChars
         (
