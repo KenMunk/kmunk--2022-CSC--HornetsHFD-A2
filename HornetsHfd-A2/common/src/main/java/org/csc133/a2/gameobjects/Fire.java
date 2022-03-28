@@ -24,7 +24,7 @@ public class Fire extends Fixed{
     }
 
     public void init(){
-
+        setPos(new Point(0,0));
         setColor(ColorUtil.MAGENTA);
         setState(new IsNotStarted());
         setSize(new Random().nextInt(150)+10);

@@ -98,9 +98,12 @@ public class GameWorld {
         );
 
 
-
         ingniteAllBuildings();
         //add the fires
+
+        for(int i = 0; i<997; i++){
+            gameObject.add(new Fire());
+        }
 
         gameState = new GamePlaying();
 
@@ -333,6 +336,7 @@ public class GameWorld {
         }
     }
 
+    //this part is wrong, see spec
     public void sendSparks(){
         for(int i = 0; i<gameObject.size(); i++){
             if(gameObject.get(i) instanceof Building){

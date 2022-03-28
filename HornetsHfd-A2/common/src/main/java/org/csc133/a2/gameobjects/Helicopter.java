@@ -65,6 +65,10 @@ public class Helicopter extends Movable implements Steerable {
         }
     }
 
+    public void riverCheck(ArrayList<GameObject> potentialRiver){
+
+    }
+
     public int getPoints(){
         return(this.fuelLevel);
     }

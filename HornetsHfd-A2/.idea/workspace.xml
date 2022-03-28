@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Introducing helicopter control implementations&#10;&#10;Todo -- drink implementation&#10;     -- movement update implementation">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/Game.java" afterDir="false" />
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Introducing helicopter movement&#10;&#10;TODO -- movement update implementation&#10;&#10;Cleared out issues with flicker">
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Helicopter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Helicopter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movable.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GamePlaying.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GamePlaying.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ControlCluster.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ControlCluster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/MapView.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/MapView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -986,7 +980,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648458300128</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Introducing helicopter movement&#10;&#10;TODO -- movement update implementation&#10;&#10;Cleared out issues with flicker">
+      <created>1648462085441</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1648462085441</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1004,8 +1005,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="File Staging" />
-    <MESSAGE value="File Staging&#10;Commands" />
     <MESSAGE value="Staging states for fire, helicopter, and world" />
     <MESSAGE value="Refactoring State names again" />
     <MESSAGE value="Priority shift -- pushing to get the views done first" />
@@ -1029,6 +1028,8 @@
     <MESSAGE value="Fixed position rendering of helicopter and helipad&#10;&#10;Added helicopter water intake states but have yet to complete implementation&#10;&#10;Implemented helicopter stat readouts&#10;&#10;bug found (buttons are mapped to the arrow keys causing flashing)" />
     <MESSAGE value="Inplemented game states&#10;Implemented game loss state&#10;Implemented game loss condition&#10;Implemented building spark system&#10;Fixed the fire size and damage units&#10;Fixed building size arithmetic" />
     <MESSAGE value="Introducing helicopter control implementations&#10;&#10;Todo -- drink implementation&#10;     -- movement update implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Introducing helicopter control implementations&#10;&#10;Todo -- drink implementation&#10;     -- movement update implementation" />
+    <MESSAGE value="Introducing helicopter movement&#10;&#10;TODO -- movement update implementation" />
+    <MESSAGE value="Introducing helicopter movement&#10;&#10;TODO -- movement update implementation&#10;&#10;Cleared out issues with flicker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Introducing helicopter movement&#10;&#10;TODO -- movement update implementation&#10;&#10;Cleared out issues with flicker" />
   </component>
 </project>
