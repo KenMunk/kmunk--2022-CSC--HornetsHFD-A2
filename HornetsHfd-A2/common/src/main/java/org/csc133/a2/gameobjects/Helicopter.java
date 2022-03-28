@@ -92,6 +92,18 @@ public class Helicopter extends Movable implements Steerable {
                 360
         );
 
+
+        int futureX = pointAdjustment().getX()*20 + offsetPoint.getX();
+        int futureY = pointAdjustment().getY()*20 + offsetPoint.getY();
+
+        context.drawLine
+        (
+                offsetPoint.getX(),
+                offsetPoint.getY(),
+                futureX,
+                futureY
+        );
+
     }
 
     //controlled actions
@@ -123,18 +135,18 @@ public class Helicopter extends Movable implements Steerable {
     }
 
     public void toAccelerate() {
-        adjustSpeed(0.05);
+        adjustSpeed(3);
         if(getSpeed() > MAX_SPEED){
             setSpeed(MAX_SPEED);
         }
     }
 
     public void toTurnLeft() {
-        turnLeft(0.05);
+        turnLeft(15);
     }
 
     public void toTurnRight() {
-        turnRight(0.05);
+        turnRight(15);
     }
 
     public void toDump(ArrayList<GameObject> gameObject) {
@@ -145,9 +157,13 @@ public class Helicopter extends Movable implements Steerable {
     }
 
     public void toSlowDown() {
-        adjustSpeed(-0.1);
+        adjustSpeed(-1);
         if(getSpeed() < 0){
             setSpeed(0);
         }
+    }
+
+    public void updateHelicopterPosition(){
+        move();
     }
 }

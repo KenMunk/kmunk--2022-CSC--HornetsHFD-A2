@@ -370,4 +370,8 @@ public class GameWorld {
             gameState = new GamePlaying();
         }
     }
+
+    public void updateHelicopter(){
+        getPlayer().move();
+    }
 }

@@ -10,6 +10,7 @@ import com.codename1.ui.*;
 //import com.codename1.ui.plaf.*;
 //import com.codename1.ui.util.Resources;
 import com.codename1.ui.Button;
+import com.codename1.ui.Component;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
@@ -78,6 +79,26 @@ public class Game extends Form implements Runnable{
     }
 
     @Override
+    public Component getNextFocusDown(){
+        return(this);
+    }
+
+    @Override
+    public Component getNextFocusUp(){
+        return(this);
+    }
+
+    @Override
+    public Component getNextFocusLeft(){
+        return(this);
+    }
+
+    @Override
+    public Component getNextFocusRight(){
+        return(this);
+    }
+
+    @Override
     public void run(){
         gameWorld.update();
         middleMapView.update();
@@ -88,6 +109,6 @@ public class Game extends Form implements Runnable{
     public void paint(Graphics context){
         super.paint(context);
 
-        middleMapView.paint(context);
+        //middleMapView.paint(context);
     }
 }

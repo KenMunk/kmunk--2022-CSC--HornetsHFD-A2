@@ -21,9 +21,9 @@ public class ControlCluster extends Container {
     private GameWorld gameWorld;
 
     //Left Side Buttons
-    private Button leftBtn;
     private Button rightBtn;
     private Button fightBtn;
+    private Button leftBtn;
 
     //Center Buttons
     private Button exitBtn;
@@ -154,6 +154,26 @@ public class ControlCluster extends Container {
         super.paint(context);
 
 
+    }
+
+    @Override
+    public Component getNextFocusDown(){
+        return(getParent());
+    }
+
+    @Override
+    public Component getNextFocusUp(){
+        return(getParent());
+    }
+
+    @Override
+    public Component getNextFocusLeft(){
+        return(getParent());
+    }
+
+    @Override
+    public Component getNextFocusRight(){
+        return(getParent());
     }
 
 

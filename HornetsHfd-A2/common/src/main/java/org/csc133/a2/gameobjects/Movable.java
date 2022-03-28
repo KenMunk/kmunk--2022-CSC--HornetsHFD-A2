@@ -27,7 +27,10 @@ public class Movable extends GameObject{
 
     public void adjustHeading(double byAmount){
         this.heading += byAmount;
-        this.heading %= 2;
+        this.heading %= 360;
+        if(this.heading < 0){
+            this.heading = 359-this.heading;
+        }
     }
 
     public double getHeading(){
@@ -35,7 +38,7 @@ public class Movable extends GameObject{
     }
 
     Point pointAdjustment(){
-        Point output = this.getPos();
+        Point output = new Point(0,0);
 
         int xOut = (int) MathUtil.round
         (
@@ -43,8 +46,9 @@ public class Movable extends GameObject{
             *
             Math.cos
             (
-                (this.getHeading()-90) * Math.PI/180
+                (this.getHeading()-90) * 3.14/180
             )
+            * (-1)
         )+output.getX();
 
         int yOut = (int) MathUtil.round
@@ -53,7 +57,7 @@ public class Movable extends GameObject{
                 *
                 Math.sin
                     (
-                        (this.getHeading()-90) * Math.PI/180
+                        (this.getHeading()-90) * 3.14/180
                     )
         )+output.getY();
 
@@ -62,8 +66,18 @@ public class Movable extends GameObject{
         return(output);
     }
 
+    public Point adjustedPoint(){
+        Point output = getPos();
+        Point adjustment = pointAdjustment();
+        output.setX(output.getX() + adjustment.getX());
+        output.setY(output.getY() + adjustment.getY());
+        return(output);
+    }
+
+
+
     public void move(){
-        this.setPos(this.pointAdjustment());
+        this.setPos(this.adjustedPoint());
     }
 
 }

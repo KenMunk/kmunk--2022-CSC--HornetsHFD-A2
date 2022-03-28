@@ -1,6 +1,7 @@
 package org.csc133.a2.views;
 
 import com.codename1.charts.util.ColorUtil;
+import com.codename1.ui.Component;
 import com.codename1.ui.Container;
 import com.codename1.ui.Display;
 import com.codename1.ui.Graphics;
@@ -61,6 +62,27 @@ public class MapView extends Container {
 
     public void update(){
         this.repaint();
+    }
+
+
+    @Override
+    public Component getNextFocusDown(){
+        return(getParent());
+    }
+
+    @Override
+    public Component getNextFocusUp(){
+        return(getParent());
+    }
+
+    @Override
+    public Component getNextFocusLeft(){
+        return(getParent());
+    }
+
+    @Override
+    public Component getNextFocusRight(){
+        return(getParent());
     }
 
 }

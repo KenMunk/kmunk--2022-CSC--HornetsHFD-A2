@@ -10,7 +10,7 @@ public class GamePlaying implements GameState{
         context.sendSparks();
         context.updateBurns();
         context.calculateBuildingBurns();
-
+        context.updateHelicopter();
     }
 
 }
