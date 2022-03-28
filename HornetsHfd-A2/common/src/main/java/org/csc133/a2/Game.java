@@ -67,6 +67,7 @@ public class Game extends Form implements Runnable{
         addKeyListener('Q', new Exit(gameWorld));
         addKeyListener('f', new Fight(gameWorld));
         addKeyListener('d', new Drink(gameWorld));
+        addKeyListener('P', new Pause(gameWorld));
         addKeyListener(-91, new Accelerate(gameWorld));
         addKeyListener(-92, new Brake(gameWorld));
         addKeyListener(-93, new TurnLeft(gameWorld));

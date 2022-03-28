@@ -3,11 +3,14 @@ package org.csc133.a2.gameobjects;
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
+import com.codename1.util.MathUtil;
+import org.csc133.a2.Game;
 import org.csc133.a2.interfaces.FireState;
 import org.csc133.a2.states.IsBurning;
 import org.csc133.a2.states.IsExtinguished;
 import org.csc133.a2.states.IsNotStarted;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Fire extends Fixed{
@@ -193,4 +196,5 @@ public class Fire extends Fixed{
     public boolean isBurning() {
         return(currentState instanceof IsBurning);
     }
+
 }

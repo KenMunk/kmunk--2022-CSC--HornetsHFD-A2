@@ -24,6 +24,9 @@ import java.util.Random;
 
 import org.csc133.a2.gameobjects.*;
 import org.csc133.a2.interfaces.GameState;
+import org.csc133.a2.states.GameLoss;
+import org.csc133.a2.states.GamePlaying;
+import org.csc133.a2.states.GameStopped;
 import org.csc133.a2.states.IsBurning;
 
 //using singleton design
@@ -36,17 +39,11 @@ public class GameWorld {
 
     private ArrayList<GameObject> gameObject;
 
-    // [TODO] Add in the components of the gameworld
-
     private GameWorld(){
 
         this.init();
 
-        // [TODO] Add the deployments here
-
     }
-
-
 
     private void init(){
 
@@ -105,19 +102,27 @@ public class GameWorld {
         ingniteAllBuildings();
         //add the fires
 
+        gameState = new GamePlaying();
+
     }
 
     public void update(){
+
+        gameState.update(this);
+
+    }
+
+    public void updateBurns(){
         for(GameObject go : gameObject){
             if(go instanceof Building){
                 ((Building)go).updateBurns(gameObject);
             }
             go.update();
         }
-        calculateBuildingBurns();
     }
 
     public ArrayList<GameObject> getGameObjects(){
+
         return(gameObject);
     }
 
@@ -299,10 +304,16 @@ public class GameWorld {
         //If said value is based off of a standard rate
         //between all buildings that would mean
         //that the percentage loss would be easier to compute
-        return("Everything");
+
+        int lossPercentage = MathUtil.round(100 * (((float)totalDamage)/totalSize ));
+
+        if(lossPercentage>=100){
+            gameState = new GameLoss();
+        }
+        return(lossPercentage + "%");
     }
 
-    private void calculateBuildingBurns(){
+    public void calculateBuildingBurns(){
         for(GameObject go: gameObject){
             if(go instanceof Building){
                 ((Building)go).updateBurns(gameObject);
@@ -319,6 +330,44 @@ public class GameWorld {
                 aBuilding.setFireInBuilding(aBuildingFire);
                 gameObject.add(aBuildingFire);
             }
+        }
+    }
+
+    public void sendSparks(){
+        for(int i = 0; i<gameObject.size(); i++){
+            if(gameObject.get(i) instanceof Building){
+                Building burningBuilding = ((Building)gameObject.get(i));
+
+                int sparkRoll = new Random().nextInt(120);
+
+                if(sparkRoll<3){
+                    Fire aFire = new Fire();
+                    burningBuilding.setFireInBuilding(aFire);
+                    gameObject.add(aFire);
+                }
+            }
+        }
+    }
+
+    public void startGame(){
+        init();
+        gameState = new GamePlaying();
+    }
+
+    public void stopGame(){
+        gameState = new GameStopped();
+    }
+
+    public void continueGame(){
+        gameState = new GamePlaying();
+    }
+
+    public void pauseToggle(){
+        if(gameState instanceof GamePlaying){
+            gameState = new GameStopped();
+        }
+        else if(gameState instanceof GameStopped){
+            gameState = new GamePlaying();
         }
     }
 }

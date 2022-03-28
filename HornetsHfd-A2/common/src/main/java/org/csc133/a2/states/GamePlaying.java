@@ -7,7 +7,9 @@ public class GamePlaying implements GameState{
 
     public void update(GameWorld context){
 
-        // [TODO] the stuff when we play the game
+        context.sendSparks();
+        context.updateBurns();
+        context.calculateBuildingBurns();
 
     }
 

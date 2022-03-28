@@ -21,7 +21,7 @@ public class Building extends Fixed{
         setPos(origin);
         setDimensions(dimensions);
         setColor(ColorUtil.rgb(255,0,0));
-        setInitialValue(getSize()*300);
+        setInitialValue(getSize());
 
     }
 
@@ -40,7 +40,7 @@ public class Building extends Fixed{
     public int getSize(){
 
         Dimension buildingDimension = getDimensions();
-        return((buildingDimension.getHeight() * buildingDimension.getWidth()));
+        return((buildingDimension.getHeight() * buildingDimension.getWidth())/10);
 
     }
 
@@ -115,7 +115,8 @@ public class Building extends Fixed{
             5
         );
 
-        String marketValue = "V: " + initialValue;
+        //String marketValue = "V: " + initialValue;
+        String marketValue = "Size: " + getSize();
         context.setFont
         (
             Font.createSystemFont
@@ -136,8 +137,8 @@ public class Building extends Fixed{
             lowerCorner.getY()
         );
 
-        String percentDestroyed = "D: " + getDestroyPercentage() +
-                "%";
+        //String percentDestroyed = "D: " + getDestroyPercentage() + "%";
+        String percentDestroyed = "Burn Size: " + getBurnAmount();
 
         context.drawChars
         (
@@ -147,6 +148,8 @@ public class Building extends Fixed{
             lowerCorner.getX(),
             lowerCorner.getY()+32
         );
+
+
     }
 
     public void setFireInBuilding(Fire fire){
