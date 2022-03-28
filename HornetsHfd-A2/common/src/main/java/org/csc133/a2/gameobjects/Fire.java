@@ -115,7 +115,7 @@ public class Fire extends Fixed{
         String radiusString = ""+(longRadius);
         //SO dirty but the clean way wasn't working
         int radiusInt = Integer.parseInt(radiusString);
-        return(radiusInt/20);
+        return(radiusInt/3);
     }
 
     @Override
@@ -123,9 +123,9 @@ public class Fire extends Fixed{
         double diffX = (pos.getX() - this.getPos().getX());
         double diffY = (pos.getY() - this.getPos().getY());
 
-        double distance = Math.sqrt((diffX*diffX) + (diffY*diffY));
+        double distance = ((diffX*diffX) + (diffY*diffY));
 
-        if(distance < this.radius()+20){
+        if(distance < (this.radius()*this.radius())+200*200){
             return(true);
         }
 
@@ -189,8 +189,7 @@ public class Fire extends Fixed{
     }
 
     public int getPeakSize(){
-        int currentPeakSize = peakSize;
-        return(currentPeakSize);
+        return(peakSize);
     }
 
     public boolean isBurning() {

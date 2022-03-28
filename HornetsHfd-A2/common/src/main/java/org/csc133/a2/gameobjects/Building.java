@@ -53,11 +53,9 @@ public class Building extends Fixed{
 
                 if(containsPoint(pF.getPos())){
 
-                    if(((Fire) pF).isBurning()){
-                        Fire aFire = (Fire)pF;
-                        int someBurns = aFire.getPeakSize();
-                        burns+=someBurns;
-                    }
+                    Fire aFire = (Fire)pF;
+                    int someBurns = aFire.getPeakSize();
+                    burns+=someBurns;
 
                 }
 

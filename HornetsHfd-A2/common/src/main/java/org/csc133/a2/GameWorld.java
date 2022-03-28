@@ -1,33 +1,22 @@
 package org.csc133.a2;
 
-import com.codename1.charts.util.ColorUtil;
-import com.codename1.system.Lifecycle;
 import com.codename1.ui.*;
 //import com.codename1.ui.layouts.*;
 //import com.codename1.io.*;
 //import com.codename1.ui.plaf.*;
 //import com.codename1.ui.util.Resources;
-import com.codename1.ui.Button;
-import com.codename1.ui.Dialog;
-import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
-import com.codename1.ui.util.UITimer;
 import com.codename1.util.MathUtil;
 //import org.jetbrains.annotations.NotNull;
 
 //import java.math.RoundingMode;
-import java.awt.*;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
 import org.csc133.a2.gameobjects.*;
 import org.csc133.a2.interfaces.GameState;
-import org.csc133.a2.states.GameLoss;
-import org.csc133.a2.states.GamePlaying;
-import org.csc133.a2.states.GameStopped;
-import org.csc133.a2.states.IsBurning;
+import org.csc133.a2.states.*;
 
 //using singleton design
 
@@ -193,7 +182,7 @@ public class GameWorld {
                     + " " +
                     "Dumping"
         );
-        getPlayer().toDump(gameObject);
+        getPlayer().fight(gameObject);
     }
 
     public void helicopterDrink() {
@@ -364,6 +353,10 @@ public class GameWorld {
 
     public void continueGame(){
         gameState = new GamePlaying();
+    }
+
+    public void winGame(){
+        gameState = new GameWin();
     }
 
     public void pauseToggle(){

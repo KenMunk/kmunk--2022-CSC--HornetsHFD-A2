@@ -6,4 +6,12 @@ public interface GameState {
 
     public void update(GameWorld context);
 
+    public String dialogTitle();
+
+    public String dialogMessage(GameWorld context);
+
+    public void dialogYes(GameWorld context);
+
+    public void dialogNo(GameWorld context);
+
 }

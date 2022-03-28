@@ -70,6 +70,7 @@ public class Helicopter extends Movable implements Steerable {
         for(GameObject go : potentialRiver){
             if(go instanceof River){
                 if(go.containsPoint(getPos())){
+                    if(getSpeed() <= 2)
                     if(waterLevel < 1000){
                         waterIntakeState = new IntakeCanDrink();
                     }
@@ -165,7 +166,7 @@ public class Helicopter extends Movable implements Steerable {
         turnRight(15);
     }
 
-    public void toDump(ArrayList<GameObject> gameObject) {
+    public void fight(ArrayList<GameObject> gameObject) {
         attackFires(gameObject);
     }
 
