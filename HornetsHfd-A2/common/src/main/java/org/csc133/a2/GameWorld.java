@@ -139,6 +139,23 @@ public class GameWorld {
 
         return(playerHelicopter);
     }
+    
+    public Helipad getHelipad(){
+        Helipad playerHelipad;
+
+        //First Helipad found is player Helipad
+
+        playerHelipad = null;
+
+        for(GameObject go : gameObject){
+            if(go instanceof Helipad){
+                playerHelipad = ((Helipad) go);
+                break;
+            }
+        }
+
+        return(playerHelipad);
+    }
 
     public void accelerateHelicopter() {
 
@@ -327,16 +344,18 @@ public class GameWorld {
 
     //this part is wrong, see spec
     public void sendSparks(){
-        for(int i = 0; i<gameObject.size(); i++){
-            if(gameObject.get(i) instanceof Building){
-                Building burningBuilding = ((Building)gameObject.get(i));
+        if(getFireCount() > 0){
+            for(int i = 0; i<gameObject.size(); i++){
+                if(gameObject.get(i) instanceof Building){
+                    Building burningBuilding = ((Building)gameObject.get(i));
 
-                int sparkRoll = new Random().nextInt(5000);
+                    int sparkRoll = new Random().nextInt(5000);
 
-                if(sparkRoll<3){
-                    Fire aFire = new Fire();
-                    burningBuilding.setFireInBuilding(aFire);
-                    gameObject.add(aFire);
+                    if(sparkRoll<3){
+                        Fire aFire = new Fire();
+                        burningBuilding.setFireInBuilding(aFire);
+                        gameObject.add(aFire);
+                    }
                 }
             }
         }
@@ -370,6 +389,7 @@ public class GameWorld {
 
     public void updateHelicopter(){
         getPlayer().move();
+        getPlayer().burnFuel();
         getPlayer().riverCheck(gameObject);
     }
 
@@ -391,5 +411,18 @@ public class GameWorld {
 
         return(buildingValue - getFireDamage());
 
+    }
+    
+    public void helicopterLandingCheck(){
+        if
+        (
+            (getFireCount() == 0)
+            &&
+            (getHelipad().holdsHelicopter(getPlayer()))
+        ){
+            gameState = new GameWin();
+        }
+            
+            
     }
 }

@@ -11,6 +11,7 @@ public class GamePlaying implements GameState{
         context.updateBurns();
         context.calculateBuildingBurns();
         context.updateHelicopter();
+        context.helicopterLandingCheck();
     }
 
     public String dialogTitle(){

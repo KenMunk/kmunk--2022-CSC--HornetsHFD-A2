@@ -1,6 +1,5 @@
 package org.csc133.a2.gameobjects;
 
-import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
@@ -64,6 +63,19 @@ public class GameObject implements Drawable {
                 this.pos.getX()+this.dimensions.getWidth()
             )
         );
+    }
+
+    public boolean radiusContainsPoint(Point pos, int detectionRadius){
+        double diffX = (pos.getX() - this.getPos().getX());
+        double diffY = (pos.getY() - this.getPos().getY());
+
+        double distance = ((diffX*diffX) + (diffY*diffY));
+
+        if(distance < (detectionRadius * detectionRadius)){
+            return(true);
+        }
+
+        return(false);
     }
 
     @Override

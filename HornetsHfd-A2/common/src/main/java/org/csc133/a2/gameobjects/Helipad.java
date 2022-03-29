@@ -81,4 +81,14 @@ public class Helipad extends Fixed {
         );
 
     }
+
+    public boolean holdsHelicopter(Helicopter aHelicopter){
+        return
+        (
+            radiusContainsPoint(aHelicopter.getPos(),300)
+            &&
+            aHelicopter.isStopped()
+        );
+    }
+
 }

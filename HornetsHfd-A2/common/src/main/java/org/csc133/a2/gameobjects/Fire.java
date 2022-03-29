@@ -3,14 +3,11 @@ package org.csc133.a2.gameobjects;
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
-import com.codename1.util.MathUtil;
-import org.csc133.a2.Game;
 import org.csc133.a2.interfaces.FireState;
 import org.csc133.a2.states.IsBurning;
 import org.csc133.a2.states.IsExtinguished;
 import org.csc133.a2.states.IsNotStarted;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Fire extends Fixed{
@@ -118,18 +115,16 @@ public class Fire extends Fixed{
         return(radiusInt/3);
     }
 
-    @Override
     public boolean nearPosition(Point pos){
-        double diffX = (pos.getX() - this.getPos().getX());
-        double diffY = (pos.getY() - this.getPos().getY());
 
-        double distance = ((diffX*diffX) + (diffY*diffY));
+        boolean isNear = radiusContainsPoint
+        (
+            pos,
+            (this.radius())+200
+        );
 
-        if(distance < (this.radius()*this.radius())+200*200){
-            return(true);
-        }
+        return(isNear);
 
-        return(false);
     }
 
     @Override

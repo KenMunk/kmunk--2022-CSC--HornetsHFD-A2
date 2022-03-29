@@ -59,7 +59,8 @@ public class Helicopter extends Movable implements Steerable {
     public void burnFuel(){
         if(this.fuelLevel > 0){
             //this.fuelLevel -= (int)Math.pow(this.speed,2) + 5;
-            this.fuelLevel -= (int)Math.pow(this.getSpeed(),1) * 5+5;
+            //this.fuelLevel -= (this.getSpeed() * 5)+5;
+            this.fuelLevel -= 10;
         }
         if(this.fuelLevel < 0){
             this.fuelLevel = 0;
@@ -181,7 +182,7 @@ public class Helicopter extends Movable implements Steerable {
         }
     }
 
-    public void updateHelicopterPosition(){
-        move();
+    public boolean isStopped(){
+        return(getSpeed() == 0);
     }
 }
