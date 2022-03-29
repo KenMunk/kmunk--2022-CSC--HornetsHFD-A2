@@ -14,4 +14,8 @@ public interface GameState {
 
     public void dialogNo(GameWorld context);
 
+    public String yesOption();
+
+    public String noOption();
+
 }

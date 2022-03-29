@@ -275,7 +275,7 @@ public class GameWorld {
             }
         }
 
-        return(buildingDamage * 300);
+        return(buildingDamage);
     }
 
     public String getLoss() {
@@ -375,5 +375,21 @@ public class GameWorld {
 
     public int getHelicopterWater() {
         return(getPlayer().getWater());
+    }
+
+    public int getPoints() {
+
+        int buildingValue = 0;
+
+        for(GameObject go: gameObject){
+            if(go instanceof Building){
+                Building aBuilding = (Building)go;
+                buildingValue += aBuilding.getInitialValue();
+
+            }
+        }
+
+        return(buildingValue - getFireDamage());
+
     }
 }

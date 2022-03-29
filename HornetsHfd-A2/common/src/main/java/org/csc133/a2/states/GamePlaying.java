@@ -21,6 +21,14 @@ public class GamePlaying implements GameState{
         return("You shouldn't be seeing this message");
     }
 
+    public String yesOption(){
+        return("Go fix it");
+    }
+
+    public String noOption(){
+        return(yesOption());
+    }
+
     public void dialogYes(GameWorld context){
         context.exit();
     }

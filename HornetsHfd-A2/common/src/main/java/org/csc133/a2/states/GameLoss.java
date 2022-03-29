@@ -15,7 +15,15 @@ public class GameLoss implements GameState{
     }
 
     public String dialogMessage(GameWorld context){
-        return("You've failed to save the world\nPlay Again?");
+        return("You've failed to save the world");
+    }
+
+    public String yesOption(){
+        return("Play Again");
+    }
+
+    public String noOption(){
+        return("Run Away");
     }
 
     public void dialogYes(GameWorld context){

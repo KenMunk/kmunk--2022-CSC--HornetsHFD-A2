@@ -20,6 +20,14 @@ public class GameStopped implements GameState{
         return("Would you like to continue?");
     }
 
+    public String yesOption(){
+        return("Continue");
+    }
+
+    public String noOption(){
+        return("Run Away");
+    }
+
     public void dialogYes(GameWorld context){
         context.pauseToggle();
     }
