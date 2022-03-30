@@ -99,6 +99,7 @@ public class GameWorld {
 
         gameObject.add(player);
         gameState = new GamePlaying();
+        dialogState = new GameDialogInactive();
         closeDialog();
 
     }
@@ -355,7 +356,7 @@ public class GameWorld {
                 if(gameObject.get(i) instanceof Building){
                     Building burningBuilding = ((Building)gameObject.get(i));
 
-                    int sparkRoll = new Random().nextInt(5000);
+                    int sparkRoll = new Random().nextInt(2000);
 
                     if(sparkRoll<3){
                         igniteFire(burningBuilding);
@@ -405,8 +406,11 @@ public class GameWorld {
     }
 
     public void updateHelicopter(){
-        getPlayer().move();
-        getPlayer().burnFuel();
+        getPlayer().flightUpdate();
+        if(getPlayer().fuelOut()){
+            gameState = new GameLoss();
+            openDialog();
+        }
         getPlayer().riverCheck(gameObject);
     }
 

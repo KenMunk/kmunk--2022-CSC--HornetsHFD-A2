@@ -83,12 +83,15 @@ public class Helicopter extends Movable implements Steerable {
         }
     }
 
-    public int getPoints(){
-        return(this.fuelLevel);
-    }
-
     public boolean fuelOut(){
         return(this.fuelLevel <= 0);
+    }
+
+    public void flightUpdate(){
+        if(!fuelOut()){
+            move();
+            burnFuel();
+        }
     }
 
     @Override

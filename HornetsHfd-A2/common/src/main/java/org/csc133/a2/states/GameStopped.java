@@ -29,8 +29,8 @@ public class GameStopped implements GameState{
     }
 
     public void dialogYes(GameWorld context){
-        context.pauseToggle();
         context.closeDialog();
+        context.pauseToggle();
     }
 
     public void dialogNo(GameWorld context){

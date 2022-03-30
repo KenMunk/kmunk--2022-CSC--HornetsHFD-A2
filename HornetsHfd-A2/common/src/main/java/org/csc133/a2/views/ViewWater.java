@@ -9,7 +9,7 @@ public class ViewWater extends HudSegment{
     public ViewWater(GameWorld referenceWorld){
         this.initialize();
 
-        this.setSegmentLabel("FUEL");
+        this.setSegmentLabel("WATER");
 
         gw = referenceWorld;
     }
