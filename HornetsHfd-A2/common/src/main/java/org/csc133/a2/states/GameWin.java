@@ -27,6 +27,7 @@ public class GameWin implements GameState {
 
     public void dialogYes(GameWorld context){
         context.startGame();
+        context.closeDialog();
     }
 
     public void dialogNo(GameWorld context){

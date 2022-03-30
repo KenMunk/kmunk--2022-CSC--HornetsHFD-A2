@@ -63,7 +63,28 @@ public class Building extends Fixed{
 
         }
 
+        if(burns > getSize()){
+            stopAllBurns(potentialFires);
+        }
+
         return(burns);
+    }
+
+    private void stopAllBurns(ArrayList<GameObject> potentialFires){
+        for(GameObject pF: potentialFires){
+
+            if(pF instanceof Fire){
+
+                if(containsPoint(pF.getPos())){
+
+                    Fire aFire = (Fire)pF;
+                    aFire.extinguish(aFire.getSize()+100);
+
+                }
+
+            }
+
+        }
     }
 
     public void updateBurns(ArrayList<GameObject> gameObjects){
@@ -102,6 +123,16 @@ public class Building extends Fixed{
                 offsetPoint.getY() + getDimensions().getHeight()
         );
 
+        context.setColor(ColorUtil.rgb(100,0,0));
+
+        context.fillRect
+                (
+                        offsetPoint.getX(),
+                        offsetPoint.getY(),
+                        getDimensions().getWidth(),
+                        getDimensions().getHeight()
+
+                );
         context.setColor(getColor().getValue());
 
         context.drawRect
@@ -158,5 +189,7 @@ public class Building extends Fixed{
         fire.setPos(new Point(fireX,fireY));
         fire.start();
     }
+
+
 
 }

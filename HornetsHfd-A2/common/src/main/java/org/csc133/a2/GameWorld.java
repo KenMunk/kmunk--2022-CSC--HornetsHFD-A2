@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import org.csc133.a2.gameobjects.*;
+import org.csc133.a2.interfaces.GameDialogState;
 import org.csc133.a2.interfaces.GameState;
 import org.csc133.a2.states.*;
 
@@ -25,6 +26,8 @@ public class GameWorld {
     private static final GameWorld gameWorldInstance = new GameWorld();
 
     private GameState gameState;
+
+    private GameDialogState dialogState;
 
     private ArrayList<GameObject> gameObject;
 
@@ -58,7 +61,6 @@ public class GameWorld {
 
         gameObject.add(aRiver);
         gameObject.add(helipad);
-        gameObject.add(player);
 
         gameObject.add
         (
@@ -91,10 +93,13 @@ public class GameWorld {
         //add the fires
 
         for(int i = 0; i<997; i++){
-            gameObject.add(new Fire());
+            gameObject.add(gameObject.size()-2,new Fire());
+
         }
 
+        gameObject.add(player);
         gameState = new GamePlaying();
+        closeDialog();
 
     }
 
@@ -318,6 +323,7 @@ public class GameWorld {
 
         if(lossPercentage>=100){
             gameState = new GameLoss();
+            openDialog();
         }
         return(lossPercentage + "%");
     }
@@ -352,10 +358,19 @@ public class GameWorld {
                     int sparkRoll = new Random().nextInt(5000);
 
                     if(sparkRoll<3){
-                        Fire aFire = new Fire();
-                        burningBuilding.setFireInBuilding(aFire);
-                        gameObject.add(aFire);
+                        igniteFire(burningBuilding);
                     }
+                }
+            }
+        }
+    }
+
+    private void igniteFire(Building target){
+        for(int i = 0; i<gameObject.size(); i++){
+            if(gameObject.get(i) instanceof Fire){
+                if(((Fire) gameObject.get(i)).isReady()){
+                    target.setFireInBuilding((Fire)gameObject.get(i));
+                    return;
                 }
             }
         }
@@ -381,9 +396,11 @@ public class GameWorld {
     public void pauseToggle(){
         if(gameState instanceof GamePlaying){
             gameState = new GameStopped();
+            openDialog();
         }
         else if(gameState instanceof GameStopped){
             gameState = new GamePlaying();
+            closeDialog();
         }
     }
 
@@ -412,6 +429,10 @@ public class GameWorld {
         return(buildingValue - getFireDamage());
 
     }
+
+    public GameState getGameState(){
+        return(gameState);
+    }
     
     public void helicopterLandingCheck(){
         if
@@ -421,8 +442,19 @@ public class GameWorld {
             (getHelipad().holdsHelicopter(getPlayer()))
         ){
             gameState = new GameWin();
+            openDialog();
         }
             
             
+    }
+
+    public void closeDialog(){
+        dialogState = new GameDialogInactive();
+    }
+
+    public void openDialog(){
+        if(dialogState instanceof GameDialogInactive){
+            dialogState = new GameDialogActive(this);
+        }
     }
 }

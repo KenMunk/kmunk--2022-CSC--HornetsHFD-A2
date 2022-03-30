@@ -191,4 +191,12 @@ public class Fire extends Fixed{
         return(currentState instanceof IsBurning);
     }
 
+    public boolean isReady(){
+        return(currentState instanceof IsNotStarted);
+    }
+
+    public void ignite(){
+        currentState = new IsBurning();
+    }
+
 }
