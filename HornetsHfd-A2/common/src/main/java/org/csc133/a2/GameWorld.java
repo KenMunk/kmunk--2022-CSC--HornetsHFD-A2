@@ -305,7 +305,6 @@ public class GameWorld {
                     Building burningBuilding = ((Building)gameObject.get(i));
 
                     int sparkRoll = new Random().nextInt(2000);
-
                     if(sparkRoll<3){
                         igniteFire(burningBuilding);
                     }

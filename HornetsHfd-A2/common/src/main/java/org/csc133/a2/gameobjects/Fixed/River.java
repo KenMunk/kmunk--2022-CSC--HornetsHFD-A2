@@ -21,7 +21,7 @@ public class River extends Fixed{
 
     }
 
-    public void updateWidth(){
+    private void updateWidth(){
         Display thisDisplay = Display.getInstance();
         int displayHeight = thisDisplay.getDisplayHeight();
 

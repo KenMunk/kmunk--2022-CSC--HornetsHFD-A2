@@ -4,6 +4,7 @@ import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Display;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
+import com.codename1.util.MathUtil;
 import org.csc133.a2.gameobjects.Fixed.Fire;
 import org.csc133.a2.gameobjects.GameObject;
 import org.csc133.a2.gameobjects.Fixed.Helipad;
@@ -62,9 +63,9 @@ public class Helicopter extends Movable implements Steerable {
 
     public void burnFuel(){
         if(this.fuelLevel > 0){
-            //this.fuelLevel -= (int)Math.pow(this.speed,2) + 5;
-            //this.fuelLevel -= (this.getSpeed() * 5)+5;
-            this.fuelLevel -= 10;
+            //this.fuelLevel -= MathUtil.pow(getSpeed(),2) + 5;
+            this.fuelLevel -= (this.getSpeed() * 5);
+            //this.fuelLevel -= 10;
         }
         if(this.fuelLevel < 0){
             this.fuelLevel = 0;
@@ -129,6 +130,25 @@ public class Helicopter extends Movable implements Steerable {
                 futureY
         );
 
+        String fuelString = "F : " + getFuel();
+        String waterString = "W : " + getWater();
+
+        context.drawChars
+        (
+            fuelString.toCharArray(),
+            0,
+            fuelString.length(),
+            offsetPoint.getX(),
+            offsetPoint.getY() +100
+        );
+        context.drawChars
+        (
+                waterString.toCharArray(),
+                0,
+                waterString.length(),
+                offsetPoint.getX(),
+                offsetPoint.getY() +130
+        );
     }
 
     @Override
