@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Game dialogs work now">
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Dialog state system abandoned in favor of basic boolean state.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Helicopter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Helicopter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/HelicopterFuelState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GameDialogActive.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GameDialogActive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GameDialogInactive.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GameDialogInactive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GameLoss.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GameLoss.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GameStopped.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GameStopped.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewWater.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewWater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GameWin.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GameWin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1026,7 +1027,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648611048309</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Making the helicopter run out of fuel">
+      <created>1648621351786</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1648621351786</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1044,8 +1052,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Glass Cockpit complete&#10;Added HudSegments class and variants&#10;Started some work on GameObjects (distraction)" />
-    <MESSAGE value="Finishing up the foundations and cross referencing A1 to limit repeat work while avoiding errors from A1" />
     <MESSAGE value="River and helibase completed(ish)" />
     <MESSAGE value="Enabled flexible UI scaling for map view so that the map view isn't as hard coded." />
     <MESSAGE value="Adjusted helipad scaling" />
@@ -1069,6 +1075,8 @@
     <MESSAGE value="added helicopter stop check" />
     <MESSAGE value="Helicopter now burns fuel and the landing check works" />
     <MESSAGE value="Game dialogs work now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Game dialogs work now" />
+    <MESSAGE value="Making the helicopter run out of fuel" />
+    <MESSAGE value="Dialog state system abandoned in favor of basic boolean state." />
+    <option name="LAST_COMMIT_MESSAGE" value="Dialog state system abandoned in favor of basic boolean state." />
   </component>
 </project>

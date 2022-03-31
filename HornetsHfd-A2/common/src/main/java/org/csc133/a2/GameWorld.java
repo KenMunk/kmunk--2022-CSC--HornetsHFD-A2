@@ -27,7 +27,7 @@ public class GameWorld {
 
     private GameState gameState;
 
-    private GameDialogState dialogState;
+    private boolean dialogState;
 
     private ArrayList<GameObject> gameObject;
 
@@ -99,8 +99,7 @@ public class GameWorld {
 
         gameObject.add(player);
         gameState = new GamePlaying();
-        dialogState = new GameDialogInactive();
-        closeDialog();
+        dialogState = false;
 
     }
 
@@ -165,93 +164,45 @@ public class GameWorld {
 
     public void accelerateHelicopter() {
 
-        System.err.println
-        (
-            this.getClass().getSimpleName()
-            + " " +
-            "Accelerating"
-        );
-
         getPlayer().toAccelerate();
 
     }
 
     public void turnHelicopterLeft() {
-        System.err.println
-        (
-            this.getClass().getSimpleName()
-            + " " +
-            "Turning Left"
-        );
-
         getPlayer().toTurnLeft();
     }
 
     public void turnHelicopterRight() {
-        System.err.println
-        (
-            this.getClass().getSimpleName()
-            + " " +
-            "Turning Right"
-        );
 
         getPlayer().toTurnRight();
     }
 
     public void helicopterDump() {
-        System.err.println
-        (
-            this.getClass().getSimpleName()
-                    + " " +
-                    "Dumping"
-        );
         getPlayer().fight(gameObject);
     }
 
     public void helicopterDrink() {
-        System.err.println
-        (
-            this.getClass().getSimpleName()
-            + " " +
-            "Drinking"
-        );
         getPlayer().toDrink();
     }
 
     public void helicopterBrake() {
-        System.err.println
-        (
-            this.getClass().getSimpleName()
-            + " " +
-            "Braking"
-        );
-
         getPlayer().toSlowDown();
     }
 
     public void exit() {
-        System.err.println
-        (
-            this.getClass().getSimpleName()
-            + " " +
-            "Exiting"
-        );
         Display.getInstance().exitApplication();
     }
 
     public double getHelicopterHeading(){
-        double heading = getPlayer().getHeading();
-        return(heading);
+        return(getPlayer().getHeading());
     }
 
     public double getHelicopterSpeed(){
-        double playerSpeed = getPlayer().getSpeed();
-        return(playerSpeed);
+        return(getPlayer().getSpeed());
     }
 
     public int getHelicopterFuel(){
-        int fuelLevel = getPlayer().getFuel();
-        return(fuelLevel);
+        return(getPlayer().getFuel());
     }
 
     public int getFireCount() {
@@ -312,13 +263,6 @@ public class GameWorld {
                 totalDamage  += aBuilding.getBurnAmount();
             }
         }
-
-        //Initial value will have to be calculated based
-        //of an initial pixel area to a value within
-        //the bounds set by the project
-        //If said value is based off of a standard rate
-        //between all buildings that would mean
-        //that the percentage loss would be easier to compute
 
         int lossPercentage = MathUtil.round(100 * (((float)totalDamage)/totalSize ));
 
@@ -382,18 +326,6 @@ public class GameWorld {
         gameState = new GamePlaying();
     }
 
-    public void stopGame(){
-        gameState = new GameStopped();
-    }
-
-    public void continueGame(){
-        gameState = new GamePlaying();
-    }
-
-    public void winGame(){
-        gameState = new GameWin();
-    }
-
     public void pauseToggle(){
         if(gameState instanceof GamePlaying){
             gameState = new GameStopped();
@@ -401,7 +333,6 @@ public class GameWorld {
         }
         else if(gameState instanceof GameStopped){
             gameState = new GamePlaying();
-            closeDialog();
         }
     }
 
@@ -433,10 +364,6 @@ public class GameWorld {
         return(buildingValue - getFireDamage());
 
     }
-
-    public GameState getGameState(){
-        return(gameState);
-    }
     
     public void helicopterLandingCheck(){
         if
@@ -452,13 +379,31 @@ public class GameWorld {
             
     }
 
-    public void closeDialog(){
-        dialogState = new GameDialogInactive();
-    }
-
     public void openDialog(){
-        if(dialogState instanceof GameDialogInactive){
-            dialogState = new GameDialogActive(this);
+        if(!dialogState){
+            dialogState = true;
+            launchDialog();
         }
+    }
+    
+    public void launchDialog(){
+
+        if
+        (
+                Dialog.show
+                (
+                        gameState.dialogTitle(),
+                        gameState.dialogMessage(this),
+                        gameState.yesOption(),
+                        gameState.noOption()
+                )
+        )
+        {
+            gameState.dialogYes(this);
+        }
+        else{
+            gameState.dialogNo(this);
+        }
+        dialogState = false;
     }
 }

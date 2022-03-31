@@ -28,12 +28,10 @@ public class GameLoss implements GameState{
 
     public void dialogYes(GameWorld context){
         context.startGame();
-        context.closeDialog();
     }
 
     public void dialogNo(GameWorld context){
         context.exit();
-        context.closeDialog();
     }
 
 }
