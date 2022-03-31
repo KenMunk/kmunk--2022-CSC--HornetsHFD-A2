@@ -1,4 +1,4 @@
-package org.csc133.a2.gameobjects;
+package org.csc133.a2.gameobjects.Movables;
 
 import com.codename1.ui.geom.Point;
 import com.codename1.util.MathUtil;

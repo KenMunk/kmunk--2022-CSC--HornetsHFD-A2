@@ -1,9 +1,13 @@
-package org.csc133.a2.gameobjects;
+package org.csc133.a2.gameobjects.Movables;
 
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Display;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
+import org.csc133.a2.gameobjects.Fixed.Fire;
+import org.csc133.a2.gameobjects.GameObject;
+import org.csc133.a2.gameobjects.Fixed.Helipad;
+import org.csc133.a2.gameobjects.Fixed.River;
 import org.csc133.a2.interfaces.HelicopterIntakeState;
 import org.csc133.a2.interfaces.Steerable;
 import org.csc133.a2.states.IntakeCanDrink;
@@ -127,12 +131,6 @@ public class Helicopter extends Movable implements Steerable {
 
     }
 
-    //controlled actions
-
-    public void drink(){
-        waterLevel += waterIntakeState.drinkUpdate();
-    }
-
     @Override
     public void turnLeft(double amount) {
         adjustHeading(amount);
@@ -175,7 +173,7 @@ public class Helicopter extends Movable implements Steerable {
     }
 
     public void toDrink() {
-        drink();
+        waterLevel += waterIntakeState.drinkUpdate();
     }
 
     public void toSlowDown() {

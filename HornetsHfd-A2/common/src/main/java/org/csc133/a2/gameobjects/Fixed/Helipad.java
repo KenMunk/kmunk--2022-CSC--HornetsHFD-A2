@@ -1,9 +1,10 @@
-package org.csc133.a2.gameobjects;
+package org.csc133.a2.gameobjects.Fixed;
 
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Display;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
+import org.csc133.a2.gameobjects.Movables.Helicopter;
 
 public class Helipad extends Fixed {
 
@@ -33,7 +34,7 @@ public class Helipad extends Fixed {
         );
     }
 
-    public void updateBounds(){
+    private void updateBounds(){
         //Get display width
         Display thisDisplay = Display.getInstance();
 

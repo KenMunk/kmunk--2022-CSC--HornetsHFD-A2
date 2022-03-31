@@ -15,7 +15,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import org.csc133.a2.gameobjects.*;
-import org.csc133.a2.interfaces.GameDialogState;
+import org.csc133.a2.gameobjects.Fixed.Building;
+import org.csc133.a2.gameobjects.Fixed.Fire;
+import org.csc133.a2.gameobjects.Fixed.Helipad;
+import org.csc133.a2.gameobjects.Fixed.River;
+import org.csc133.a2.gameobjects.Movables.Helicopter;
 import org.csc133.a2.interfaces.GameState;
 import org.csc133.a2.states.*;
 

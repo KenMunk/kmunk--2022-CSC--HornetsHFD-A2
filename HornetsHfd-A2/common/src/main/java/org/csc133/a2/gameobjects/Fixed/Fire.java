@@ -1,4 +1,4 @@
-package org.csc133.a2.gameobjects;
+package org.csc133.a2.gameobjects.Fixed;
 
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Graphics;
@@ -20,19 +20,13 @@ public class Fire extends Fixed{
         init();
     }
 
-    public void init(){
+    private void init(){
         setPos(new Point(0,0));
         setColor(ColorUtil.MAGENTA);
         setState(new IsNotStarted());
         setSize(new Random().nextInt(150)+10);
         initPeakSize();
 
-    }
-
-    public Fire spawnFire(){
-        Fire fireSpawn = new Fire();
-        fireSpawn.init();
-        return(fireSpawn);
     }
 
     public void update(){
@@ -63,7 +57,7 @@ public class Fire extends Fixed{
         setState(new IsBurning());
     }
 
-    public void updatePeakSize(){
+    private void updatePeakSize(){
         if(this.peakSize < this.size){
             this.peakSize = this.size;
         }
@@ -73,7 +67,7 @@ public class Fire extends Fixed{
         this.peakSize = 0;
     }
 
-    public void setSize(int newSize){
+    private void setSize(int newSize){
         size = newSize;
     }
 
@@ -81,7 +75,7 @@ public class Fire extends Fixed{
         return(size);
     }
 
-    public int category(){
+    private int category(){
         return(((this.size - (this.size % 2000))/2000)+1);
     }
 
@@ -99,7 +93,7 @@ public class Fire extends Fixed{
         }
     }
 
-    public int radius(){
+    private int radius(){
         long longRadius = Math.round(Math.sqrt(this.size))*5;
         String radiusString = ""+(longRadius);
         //SO dirty but the clean way wasn't working
@@ -107,7 +101,7 @@ public class Fire extends Fixed{
         return(radiusInt/3);
     }
 
-    public int peakRadius(){
+    private int peakRadius(){
         long longRadius = Math.round(Math.sqrt(this.peakSize))*5;
         String radiusString = ""+(longRadius);
         //SO dirty but the clean way wasn't working
@@ -160,7 +154,6 @@ public class Fire extends Fixed{
         int radiusInt = this.radius();
         String radiusString = "" + this.size;
 
-        //gfxContext.fillArc(500,500,100,100,0,100);
         gfxContext.setColor(ColorUtil.MAGENTA);
 
         gfxContext.fillArc(
@@ -193,10 +186,6 @@ public class Fire extends Fixed{
 
     public boolean isReady(){
         return(currentState instanceof IsNotStarted);
-    }
-
-    public void ignite(){
-        currentState = new IsBurning();
     }
 
 }

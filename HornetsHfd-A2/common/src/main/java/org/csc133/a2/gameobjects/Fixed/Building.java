@@ -1,4 +1,4 @@
-package org.csc133.a2.gameobjects;
+package org.csc133.a2.gameobjects.Fixed;
 
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Font;
@@ -6,8 +6,8 @@ import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
 import com.codename1.util.MathUtil;
+import org.csc133.a2.gameobjects.GameObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 

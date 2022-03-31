@@ -2,7 +2,7 @@ package org.csc133.a2.interfaces;
 
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
-import org.csc133.a2.gameobjects.Fire;
+import org.csc133.a2.gameobjects.Fixed.Fire;
 
 public interface FireState {
 
