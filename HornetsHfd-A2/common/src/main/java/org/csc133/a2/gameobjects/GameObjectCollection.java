@@ -22,26 +22,13 @@ public class GameObjectCollection {
     }
 
     public ArrayList<Building> getBuildings(){
-        ArrayList<Building> returnType = new ArrayList<>();
-        for(GameObject go : gameObject){
-            if(go instanceof Building){
-                returnType.add((Building)go);
-            }
-            go.update();
-        }
-
-        return(returnType);
+        //[TODO] iterable for buildings
+        return new ArrayList<>();
     }
 
     public ArrayList<Fire> getFires(){
-        ArrayList<Fire> returnType = new ArrayList<>();
-        for(GameObject go : gameObject){
-            if(go instanceof Fire){
-                returnType.add((Fire)go);
-            }
-        }
-
-        return(returnType);
+        //[TODO] iterable for fire
+        return new ArrayList<>();
     }
 
     public void add(GameObject objectAddition){
