@@ -1,0 +1,41 @@
+package org.csc133.a2.gameobjects;
+
+import com.codename1.charts.util.ColorUtil;
+import com.codename1.ui.Graphics;
+import com.codename1.ui.geom.Point;
+import org.csc133.a2.gameobjects.Fixed.Fire;
+
+public class FireCollection extends GameObjectCollection<Fire>{
+
+    public FireCollection(){
+        super();
+    }
+
+    public void draw(Graphics g, Point containerOrigin){
+        for(Fire fireCircle : gameObjects){
+            fireCircle.draw(g,containerOrigin);
+        }
+    }
+
+    public int calculateBurns(GameObject referenceObject){
+        int burns = 0;
+
+        for(Fire fireCircle : gameObjects){
+            if(referenceObject.containsPoint(fireCircle.getPos())){
+                int someBurns = fireCircle.getPeakSize();
+                burns+= someBurns;
+            }
+        }
+
+        return(burns);
+    }
+
+    public void stopBurnsInObject(GameObject referenceObject){
+        for(Fire fireCircle : gameObjects){
+            if(referenceObject.containsPoint(fireCircle.getPos())){
+                fireCircle.extinguish(fireCircle.getSize() + 100);
+            }
+        }
+    }
+
+}

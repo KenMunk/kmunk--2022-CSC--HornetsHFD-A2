@@ -85,5 +85,5 @@ public abstract class GameObject {
 
     }
 
-    public void localDra(){};
+    public void localDra(){}
 }

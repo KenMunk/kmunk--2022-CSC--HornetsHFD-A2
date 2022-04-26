@@ -33,9 +33,7 @@ public class GameWorld {
 
     private boolean dialogState;
 
-    private ArrayList<GameObject> gameObject;
-
-    private GameObjectCollection gameObjectCollection;
+    GameObjectCollection<GameObject> gameObjects;
 
     private GameWorld(){
 
@@ -45,7 +43,7 @@ public class GameWorld {
 
     private void init(){
 
-        gameObject = new ArrayList<>();
+        gameObjects = new GameObjectCollection<>();
 
         Display thisDisplay = Display.getInstance();
         int maxX = thisDisplay.getDisplayWidth();
@@ -65,10 +63,11 @@ public class GameWorld {
 
         River aRiver = new River(new Point(-50,300));
 
-        gameObject.add(aRiver);
-        gameObject.add(helipad);
+        //gameObject.add(aRiver);
+        //gameObject.add(helipad);
 
-        gameObject.add
+        /*
+        gameObjects.add
         (
             new Building
             (
@@ -77,7 +76,7 @@ public class GameWorld {
             )
         );
 
-        gameObject.add
+        gameObjects.add
         (
             new Building
             (
@@ -85,7 +84,8 @@ public class GameWorld {
                 new Dimension(maxY/6, maxY/4)
             )
         );
-        gameObject.add
+
+        gameObjects.add
         (
             new Building
             (
@@ -99,13 +99,14 @@ public class GameWorld {
         //add the fires
 
         for(int i = 0; i<997; i++){
-            gameObject.add(gameObject.size()-2,new Fire());
+            gameObjectCollection.add(gameObjectCollection.size()-2,new Fire());
 
         }
 
-        gameObject.add(player);
+        gameObjects.add(player);
         gameState = new GamePlaying();
         dialogState = false;
+        */
 
     }
 
@@ -116,22 +117,30 @@ public class GameWorld {
     }
 
     public void updateBurns(){
-        for(GameObject go : gameObject){
+
+        /*
+        for(GameObject go : gameObjectCollection.getBuildings()){
             if(go instanceof Building){
                 ((Building)go).updateBurns(gameObject);
             }
             go.update();
-        }
+        }*/
     }
 
-    public ArrayList<GameObject> getGameObjects(){
+    public GameObjectCollection<GameObject> getGameObjects(){
 
-        return(gameObject);
+        return(gameObjects);
+
+    }
+
+    public GameObjectCollection getGameObjectCollection(){
+        return(gameObjects);
     }
 
     public static GameWorld getInstance(){
 
         return(gameWorldInstance);
+
     }
 
     public Helicopter getPlayer(){
@@ -140,13 +149,15 @@ public class GameWorld {
         //First helicopter found is player helicopter
 
         playerHelicopter = null;
-
+        /*
         for(GameObject go : gameObject){
             if(go instanceof Helicopter){
                 playerHelicopter = ((Helicopter) go);
                 break;
             }
         }
+
+         */
 
         return(playerHelicopter);
     }
@@ -157,7 +168,7 @@ public class GameWorld {
         //First Helipad found is player Helipad
 
         playerHelipad = null;
-
+/*
         for(GameObject go : gameObject){
             if(go instanceof Helipad){
                 playerHelipad = ((Helipad) go);
@@ -165,6 +176,8 @@ public class GameWorld {
             }
         }
 
+
+ */
         return(playerHelipad);
     }
 
@@ -184,7 +197,7 @@ public class GameWorld {
     }
 
     public void helicopterDump() {
-        getPlayer().fight(gameObject);
+        //getPlayer().fight(gameObject);
     }
 
     public void helicopterDrink() {
@@ -214,7 +227,7 @@ public class GameWorld {
     public int getFireCount() {
 
         int fireCount = 0;
-
+/*
         for(GameObject go: gameObject){
             if(go instanceof Fire){
                 Fire someFire = (Fire)go;
@@ -223,14 +236,14 @@ public class GameWorld {
                 }
             }
         }
-
+*/
         return(fireCount);
     }
 
     public int getFireSize() {
 
         int fireSize = 0;
-
+/*
         for(GameObject go: gameObject){
             if(go instanceof Fire){
                 Fire someFire = (Fire)go;
@@ -239,14 +252,14 @@ public class GameWorld {
                 }
             }
         }
-
+*/
         return(fireSize);
 
     }
 
     public int getFireDamage() {
         int buildingDamage = 0;
-
+/*
         for(GameObject go: gameObject){
             if(go instanceof Building){
                 Building aBuilding = (Building)go;
@@ -255,13 +268,16 @@ public class GameWorld {
             }
         }
 
+ */
+
         return(buildingDamage);
     }
+
 
     public String getLoss() {
         int totalSize = 0;
         int totalDamage = 0;
-
+/*
         for(GameObject go: gameObject){
             if(go instanceof Building){
                 Building aBuilding = (Building)go;
@@ -269,6 +285,8 @@ public class GameWorld {
                 totalDamage  += aBuilding.getBurnAmount();
             }
         }
+
+ */
 
         int lossPercentage = MathUtil.round(100 * (((float)totalDamage)/totalSize ));
 
@@ -280,7 +298,7 @@ public class GameWorld {
     }
 
     public void calculateBuildingBurns(){
-        //*
+        /*
         for(GameObject go: gameObject){
             if(go instanceof Building){
                 ((Building)go).updateBurns(gameObject);
@@ -289,13 +307,18 @@ public class GameWorld {
 
         /*//    [Failure] reference chain is broken
         //      Need to make the iterable
-        for(Building b: gameObjectCollection.getBuildings()){
-            b.updateBurns(gameObject);
+        ArrayList<Building> buildingsAvailable =
+                gameObjectCollection.getBuildings();
+
+        if(buildingsAvailable.size() > 0){
+            for(Building b: buildingsAvailable){
+                b.updateBurns(gameObject);
+            }
         }//*/
     }
 
     private void ingniteAllBuildings(){
-        int startingGOLength = gameObject.size();
+        /*int startingGOLength = gameObject.size();
         for(int i = 0; i<startingGOLength; i++){
             if(gameObject.get(i) instanceof Building){
                 Building aBuilding = (Building)gameObject.get(i);
@@ -304,10 +327,13 @@ public class GameWorld {
                 gameObject.add(aBuildingFire);
             }
         }
+
+         */
     }
 
     //this part is wrong, see spec
     public void sendSparks(){
+        /*
         if(getFireCount() > 0){
             for(int i = 0; i<gameObject.size(); i++){
                 if(gameObject.get(i) instanceof Building){
@@ -320,9 +346,12 @@ public class GameWorld {
                 }
             }
         }
+
+         */
     }
 
     private void igniteFire(Building target){
+        /*
         for(int i = 0; i<gameObject.size(); i++){
             if(gameObject.get(i) instanceof Fire){
                 if(((Fire) gameObject.get(i)).isReady()){
@@ -331,6 +360,7 @@ public class GameWorld {
                 }
             }
         }
+        */
     }
 
     public void startGame(){
@@ -354,7 +384,7 @@ public class GameWorld {
             gameState = new GameLoss();
             openDialog();
         }
-        getPlayer().riverCheck(gameObject);
+        //getPlayer().riverCheck(gameObject);
     }
 
     public int getHelicopterWater() {
@@ -365,7 +395,7 @@ public class GameWorld {
 
         int buildingValue = 0;
 
-        //*
+        /*
         for(GameObject go: gameObject){
             if(go instanceof Building){
                 Building aBuilding = (Building)go;

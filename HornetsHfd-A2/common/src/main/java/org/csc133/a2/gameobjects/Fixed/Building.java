@@ -6,6 +6,7 @@ import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
 import com.codename1.util.MathUtil;
+import org.csc133.a2.gameobjects.FireCollection;
 import org.csc133.a2.gameobjects.GameObject;
 
 import java.util.ArrayList;
@@ -44,9 +45,11 @@ public class Building extends Fixed{
 
     }
 
+    /*
     public int calculateBurns(ArrayList<GameObject> potentialFires){
         int burns = 0;
 
+        //[TODO] come back for review
         for(GameObject pF: potentialFires){
 
             if(pF instanceof Fire){
@@ -68,9 +71,11 @@ public class Building extends Fixed{
         }
 
         return(burns);
-    }
+    }//*/
 
-    private void stopAllBurns(ArrayList<GameObject> potentialFires){
+    private void stopAllBurns(FireCollection fireCollection){
+
+        /*
         for(GameObject pF: potentialFires){
 
             if(pF instanceof Fire){
@@ -84,11 +89,18 @@ public class Building extends Fixed{
 
             }
 
-        }
+        }//*/
+
+        fireCollection.stopBurnsInObject(this);
     }
 
-    public void updateBurns(ArrayList<GameObject> gameObjects){
-        burnAmount = calculateBurns(gameObjects);
+    public void updateBurns(FireCollection fireCollection){
+        //[TODO] refer to FireCollection calculateBurns
+        burnAmount = fireCollection.calculateBurns(this);
+        if(burnAmount > getSize()){
+            stopAllBurns(fireCollection);
+            burnAmount = getSize();
+        }
     }
 
     public int getBurnAmount(){
