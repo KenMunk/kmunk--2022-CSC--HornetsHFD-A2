@@ -4,7 +4,7 @@ import com.codename1.ui.geom.Point;
 import com.codename1.util.MathUtil;
 import org.csc133.a2.gameobjects.GameObject;
 
-public class Movable extends GameObject{
+public abstract class Movable extends GameObject{
 
     private double heading;
     private double speed;

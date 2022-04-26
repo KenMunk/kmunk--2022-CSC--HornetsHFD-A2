@@ -4,9 +4,8 @@ import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.ColorInt;
-import org.csc133.a2.interfaces.Drawable;
 
-public class GameObject implements Drawable {
+public abstract class GameObject {
 
     private Point pos;
     private Dimension dimensions;
@@ -78,7 +77,6 @@ public class GameObject implements Drawable {
         return(false);
     }
 
-    @Override
     public void draw(Graphics g, Point containerOrigin) {
 
     }
@@ -86,4 +84,6 @@ public class GameObject implements Drawable {
     public void update(){
 
     }
+
+    public void localDra(){};
 }

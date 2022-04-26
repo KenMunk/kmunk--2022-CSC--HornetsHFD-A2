@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="privatized fires">
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="code cleanup (deleting unused classes)&#10;code cleanup (privatizing privatable methods)&#10;code compliance (added helicopter info under helicopter)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/River.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Helicopter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Helicopter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/Fixed.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/Fixed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Movable.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Movable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/Drawable.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1045,7 +1046,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648705474099</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="code cleanup (deleting unused classes)&#10;code cleanup (privatizing privatable methods)&#10;code compliance (added helicopter info under helicopter)">
+      <created>1648707039709</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1648707039709</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1063,7 +1071,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Enabled flexible UI scaling for map view so that the map view isn't as hard coded." />
     <MESSAGE value="Adjusted helipad scaling" />
     <MESSAGE value="Building class work started&#10;Buildings render&#10;Fire modification class staged" />
     <MESSAGE value="Building class value and destruction methods implemented" />
@@ -1088,6 +1095,7 @@
     <MESSAGE value="Making the helicopter run out of fuel" />
     <MESSAGE value="Dialog state system abandoned in favor of basic boolean state." />
     <MESSAGE value="privatized fires" />
-    <option name="LAST_COMMIT_MESSAGE" value="privatized fires" />
+    <MESSAGE value="code cleanup (deleting unused classes)&#10;code cleanup (privatizing privatable methods)&#10;code compliance (added helicopter info under helicopter)" />
+    <option name="LAST_COMMIT_MESSAGE" value="code cleanup (deleting unused classes)&#10;code cleanup (privatizing privatable methods)&#10;code compliance (added helicopter info under helicopter)" />
   </component>
 </project>
