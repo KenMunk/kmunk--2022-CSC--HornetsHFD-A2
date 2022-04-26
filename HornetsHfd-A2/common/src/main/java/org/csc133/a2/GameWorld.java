@@ -35,6 +35,8 @@ public class GameWorld {
 
     private ArrayList<GameObject> gameObject;
 
+    private GameObjectCollection gameObjectCollection;
+
     private GameWorld(){
 
         this.init();
@@ -278,11 +280,18 @@ public class GameWorld {
     }
 
     public void calculateBuildingBurns(){
+        //*
         for(GameObject go: gameObject){
             if(go instanceof Building){
                 ((Building)go).updateBurns(gameObject);
             }
-        }
+        }//*/
+
+        /*//    [Failure] reference chain is broken
+        //      Need to make the iterable
+        for(Building b: gameObjectCollection.getBuildings()){
+            b.updateBurns(gameObject);
+        }//*/
     }
 
     private void ingniteAllBuildings(){
@@ -356,6 +365,7 @@ public class GameWorld {
 
         int buildingValue = 0;
 
+        //*
         for(GameObject go: gameObject){
             if(go instanceof Building){
                 Building aBuilding = (Building)go;
@@ -363,6 +373,12 @@ public class GameWorld {
 
             }
         }
+        //*/
+
+        /*//This passes for now, but it has too big of a vunerability
+        for(Building b : gameObjectCollection.getBuildings() ){
+            buildingValue += b.getInitialValue();
+        }//*/
 
         return(buildingValue - getFireDamage());
 
