@@ -129,10 +129,8 @@ public class GameWorld {
             }
             go.update();
         }*/
-        FireCollection fires = gameObjects.getFires();
-        if(fires.size() > 0){
-            gameObjects.getBuildings().updateBurns(gameObjects.getFires());
-        }
+        gameObjects.getBuildings().updateBurns(gameObjects.getFires());
+
     }
 
     public GameObjectCollection<GameObject> getGameObjects(){
@@ -238,17 +236,7 @@ public class GameWorld {
     }
 
     public int getFireDamage() {
-        int buildingDamage = 0;
-/*
-        for(GameObject go: gameObject){
-            if(go instanceof Building){
-                Building aBuilding = (Building)go;
-                buildingDamage += aBuilding.getBurnAmount();
-
-            }
-        }
-
- */
+        int buildingDamage = gameObjects.getBuildings().getDamage();
 
         return(buildingDamage);
     }
@@ -289,24 +277,6 @@ public class GameWorld {
     }
 
     public void calculateBuildingBurns(){
-        /*
-        for(GameObject go: gameObject){
-            if(go instanceof Building){
-                ((Building)go).updateBurns(gameObject);
-            }
-        }//*/
-
-        /*//    [Failure] reference chain is broken
-        //      Need to make the iterable
-        ArrayList<Building> buildingsAvailable =
-                gameObjectCollection.getBuildings();
-
-        if(buildingsAvailable.size() > 0){
-            for(Building b: buildingsAvailable){
-                b.updateBurns(gameObject);
-            }
-        }//*/
-
         gameObjects.getBuildings().updateBurns(gameObjects.getFires());
     }
 
@@ -345,16 +315,9 @@ public class GameWorld {
     }
 
     private void igniteFire(Building target){
-        /*
-        for(int i = 0; i<gameObject.size(); i++){
-            if(gameObject.get(i) instanceof Fire){
-                if(((Fire) gameObject.get(i)).isReady()){
-                    target.setFireInBuilding((Fire)gameObject.get(i));
-                    return;
-                }
-            }
-        }
-        */
+        Fire sparkedFire = new Fire();
+        target.setFireInBuilding(sparkedFire);
+        gameObjects.getFires().add(sparkedFire);
     }
 
     public void startGame(){
@@ -392,22 +355,7 @@ public class GameWorld {
 
     public int getPoints() {
 
-        int buildingValue = 0;
-
-        /*
-        for(GameObject go: gameObject){
-            if(go instanceof Building){
-                Building aBuilding = (Building)go;
-                buildingValue += aBuilding.getInitialValue();
-
-            }
-        }
-        //*/
-
-        /*//This passes for now, but it has too big of a vunerability
-        for(Building b : gameObjectCollection.getBuildings() ){
-            buildingValue += b.getInitialValue();
-        }//*/
+        int buildingValue = gameObjects.getBuildings().getInitialValues();
 
         return(buildingValue - getFireDamage());
 

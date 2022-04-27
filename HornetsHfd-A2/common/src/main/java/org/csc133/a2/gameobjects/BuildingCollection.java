@@ -33,4 +33,14 @@ public class BuildingCollection extends GameObjectCollection<Building>{
 
         return(damage);
     }
+
+    public int getInitialValues(){
+        int value = 0;
+
+        for(Building structure: gameObjects){
+            value += structure.getInitialValue();
+        }
+
+        return(value);
+    }
 }

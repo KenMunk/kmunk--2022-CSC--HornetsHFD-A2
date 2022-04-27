@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Refactoring the GameWorld and related classes with the new game object collection architecture in order to reduce the overall code volume">
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/WorldObjectCollection.java" afterDir="false" />
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Added the world object collection extension of the GameObjectCollection which allows for the organized addition of gameobjects to the world space&#10;&#10;Nested objects still render, operation seems to be a success.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/BuildingCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/BuildingCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/FireCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/FireCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObjectCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObjectCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewFuel.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewFuel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewHeading.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewHeading.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewSpeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewSpeed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewWater.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewWater.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1091,7 +1084,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651015588386</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Added the world object collection extension of the GameObjectCollection which allows for the organized addition of gameobjects to the world space&#10;&#10;Nested objects still render, operation seems to be a success.">
+      <created>1651034690885</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1651034690886</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1109,7 +1109,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Found that repaint call still needs to be made... unfortunately" />
     <MESSAGE value="About to start working on getting the fire setting system setup" />
     <MESSAGE value="Buildings are now on fire" />
     <MESSAGE value="Updated some of the status view methods to show relevent data&#10;&#10;Stopping point (show percentage of loss)&#10;//Initial value will have to be calculated based&#10;&#10;        //of an initial pixel area to a value within&#10;        //the bounds set by the project&#10;        //If said value is based off of a standard rate&#10;        //between all buildings that would mean&#10;        //that the percentage loss would be easier to compute" />
@@ -1134,6 +1133,7 @@
     <MESSAGE value="Starting work on the GameObjectCollection" />
     <MESSAGE value="Removing potentially confusing code for a fresh slate for the iterables tomorrow." />
     <MESSAGE value="Refactoring the GameWorld and related classes with the new game object collection architecture in order to reduce the overall code volume" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring the GameWorld and related classes with the new game object collection architecture in order to reduce the overall code volume" />
+    <MESSAGE value="Added the world object collection extension of the GameObjectCollection which allows for the organized addition of gameobjects to the world space&#10;&#10;Nested objects still render, operation seems to be a success." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the world object collection extension of the GameObjectCollection which allows for the organized addition of gameobjects to the world space&#10;&#10;Nested objects still render, operation seems to be a success." />
   </component>
 </project>
