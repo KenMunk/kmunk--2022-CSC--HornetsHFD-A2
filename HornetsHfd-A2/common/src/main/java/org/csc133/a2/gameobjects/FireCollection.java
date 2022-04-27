@@ -66,6 +66,18 @@ public class FireCollection extends GameObjectCollection<Fire>{
         return(size);
     }
 
+    public void add(FireCollection someFires){
+        for(Fire aFire: someFires){
+            add(aFire);
+        }
+    }
+
+    @Override
+    public void update(){
+        for(Fire aFire: gameObjects){
+            aFire.update();
+        }
+    }
 
 
 }

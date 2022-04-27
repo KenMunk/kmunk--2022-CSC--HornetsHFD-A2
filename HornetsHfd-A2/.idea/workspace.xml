@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Added the world object collection extension of the GameObjectCollection which allows for the organized addition of gameobjects to the world space&#10;&#10;Nested objects still render, operation seems to be a success.">
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Still alot of refactoring needed for existing code.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/BuildingCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/BuildingCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/FireCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/FireCollection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1091,7 +1092,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651034690886</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Still alot of refactoring needed for existing code.">
+      <created>1651041823001</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1651041823001</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1109,7 +1117,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="About to start working on getting the fire setting system setup" />
     <MESSAGE value="Buildings are now on fire" />
     <MESSAGE value="Updated some of the status view methods to show relevent data&#10;&#10;Stopping point (show percentage of loss)&#10;//Initial value will have to be calculated based&#10;&#10;        //of an initial pixel area to a value within&#10;        //the bounds set by the project&#10;        //If said value is based off of a standard rate&#10;        //between all buildings that would mean&#10;        //that the percentage loss would be easier to compute" />
     <MESSAGE value="Updated the building and fire classes to make the percentage of damage more noticable" />
@@ -1134,6 +1141,7 @@
     <MESSAGE value="Removing potentially confusing code for a fresh slate for the iterables tomorrow." />
     <MESSAGE value="Refactoring the GameWorld and related classes with the new game object collection architecture in order to reduce the overall code volume" />
     <MESSAGE value="Added the world object collection extension of the GameObjectCollection which allows for the organized addition of gameobjects to the world space&#10;&#10;Nested objects still render, operation seems to be a success." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the world object collection extension of the GameObjectCollection which allows for the organized addition of gameobjects to the world space&#10;&#10;Nested objects still render, operation seems to be a success." />
+    <MESSAGE value="Still alot of refactoring needed for existing code." />
+    <option name="LAST_COMMIT_MESSAGE" value="Still alot of refactoring needed for existing code." />
   </component>
 </project>

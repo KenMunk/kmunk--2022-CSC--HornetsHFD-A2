@@ -1,6 +1,5 @@
 package org.csc133.a2.gameobjects;
 
-import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.gameobjects.Fixed.Building;
@@ -25,13 +24,21 @@ public class BuildingCollection extends GameObjectCollection<Building>{
         }
     }
 
-    public int getDamage(){
+    public int getTotalDamage(){
         int damage = 0;
         for(Building structure: gameObjects){
             damage += structure.getBurnAmount();
         }
 
         return(damage);
+    }
+
+    public int getTotalSize(){
+        int size = 0;
+        for(Building structure: gameObjects){
+            size += structure.getSize();
+        }
+        return size;
     }
 
     public int getInitialValues(){
@@ -42,5 +49,17 @@ public class BuildingCollection extends GameObjectCollection<Building>{
         }
 
         return(value);
+    }
+
+    public FireCollection igniteAll(){
+        FireCollection regionalFires = new FireCollection();
+
+        for(Building structure: gameObjects){
+            Fire buildingFire = new Fire();
+            structure.setFireInBuilding(buildingFire);
+            regionalFires.add(buildingFire);
+        }
+
+        return regionalFires;
     }
 }

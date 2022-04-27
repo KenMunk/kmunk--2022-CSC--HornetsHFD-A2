@@ -11,8 +11,6 @@ import com.codename1.util.MathUtil;
 //import org.jetbrains.annotations.NotNull;
 
 //import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.Random;
 
 import org.csc133.a2.gameobjects.*;
 import org.csc133.a2.gameobjects.Fixed.Building;
@@ -97,7 +95,7 @@ public class GameWorld {
 
         gameObjects.add(allFires);
 
-        //ingniteAllBuildings();
+        ingniteAllBuildings();
         //add the fires
 
         /*//No Longer spec compliant
@@ -122,13 +120,7 @@ public class GameWorld {
 
     public void updateBurns(){
 
-        /*
-        for(GameObject go : gameObjectCollection.getBuildings()){
-            if(go instanceof Building){
-                ((Building)go).updateBurns(gameObject);
-            }
-            go.update();
-        }*/
+        gameObjects.getFires().update();
         gameObjects.getBuildings().updateBurns(gameObjects.getFires());
 
     }
@@ -155,15 +147,6 @@ public class GameWorld {
         //First helicopter found is player helicopter
 
         playerHelicopter = null;
-        /*
-        for(GameObject go : gameObject){
-            if(go instanceof Helicopter){
-                playerHelicopter = ((Helicopter) go);
-                break;
-            }
-        }
-
-         */
 
         return(playerHelicopter);
     }
@@ -236,36 +219,20 @@ public class GameWorld {
     }
 
     public int getFireDamage() {
-        int buildingDamage = gameObjects.getBuildings().getDamage();
+        int buildingDamage = gameObjects.getBuildings().getTotalDamage();
 
         return(buildingDamage);
     }
 
     public int getFireSize(){
-        int size = 0;
-
-        for(GameObject go : gameObjects){
-            if(go instanceof FireCollection){
-                return(((FireCollection)go).getFireSize());
-            }
-        }
-
-        return(size);
+        return(gameObjects.getFires().getFireSize());
     }
 
     public String getLoss() {
-        int totalSize = 0;
-        int totalDamage = 0;
-/*
-        for(GameObject go: gameObject){
-            if(go instanceof Building){
-                Building aBuilding = (Building)go;
-                totalSize += aBuilding.getSize();
-                totalDamage  += aBuilding.getBurnAmount();
-            }
-        }
 
- */
+        int totalSize = gameObjects.getBuildings().getTotalSize();
+        int totalDamage =
+                gameObjects.getBuildings().getTotalDamage();
 
         int lossPercentage = MathUtil.round(100 * (((float)totalDamage)/totalSize ));
 
@@ -281,17 +248,8 @@ public class GameWorld {
     }
 
     private void ingniteAllBuildings(){
-        /*int startingGOLength = gameObject.size();
-        for(int i = 0; i<startingGOLength; i++){
-            if(gameObject.get(i) instanceof Building){
-                Building aBuilding = (Building)gameObject.get(i);
-                Fire aBuildingFire = new Fire();
-                aBuilding.setFireInBuilding(aBuildingFire);
-                gameObject.add(aBuildingFire);
-            }
-        }
-        //*/
 
+        gameObjects.getFires().add(gameObjects.getBuildings().igniteAll());
 
     }
 
