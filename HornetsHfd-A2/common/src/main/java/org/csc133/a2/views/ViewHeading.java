@@ -14,7 +14,8 @@ public class ViewHeading extends HudSegment{
 
     @Override
     public void update(){
-        this.updateDataValue(gw.getHelicopterHeading()+"");
+        //[TODO] reevaluate after making helicopter singletons
+        //this.updateDataValue(gw.getHelicopterHeading()+"");
     }
 
 }

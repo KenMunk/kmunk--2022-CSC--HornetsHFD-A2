@@ -16,7 +16,8 @@ public class ViewFuel extends HudSegment{
 
     @Override
     public void update(){
-        this.updateDataValue(gw.getHelicopterFuel()+"");
+        //[TODO] reevaluate after making helicopter singletons
+        //this.updateDataValue(gw.getHelicopterFuel()+"");
     }
 
 }

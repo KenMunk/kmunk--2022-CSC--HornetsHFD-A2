@@ -33,7 +33,7 @@ public class GameWorld {
 
     private boolean dialogState;
 
-    GameObjectCollection<GameObject> gameObjects;
+    WorldObjectCollection gameObjects;
 
     private GameWorld(){
 
@@ -43,7 +43,7 @@ public class GameWorld {
 
     private void init(){
 
-        gameObjects = new GameObjectCollection<>();
+        gameObjects = new WorldObjectCollection();
 
         Display thisDisplay = Display.getInstance();
         int maxX = thisDisplay.getDisplayWidth();
@@ -63,11 +63,10 @@ public class GameWorld {
 
         River aRiver = new River(new Point(-50,300));
 
-        //gameObject.add(aRiver);
-        //gameObject.add(helipad);
+        gameObjects.add(aRiver);
+        gameObjects.add(helipad);
 
-        /*
-        gameObjects.add
+        gameObjects.getBuildings().add
         (
             new Building
             (
@@ -76,7 +75,7 @@ public class GameWorld {
             )
         );
 
-        gameObjects.add
+        gameObjects.getBuildings().add
         (
             new Building
             (
@@ -85,7 +84,7 @@ public class GameWorld {
             )
         );
 
-        gameObjects.add
+        gameObjects.getBuildings().add
         (
             new Building
             (
@@ -94,19 +93,24 @@ public class GameWorld {
             )
         );
 
+        FireCollection allFires = new FireCollection();
 
-        ingniteAllBuildings();
+        gameObjects.add(allFires);
+
+        //ingniteAllBuildings();
         //add the fires
 
+        /*//No Longer spec compliant
         for(int i = 0; i<997; i++){
             gameObjectCollection.add(gameObjectCollection.size()-2,new Fire());
 
-        }
+        }//*/
 
-        gameObjects.add(player);
+        //Player will be singleton going forward
+        //gameObjects.add(player);
         gameState = new GamePlaying();
         dialogState = false;
-        */
+        //*/
 
     }
 
@@ -125,6 +129,10 @@ public class GameWorld {
             }
             go.update();
         }*/
+        FireCollection fires = gameObjects.getFires();
+        if(fires.size() > 0){
+            gameObjects.getBuildings().updateBurns(gameObjects.getFires());
+        }
     }
 
     public GameObjectCollection<GameObject> getGameObjects(){
@@ -145,7 +153,7 @@ public class GameWorld {
 
     public Helicopter getPlayer(){
         Helicopter playerHelicopter;
-
+        //[TODO] return to this after making a player singleton
         //First helicopter found is player helicopter
 
         playerHelicopter = null;
@@ -163,49 +171,40 @@ public class GameWorld {
     }
     
     public Helipad getHelipad(){
-        Helipad playerHelipad;
-
-        //First Helipad found is player Helipad
-
-        playerHelipad = null;
-/*
-        for(GameObject go : gameObject){
-            if(go instanceof Helipad){
-                playerHelipad = ((Helipad) go);
-                break;
-            }
-        }
-
-
- */
-        return(playerHelipad);
+        return(gameObjects.getHelipad());
     }
 
     public void accelerateHelicopter() {
 
-        getPlayer().toAccelerate();
+        //[TODO] return to this after making a player singleton
+        //getPlayer().toAccelerate();
 
     }
 
     public void turnHelicopterLeft() {
-        getPlayer().toTurnLeft();
+        //[TODO] return to this after making a player singleton
+        //getPlayer().toTurnLeft();
     }
 
     public void turnHelicopterRight() {
+        //[TODO] return to this after making a player singleton
 
-        getPlayer().toTurnRight();
+        //getPlayer().toTurnRight();
     }
 
     public void helicopterDump() {
+        //[TODO] return to this after making a player singleton
         //getPlayer().fight(gameObject);
     }
 
     public void helicopterDrink() {
-        getPlayer().toDrink();
+        //[TODO] return to this after making a player singleton
+        //getPlayer().toDrink();
     }
 
     public void helicopterBrake() {
-        getPlayer().toSlowDown();
+        //[TODO] return to this after making a player singleton
+        //getPlayer().toSlowDown();
     }
 
     public void exit() {
@@ -213,48 +212,29 @@ public class GameWorld {
     }
 
     public double getHelicopterHeading(){
+        //[TODO] return to this after making a player singleton
         return(getPlayer().getHeading());
     }
 
     public double getHelicopterSpeed(){
+        //[TODO] return to this after making a player singleton
         return(getPlayer().getSpeed());
     }
 
     public int getHelicopterFuel(){
+        //[TODO] return to this after making a player singleton
         return(getPlayer().getFuel());
     }
 
     public int getFireCount() {
-
         int fireCount = 0;
-/*
-        for(GameObject go: gameObject){
-            if(go instanceof Fire){
-                Fire someFire = (Fire)go;
-                if(someFire.isBurning()){
-                    fireCount++;
-                }
-            }
+        try{
+            fireCount = gameObjects.getFires().activeFireCount();
         }
-*/
+        catch(Exception e){
+
+        }
         return(fireCount);
-    }
-
-    public int getFireSize() {
-
-        int fireSize = 0;
-/*
-        for(GameObject go: gameObject){
-            if(go instanceof Fire){
-                Fire someFire = (Fire)go;
-                if(someFire.isBurning()){
-                    fireSize += someFire.getSize();
-                }
-            }
-        }
-*/
-        return(fireSize);
-
     }
 
     public int getFireDamage() {
@@ -273,6 +253,17 @@ public class GameWorld {
         return(buildingDamage);
     }
 
+    public int getFireSize(){
+        int size = 0;
+
+        for(GameObject go : gameObjects){
+            if(go instanceof FireCollection){
+                return(((FireCollection)go).getFireSize());
+            }
+        }
+
+        return(size);
+    }
 
     public String getLoss() {
         int totalSize = 0;
@@ -315,6 +306,8 @@ public class GameWorld {
                 b.updateBurns(gameObject);
             }
         }//*/
+
+        gameObjects.getBuildings().updateBurns(gameObjects.getFires());
     }
 
     private void ingniteAllBuildings(){
@@ -327,8 +320,9 @@ public class GameWorld {
                 gameObject.add(aBuildingFire);
             }
         }
+        //*/
 
-         */
+
     }
 
     //this part is wrong, see spec
@@ -379,15 +373,20 @@ public class GameWorld {
     }
 
     public void updateHelicopter(){
+        //[TODO] return to this after making a player singleton
+
+        /*
         getPlayer().flightUpdate();
         if(getPlayer().fuelOut()){
             gameState = new GameLoss();
             openDialog();
         }
         //getPlayer().riverCheck(gameObject);
+        //*/
     }
 
     public int getHelicopterWater() {
+        //[TODO] return to this after making a player singleton
         return(getPlayer().getWater());
     }
 
@@ -415,6 +414,8 @@ public class GameWorld {
     }
     
     public void helicopterLandingCheck(){
+        //[TODO] return to this after making a player singleton
+        /*
         if
         (
             (getFireCount() == 0)
@@ -424,7 +425,7 @@ public class GameWorld {
             gameState = new GameWin();
             openDialog();
         }
-            
+        //*/
             
     }
 

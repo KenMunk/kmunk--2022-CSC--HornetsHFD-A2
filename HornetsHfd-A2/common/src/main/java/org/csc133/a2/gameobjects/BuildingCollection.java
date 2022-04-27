@@ -12,6 +12,7 @@ public class BuildingCollection extends GameObjectCollection<Building>{
         super();
     }
 
+    @Override
     public void draw(Graphics g, Point containerOrigin){
         for(Building structure : gameObjects){
             structure.draw(g,containerOrigin);
@@ -22,5 +23,14 @@ public class BuildingCollection extends GameObjectCollection<Building>{
         for(Building structure : gameObjects){
             structure.updateBurns(someFires);
         }
+    }
+
+    public int getDamage(){
+        int damage = 0;
+        for(Building structure: gameObjects){
+            damage += structure.getBurnAmount();
+        }
+
+        return(damage);
     }
 }

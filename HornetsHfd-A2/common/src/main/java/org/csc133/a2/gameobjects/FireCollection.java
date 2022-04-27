@@ -38,4 +38,34 @@ public class FireCollection extends GameObjectCollection<Fire>{
         }
     }
 
+    public int getFireSize(){
+        int fireSize = 0;
+        for(Fire fire : gameObjects){
+            if(fire.isBurning()){
+                fireSize += fire.getSize();
+            }
+        }
+
+        return fireSize;
+    }
+
+    @Override
+    public int size(){
+        return(gameObjects.size());
+    }
+
+    public int activeFireCount(){
+        int size = 0;
+
+        for(Fire fireCircle : gameObjects){
+            if(fireCircle.isBurning()){
+                size++;
+            }
+        }
+
+        return(size);
+    }
+
+
+
 }

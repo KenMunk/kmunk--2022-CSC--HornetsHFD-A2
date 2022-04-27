@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Removing potentially confusing code for a fresh slate for the iterables tomorrow.">
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/BuildingCollection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/FireCollection.java" afterDir="false" />
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Refactoring the GameWorld and related classes with the new game object collection architecture in order to reduce the overall code volume">
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/WorldObjectCollection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/Building.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/BuildingCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/BuildingCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/FireCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/FireCollection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObjectCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObjectCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewFuel.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewFuel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewHeading.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewHeading.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewSpeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewSpeed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewWater.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewWater.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +30,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
@@ -1076,7 +1084,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650957968567</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Refactoring the GameWorld and related classes with the new game object collection architecture in order to reduce the overall code volume">
+      <created>1651015588386</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1651015588386</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1094,7 +1109,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fire class mostly implemented&#10;Fire class renders properly&#10;Fire class instances properly&#10;&#10;[needs attention]&#10;Fire class not updating properly,&#10;this might be attributed to the fact that the object updates are being pushed as the original object rather than the permutations." />
     <MESSAGE value="Found that repaint call still needs to be made... unfortunately" />
     <MESSAGE value="About to start working on getting the fire setting system setup" />
     <MESSAGE value="Buildings are now on fire" />
@@ -1119,6 +1133,7 @@
     <MESSAGE value="Abstractifying gameobject, fixed, and movable, removing Drawable." />
     <MESSAGE value="Starting work on the GameObjectCollection" />
     <MESSAGE value="Removing potentially confusing code for a fresh slate for the iterables tomorrow." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removing potentially confusing code for a fresh slate for the iterables tomorrow." />
+    <MESSAGE value="Refactoring the GameWorld and related classes with the new game object collection architecture in order to reduce the overall code volume" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring the GameWorld and related classes with the new game object collection architecture in order to reduce the overall code volume" />
   </component>
 </project>

@@ -16,6 +16,7 @@ public class ViewWater extends HudSegment{
 
     @Override
     public void update(){
-        this.updateDataValue(gw.getHelicopterWater()+"");
+        //[TODO] reevaluate after making helicopter singletons
+        //this.updateDataValue(gw.getHelicopterWater()+"");
     }
 }

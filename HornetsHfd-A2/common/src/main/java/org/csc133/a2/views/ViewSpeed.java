@@ -16,7 +16,8 @@ public class ViewSpeed extends HudSegment{
 
     @Override
     public void update(){
-        this.updateDataValue(gw.getHelicopterSpeed()+"");
+        //[TODO] reevaluate after making helicopter singletons
+        //this.updateDataValue(gw.getHelicopterSpeed()+"");
     }
 
 }

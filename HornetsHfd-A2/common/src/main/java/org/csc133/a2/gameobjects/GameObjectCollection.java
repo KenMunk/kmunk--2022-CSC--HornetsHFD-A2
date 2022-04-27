@@ -9,7 +9,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class GameObjectCollection<T> extends GameObject implements Iterable<T>{
 
-    CopyOnWriteArrayList<T> gameObjects;
+    ArrayList<T> gameObjects;
 
     class GameObjectIterator implements Iterator<T> {
         int index = 0;
@@ -26,7 +26,7 @@ public class GameObjectCollection<T> extends GameObject implements Iterable<T>{
     }
 
     public GameObjectCollection(){
-        gameObjects = new CopyOnWriteArrayList<>();
+        gameObjects = new ArrayList<>();
     }
 
     public void add(T gameObject){
