@@ -6,13 +6,11 @@ import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
 import com.codename1.util.MathUtil;
-import org.csc133.a2.gameobjects.FireCollection;
-import org.csc133.a2.gameobjects.GameObject;
+import org.csc133.a2.gameobjects.collections.FireCollection;
 import org.csc133.a2.interfaces.BuildingBurnState;
 import org.csc133.a2.states.BuildingDoneBurning;
 import org.csc133.a2.states.BuildingNotBurningYet;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Building extends Fixed{

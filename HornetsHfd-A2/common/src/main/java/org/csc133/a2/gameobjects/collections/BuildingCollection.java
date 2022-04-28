@@ -1,9 +1,8 @@
-package org.csc133.a2.gameobjects;
+package org.csc133.a2.gameobjects.collections;
 
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.gameobjects.Fixed.Building;
-import org.csc133.a2.gameobjects.Fixed.Fire;
 
 import java.util.Random;
 

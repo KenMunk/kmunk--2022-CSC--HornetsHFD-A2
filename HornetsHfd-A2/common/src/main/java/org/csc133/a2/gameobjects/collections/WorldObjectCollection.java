@@ -1,8 +1,8 @@
-package org.csc133.a2.gameobjects;
+package org.csc133.a2.gameobjects.collections;
 
-import org.csc133.a2.gameobjects.Fixed.Fire;
 import org.csc133.a2.gameobjects.Fixed.Helipad;
 import org.csc133.a2.gameobjects.Fixed.River;
+import org.csc133.a2.gameobjects.GameObject;
 
 public class WorldObjectCollection extends GameObjectCollection<GameObject>{
 

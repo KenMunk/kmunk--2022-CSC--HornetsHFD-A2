@@ -1,9 +1,9 @@
-package org.csc133.a2.gameobjects;
+package org.csc133.a2.gameobjects.collections;
 
-import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.gameobjects.Fixed.Fire;
+import org.csc133.a2.gameobjects.GameObject;
 
 public class FireCollection extends GameObjectCollection<Fire>{
 

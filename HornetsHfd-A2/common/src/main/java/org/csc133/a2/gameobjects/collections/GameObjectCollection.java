@@ -1,7 +1,8 @@
-package org.csc133.a2.gameobjects;
+package org.csc133.a2.gameobjects.collections;
 
 import org.csc133.a2.gameobjects.Fixed.Building;
 import org.csc133.a2.gameobjects.Fixed.Fire;
+import org.csc133.a2.gameobjects.GameObject;
 
 import java.util.ArrayList;
 import java.util.Iterator;

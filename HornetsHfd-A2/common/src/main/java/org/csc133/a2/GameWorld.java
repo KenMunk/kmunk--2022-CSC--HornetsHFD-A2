@@ -14,10 +14,12 @@ import com.codename1.util.MathUtil;
 
 import org.csc133.a2.gameobjects.*;
 import org.csc133.a2.gameobjects.Fixed.Building;
-import org.csc133.a2.gameobjects.Fixed.Fire;
 import org.csc133.a2.gameobjects.Fixed.Helipad;
 import org.csc133.a2.gameobjects.Fixed.River;
 import org.csc133.a2.gameobjects.Movables.Helicopter;
+import org.csc133.a2.gameobjects.collections.FireCollection;
+import org.csc133.a2.gameobjects.collections.GameObjectCollection;
+import org.csc133.a2.gameobjects.collections.WorldObjectCollection;
 import org.csc133.a2.interfaces.GameState;
 import org.csc133.a2.states.*;
 
@@ -227,7 +229,12 @@ public class GameWorld {
         int totalDamage =
                 gameObjects.getBuildings().getTotalDamage();
 
-        int lossPercentage = MathUtil.round(100 * (((float)totalDamage)/totalSize ));
+        int lossPercentage = MathUtil.round
+        (
+            100
+            *
+            (((float)totalDamage)/totalSize )
+        );
 
         if(lossPercentage>=100){
             gameState = new GameLoss();

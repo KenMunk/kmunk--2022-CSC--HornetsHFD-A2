@@ -4,17 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Initial building ignition added back in. [success]&#10;Loss updates added back in. [success]&#10;Fire state updates added back in.&#10;[success]&#10;[TODO] incorporate a building state system to automate the ignition and fire-spread process">
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/BuildingBurnState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/BuildingBurning.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/BuildingDoneBurning.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/BuildingNotBurningYet.java" afterDir="false" />
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Added a building burn state to facilitate the whole process of controlling where and when fires will spark.&#10;&#10;Moved most of the fire spreading mechanics to the building collection">
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Component.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/ComponentCollection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/BuildingCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/BuildingCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/FireCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/FireCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/BuildingCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/BuildingCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/FireCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/FireCollection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/Building.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/Fire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObjectCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/GameObjectCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/WorldObjectCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/WorldObjectCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/BuildingBurnState.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/BuildingBurnState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/BuildingBurning.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/BuildingBurning.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/BuildingDoneBurning.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/BuildingDoneBurning.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/BuildingNotBurningYet.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/BuildingNotBurningYet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1112,7 +1116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651097527833</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Added a building burn state to facilitate the whole process of controlling where and when fires will spark.&#10;&#10;Moved most of the fire spreading mechanics to the building collection">
+      <created>1651124043188</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1651124043188</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1130,7 +1141,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated some of the status view methods to show relevent data&#10;&#10;Stopping point (show percentage of loss)&#10;//Initial value will have to be calculated based&#10;&#10;        //of an initial pixel area to a value within&#10;        //the bounds set by the project&#10;        //If said value is based off of a standard rate&#10;        //between all buildings that would mean&#10;        //that the percentage loss would be easier to compute" />
     <MESSAGE value="Updated the building and fire classes to make the percentage of damage more noticable" />
     <MESSAGE value="Adjusting the wording of the display for the buildings so that it makes more sense" />
     <MESSAGE value="Fixed position rendering of helicopter and helipad&#10;&#10;Added helicopter water intake states but have yet to complete implementation&#10;&#10;Implemented helicopter stat readouts&#10;&#10;bug found (buttons are mapped to the arrow keys causing flashing)" />
@@ -1155,6 +1165,7 @@
     <MESSAGE value="Added the world object collection extension of the GameObjectCollection which allows for the organized addition of gameobjects to the world space&#10;&#10;Nested objects still render, operation seems to be a success." />
     <MESSAGE value="Still alot of refactoring needed for existing code." />
     <MESSAGE value="Initial building ignition added back in. [success]&#10;Loss updates added back in. [success]&#10;Fire state updates added back in.&#10;[success]&#10;[TODO] incorporate a building state system to automate the ignition and fire-spread process" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial building ignition added back in. [success]&#10;Loss updates added back in. [success]&#10;Fire state updates added back in.&#10;[success]&#10;[TODO] incorporate a building state system to automate the ignition and fire-spread process" />
+    <MESSAGE value="Added a building burn state to facilitate the whole process of controlling where and when fires will spark.&#10;&#10;Moved most of the fire spreading mechanics to the building collection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a building burn state to facilitate the whole process of controlling where and when fires will spark.&#10;&#10;Moved most of the fire spreading mechanics to the building collection" />
   </component>
 </project>

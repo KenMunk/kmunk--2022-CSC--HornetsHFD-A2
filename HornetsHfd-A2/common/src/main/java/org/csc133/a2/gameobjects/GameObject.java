@@ -77,9 +77,17 @@ public abstract class GameObject {
         return(false);
     }
 
+    @Deprecated
     public void draw(Graphics g, Point containerOrigin) {
 
     }
+
+    public void draw
+    (
+        Graphics context,
+        Point containerOrigin,
+        Point screenOrigin
+    ){}
 
     public void update(){
 
