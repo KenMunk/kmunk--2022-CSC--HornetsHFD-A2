@@ -66,9 +66,26 @@ public class FireCollection extends GameObjectCollection<Fire>{
         return(size);
     }
 
+    public int activeFireCount(GameObject context){
+        int size = 0;
+
+        for(Fire fireCircle : gameObjects){
+            if(
+                fireCircle.isBurning()
+                &&
+                context.containsPoint(fireCircle.getPos())
+            ){
+                size++;
+            }
+        }
+        return(size);
+    }
+
     public void add(FireCollection someFires){
-        for(Fire aFire: someFires){
-            add(aFire);
+        if(someFires.size() > 0){
+            for(Fire aFire: someFires){
+                add(aFire);
+            }
         }
     }
 

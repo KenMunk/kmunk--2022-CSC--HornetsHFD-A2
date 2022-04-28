@@ -8,6 +8,9 @@ import com.codename1.ui.geom.Point;
 import com.codename1.util.MathUtil;
 import org.csc133.a2.gameobjects.FireCollection;
 import org.csc133.a2.gameobjects.GameObject;
+import org.csc133.a2.interfaces.BuildingBurnState;
+import org.csc133.a2.states.BuildingDoneBurning;
+import org.csc133.a2.states.BuildingNotBurningYet;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -17,12 +20,15 @@ public class Building extends Fixed{
     private int initialValue;
     private int burnAmount;
 
+    private BuildingBurnState burnState;
+
     public Building(Point origin, Dimension dimensions){
 
         setPos(origin);
         setDimensions(dimensions);
         setColor(ColorUtil.rgb(255,0,0));
         setInitialValue(getSize());
+        setBurnState(new BuildingNotBurningYet());
 
     }
 
@@ -75,30 +81,25 @@ public class Building extends Fixed{
 
     private void stopAllBurns(FireCollection fireCollection){
 
-        /*
-        for(GameObject pF: potentialFires){
-
-            if(pF instanceof Fire){
-
-                if(containsPoint(pF.getPos())){
-
-                    Fire aFire = (Fire)pF;
-                    aFire.extinguish(aFire.getSize()+100);
-
-                }
-
-            }
-
-        }//*/
-
         fireCollection.stopBurnsInObject(this);
+    }
+
+    private void burnCheck(FireCollection fireCollection){
+        if(fireCollection.activeFireCount(this) == 0){
+            if(!(burnState instanceof BuildingNotBurningYet)){
+                setBurnState(new BuildingDoneBurning());
+            }
+        }
     }
 
     public void updateBurns(FireCollection fireCollection){
         //[TODO] refer to FireCollection calculateBurns
+        burnCheck(fireCollection);
+
         burnAmount = fireCollection.calculateBurns(this);
         if(burnAmount > getSize()){
             stopAllBurns(fireCollection);
+            setBurnState(new BuildingDoneBurning());
             burnAmount = getSize();
         }
     }
@@ -202,6 +203,12 @@ public class Building extends Fixed{
         fire.start();
     }
 
+    private void setBurnState(BuildingBurnState nextState){
+        burnState = nextState;
+    }
 
+    public FireCollection sparkUpdate(){
+        return(burnState.sparkUpdate(this));
+    }
 
 }

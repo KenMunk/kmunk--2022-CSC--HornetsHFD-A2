@@ -96,13 +96,6 @@ public class GameWorld {
         gameObjects.add(allFires);
 
         ingniteAllBuildings();
-        //add the fires
-
-        /*//No Longer spec compliant
-        for(int i = 0; i<997; i++){
-            gameObjectCollection.add(gameObjectCollection.size()-2,new Fire());
-
-        }//*/
 
         //Player will be singleton going forward
         //gameObjects.add(player);
@@ -255,27 +248,7 @@ public class GameWorld {
 
     //this part is wrong, see spec
     public void sendSparks(){
-        /*
-        if(getFireCount() > 0){
-            for(int i = 0; i<gameObject.size(); i++){
-                if(gameObject.get(i) instanceof Building){
-                    Building burningBuilding = ((Building)gameObject.get(i));
-
-                    int sparkRoll = new Random().nextInt(2000);
-                    if(sparkRoll<3){
-                        igniteFire(burningBuilding);
-                    }
-                }
-            }
-        }
-
-         */
-    }
-
-    private void igniteFire(Building target){
-        Fire sparkedFire = new Fire();
-        target.setFireInBuilding(sparkedFire);
-        gameObjects.getFires().add(sparkedFire);
+        gameObjects.getBuildings().sparkUpdate(gameObjects.getFires());
     }
 
     public void startGame(){

@@ -24,7 +24,7 @@ public class Fire extends Fixed{
         setPos(new Point(0,0));
         setColor(ColorUtil.MAGENTA);
         setState(new IsNotStarted());
-        setSize(new Random().nextInt(150)+10);
+        setSize(new Random().nextInt(300)+10);
         initPeakSize();
 
     }
@@ -38,7 +38,7 @@ public class Fire extends Fixed{
         if(this.size > 0){
             this.size += (
                     new Random()
-                            .nextInt((2*this.category()))
+                            .nextInt((this.category())+1)
             );
 
         }//*/

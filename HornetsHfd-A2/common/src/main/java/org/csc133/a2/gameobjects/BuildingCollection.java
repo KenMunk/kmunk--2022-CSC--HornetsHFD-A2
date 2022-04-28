@@ -5,6 +5,8 @@ import com.codename1.ui.geom.Point;
 import org.csc133.a2.gameobjects.Fixed.Building;
 import org.csc133.a2.gameobjects.Fixed.Fire;
 
+import java.util.Random;
+
 public class BuildingCollection extends GameObjectCollection<Building>{
 
     public BuildingCollection(){
@@ -54,12 +56,25 @@ public class BuildingCollection extends GameObjectCollection<Building>{
     public FireCollection igniteAll(){
         FireCollection regionalFires = new FireCollection();
 
-        for(Building structure: gameObjects){
-            Fire buildingFire = new Fire();
-            structure.setFireInBuilding(buildingFire);
-            regionalFires.add(buildingFire);
+        while(regionalFires.getFireSize() < 1000){
+            for(Building structure: gameObjects){
+                regionalFires.add(structure.sparkUpdate());
+                regionalFires.add(structure.sparkUpdate());
+                updateBurns(regionalFires);
+            }
         }
 
         return regionalFires;
     }
+
+    public void sparkUpdate(FireCollection allFires){
+        for(Building structure: gameObjects){
+            int sparkRoll = new Random().nextInt(10000);
+            if(sparkRoll<3){
+                allFires.add(structure.sparkUpdate());
+            }
+
+        }
+    }
+
 }
