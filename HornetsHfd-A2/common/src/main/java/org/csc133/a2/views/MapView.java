@@ -1,10 +1,7 @@
 package org.csc133.a2.views;
 
 import com.codename1.charts.util.ColorUtil;
-import com.codename1.ui.Component;
-import com.codename1.ui.Container;
-import com.codename1.ui.Display;
-import com.codename1.ui.Graphics;
+import com.codename1.ui.*;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.GameWorld;
@@ -23,9 +20,32 @@ public class MapView extends Container {
         this.viewOffsets = viewOffsets;
     }
 
+    public void displayTransform(Graphics context){
+        Transform transform = Transform.makeIdentity();
+        context.getTransform(transform);
+        transform.translate(getAbsoluteX(), getAbsoluteY());
+
+        transform.translate(0,getHeight()-30);
+        transform.scale(1,-1f);
+
+        transform.translate(-getAbsoluteX(),-getAbsoluteY());
+        context.setTransform(transform);
+    }
+
     @Override
     public void paint(Graphics context){
         super.paint(context);
+
+        Point parentOrigin = new Point
+        (
+            this.getX(),
+            this.getY()
+        );
+        Point screenOrigin = new Point
+        (
+            getAbsoluteX(),
+            getAbsoluteY()
+        );
 
         Display referenceDisplay = Display.getInstance();
 
@@ -36,12 +56,26 @@ public class MapView extends Container {
 
         context.fillRect
         (
-            -1,
-            this.getAbsoluteY()-130,
-            screenWidth+2,
-            this.getHeight()
+            getAbsoluteX(),
+            getAbsoluteY()-60,
+            getWidth(),
+            getHeight()+60
         );
 
+        displayTransform(context);
+
+
+
+        //[TODO] change the rendering paradigm
+
+        //Since this is where the border between codenameone
+        //coordinate standards and local coordinate standards
+
+        GameWorld.getInstance().draw(context,parentOrigin,screenOrigin);
+
+        context.resetAffine();
+
+        /*
         for
         (
                 GameObject aGameObject
@@ -51,7 +85,6 @@ public class MapView extends Container {
 
             aGameObject.draw(context,new Point(getAbsoluteX(),
                     getAbsoluteY()-130));
-            // [TODO] um... render the map view I guess...
 
         }//*/
 
@@ -84,5 +117,6 @@ public class MapView extends Container {
     public Component getNextFocusRight(){
         return(getParent());
     }
+
 
 }

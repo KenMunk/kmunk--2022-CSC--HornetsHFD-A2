@@ -1,6 +1,7 @@
 package org.csc133.a2.gameobjects;
 
 import com.codename1.ui.Graphics;
+import com.codename1.ui.Transform;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.ColorInt;
@@ -93,5 +94,36 @@ public abstract class GameObject {
 
     }
 
-    public void localDra(){}
+    public void localDra(Graphics context, Point parentOrigin,
+                         Point screenOrigin){}
+
+    protected void localTransforms(Transform transform){
+    }
+
+    protected void containerTranslate(Graphics context,
+                                      Point parentOrigin){
+        Transform transform = Transform.makeIdentity();
+        context.getTransform(transform);
+        transform.translate(parentOrigin.getX(), parentOrigin.getY());
+        context.setTransform(transform);
+    }
+
+    protected void cn1ForwardPrimitiveTranslate(Graphics context,
+                                                Dimension primitiveDimension){
+        Transform transform = Transform.makeIdentity();
+        context.getTransform(transform);
+        transform.translate(-primitiveDimension.getWidth()/2,
+                -primitiveDimension.getHeight()/2);
+        context.setTransform(transform);
+    }
+
+    protected void cn1ReversePrimitiveTranslate(Graphics context,
+                                                Dimension primitiveDimension){
+        Transform transform = Transform.makeIdentity();
+        context.getTransform(transform);
+        transform.translate(primitiveDimension.getWidth()/2,
+                primitiveDimension.getHeight()/2);
+        context.setTransform(transform);
+    }
+
 }

@@ -13,6 +13,7 @@ import com.codename1.ui.Button;
 import com.codename1.ui.Component;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.Graphics;
+import com.codename1.ui.Label;
 import com.codename1.ui.geom.Point;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.util.UITimer;
@@ -47,14 +48,14 @@ public class Game extends Form implements Runnable{
 
         ViewOffsets viewOffsets = new ViewOffsets
             (
-                topGlassCockpit.getAbsoluteY(),
-                bottomControlCluster.getAbsoluteY()
+                topGlassCockpit.getHeight(),
+                bottomControlCluster.getHeight()
             );
 
         middleMapView = new MapView(this.gameWorld,viewOffsets);
 
 
-        setTitle("Hornet Fire Defense A2");
+        //setTitle("Hornet Fire Defense A2");
 
         UITimer timer = new UITimer(this);
         timer.schedule(17,true,this);

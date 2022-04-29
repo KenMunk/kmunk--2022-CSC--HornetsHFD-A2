@@ -1,5 +1,6 @@
 package org.csc133.a2;
 
+import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.*;
 //import com.codename1.ui.layouts.*;
 //import com.codename1.io.*;
@@ -341,5 +342,20 @@ public class GameWorld {
             gameState.dialogNo(this);
         }
         dialogState = false;
+    }
+
+    public void draw(Graphics context, Point parentOrigin,
+                     Point screenOrigin) {
+
+        context.setColor(ColorUtil.CYAN);
+
+        context.fillArc(0, 100,
+                        100, 100,
+                        0,360);
+
+    }
+
+    public void setWorldDimensions(Dimension worldDimensions){
+        worldDimensions = worldDimensions;
     }
 }
