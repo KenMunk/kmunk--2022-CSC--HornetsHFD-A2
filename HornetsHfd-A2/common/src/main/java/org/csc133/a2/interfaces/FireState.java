@@ -15,4 +15,8 @@ public interface FireState {
         Point containerOrigin
     );
 
+    public void localDraw(Fire fire, Graphics context,
+                          Point parentOrigin,
+                             Point screenOrigin);
+
 }

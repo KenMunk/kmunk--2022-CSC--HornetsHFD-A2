@@ -23,4 +23,12 @@ public class IsNotStarted implements FireState {
     ){
         //Do nothing
     }
+
+
+    @Override
+    public void localDraw(Fire fire, Graphics context,
+                          Point parentOrigin,
+                          Point screenOrigin){
+
+    }
 }

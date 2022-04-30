@@ -347,11 +347,14 @@ public class GameWorld {
     public void draw(Graphics context, Point parentOrigin,
                      Point screenOrigin) {
 
+        /*
         context.setColor(ColorUtil.CYAN);
 
         context.fillArc(0, 100,
                         100, 100,
                         0,360);
+        */
+
 
     }
 

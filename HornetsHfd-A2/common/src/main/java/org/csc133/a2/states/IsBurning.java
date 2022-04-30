@@ -24,4 +24,14 @@ public class IsBurning implements FireState {
         context.drawCharred(gfxContext,containerOrigin);
         context.drawBurns(gfxContext,containerOrigin);
     }
+
+    @Override
+    public void localDraw(Fire fire, Graphics context,
+                          Point parentOrigin,
+                          Point screenOrigin){
+
+        fire.localDrawCharred(context,parentOrigin,screenOrigin);
+        fire.localDrawCharred(context,parentOrigin,screenOrigin);
+
+    }
 }

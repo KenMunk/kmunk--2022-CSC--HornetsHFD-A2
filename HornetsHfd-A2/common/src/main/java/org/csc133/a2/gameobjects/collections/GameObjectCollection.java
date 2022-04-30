@@ -1,7 +1,7 @@
 package org.csc133.a2.gameobjects.collections;
 
-import org.csc133.a2.gameobjects.Fixed.Building;
-import org.csc133.a2.gameobjects.Fixed.Fire;
+import com.codename1.ui.Graphics;
+import com.codename1.ui.geom.Point;
 import org.csc133.a2.gameobjects.GameObject;
 
 import java.util.ArrayList;
@@ -50,6 +50,7 @@ public class GameObjectCollection<T> extends GameObject implements Iterable<T>{
     public Iterator<T> iterator(){
         return new GameObjectIterator();
     }
+
 
 
 }

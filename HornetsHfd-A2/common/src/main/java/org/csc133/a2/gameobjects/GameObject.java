@@ -5,12 +5,18 @@ import com.codename1.ui.Transform;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.ColorInt;
+import org.csc133.a2.gameobjects.collections.ComponentCollection;
 
 public abstract class GameObject {
 
     private Point pos;
     private Dimension dimensions;
     private ColorInt color;
+    private ComponentCollection components;
+
+    public GameObject(){
+        initComponents();
+    }
 
     public Point getPos(){
         return(new Point(pos.getX(),pos.getY()));
@@ -88,13 +94,13 @@ public abstract class GameObject {
         Graphics context,
         Point containerOrigin,
         Point screenOrigin
-    ){}
+    ){localDraw(context, containerOrigin, screenOrigin);}
 
     public void update(){
 
     }
 
-    public void localDra(Graphics context, Point parentOrigin,
+    protected void localDraw(Graphics context, Point parentOrigin,
                          Point screenOrigin){}
 
     protected void localTransforms(Transform transform){
@@ -124,6 +130,14 @@ public abstract class GameObject {
         transform.translate(primitiveDimension.getWidth()/2,
                 primitiveDimension.getHeight()/2);
         context.setTransform(transform);
+    }
+
+    protected void initComponents(){
+        components = new ComponentCollection();
+    }
+
+    protected ComponentCollection getComponents(){
+        return(components);
     }
 
 }

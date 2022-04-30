@@ -21,4 +21,13 @@ public class IsExtinguished implements FireState {
     ){
         context.drawCharred(gfxContext, containerOrigin);
     }
+
+
+    @Override
+    public void localDraw(Fire fire, Graphics context,
+                          Point parentOrigin,
+                          Point screenOrigin){
+        fire.localDrawCharred(context,parentOrigin,screenOrigin);
+
+    }
 }
