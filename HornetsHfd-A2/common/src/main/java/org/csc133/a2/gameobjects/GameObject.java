@@ -9,7 +9,7 @@ import org.csc133.a2.gameobjects.collections.ComponentCollection;
 
 public abstract class GameObject {
 
-    private Point pos;
+    protected Point pos;
     private float rotation;
     private Dimension dimensions;
     private ColorInt color;

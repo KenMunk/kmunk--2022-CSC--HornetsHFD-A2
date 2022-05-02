@@ -3,6 +3,7 @@ package org.csc133.a2.gameobjects.Movables;
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Display;
 import com.codename1.ui.Graphics;
+import com.codename1.ui.Transform;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.gameobjects.Component;
@@ -28,43 +29,130 @@ public class Helicopter extends Movable implements Steerable {
             setColor(color);
         }
 
-        public void drawHelicopterComponent(Graphics context){}
+        public void drawHelicopterComponent(Graphics context,
+                                            Point parentOrigin,
+                                            Point screenOrigin){}
 
         @Override
         protected void localDraw(Graphics context, Point parentOrigin,
                                  Point screenOrigin){
             context.setColor(getColor().getValue());
-            drawHelicopterComponent(context);
+            drawHelicopterComponent(context, parentOrigin, screenOrigin);
         }
     }
 
     private class HelicopterBody extends HelicopterComponent {
 
         ComponentCollection componentSockets;
+        int tailBaseWidth;
 
         public HelicopterBody(int color){
             super(color);
             componentSockets = new ComponentCollection();
-            setDimensions(new Dimension(400,250));
+            setDimensions(new Dimension(250,300));
+            tailBaseWidth = 100;
 
+            HelicopterTail tail = new HelicopterTail(color);
+            tail.setDimensions(new Dimension(tailBaseWidth,
+                    tailBaseWidth*4));
+            tail.setPos(new Point(0,-getDimensions().getHeight()/2));
+
+            HelicopterBubble head = new HelicopterBubble(color);
+            head.setDimensions
+            (
+                new Dimension
+                (
+                    getDimensions().getWidth(),
+                    getDimensions().getWidth()
+                )
+            );
+            head.setPos(new Point(0,getDimensions().getHeight()/2));
+
+
+            componentSockets.add(tail);
+            componentSockets.add(head);
         }
 
         @Override
-        public void drawHelicopterComponent(Graphics context){
+        public void drawHelicopterComponent(Graphics context,
+                                            Point parentOrigin,
+                                            Point screenOrigin){
+            for(Component c : componentSockets){
+                c.draw(context, c.getPos(), screenOrigin);
+            }
+
             context.drawRect(-getDimensions().getWidth()/2,
-                    (getDimensions().getWidth()/2) + 30,
+                    0,
                     getDimensions().getWidth(),
-                    getDimensions().getHeight(), 3 );
+                    getDimensions().getHeight()/2, 3 );
+            context.drawLine(0,-getDimensions().getHeight()/2,0,
+                    getDimensions().getHeight()/2);
+            context.drawLine(-getDimensions().getWidth()/2, 0,
+                    -tailBaseWidth/2,-getDimensions().getHeight()/2);
+            context.drawLine(getDimensions().getWidth()/2, 0,
+                    tailBaseWidth/2,-getDimensions().getHeight()/2);
+            context.drawLine(-tailBaseWidth/2,
+                    -getDimensions().getHeight()/2,tailBaseWidth/2,
+                    -getDimensions().getHeight()/2);
         }
 
     }
 
-    private abstract class componentSocket extends Component{
+    private class HelicopterTail extends HelicopterComponent{
+        public HelicopterTail(int color){
+            super(color);
+            setDimensions(new Dimension(250,400));
 
+        }
 
         @Override
-        protected void localDraw(Graphics context, Point parentOrigin,
-                                 Point screenOrigin){
+        public void drawHelicopterComponent(Graphics context,
+                                            Point parentOrigin,
+                                            Point screenOrigin){
+            int halfWidth = getDimensions().getWidth()/2;
+            int halfEndWidth = halfWidth/3;
+            int height = -getDimensions().getHeight();
+
+            context.drawLine(-halfWidth,0,-halfEndWidth,
+                    height);
+            context.drawLine(halfWidth,0,halfEndWidth,
+                    height);
+            context.drawLine(0,0,0,height);
+            context.drawLine(-halfEndWidth,height,halfEndWidth,height);
+
+        }
+    }
+
+    private class HelicopterBubble extends HelicopterComponent{
+        public HelicopterBubble(int color){
+            super(color);
+            setDimensions(new Dimension(250,125));
+        }
+
+        @Override
+        public void drawHelicopterComponent(Graphics context,
+                                            Point parentOrigin,
+                                            Point screenOrigin){
+            context.drawLine(0,0,
+                    0,getDimensions().getWidth()/2);
+            cn1ForwardPrimitiveTranslate(context,getDimensions());
+
+            //Since the bubble arc was flipped, I'm going to
+            //flip the bubble only
+
+            Transform transform = Transform.makeIdentity();
+            context.getTransform(transform);
+            transform.translate(0,getDimensions().getWidth()*1.42f);
+            transform.scale(1,-1);
+            context.setTransform(transform);
+            context.drawArc(0,0,
+                    getDimensions().getWidth(),
+                    getDimensions().getWidth(),0,180);
+            transform.scale(1,-1);
+            transform.translate(0,-getDimensions().getWidth()*1.42f);
+            context.setTransform(transform);
+
+            cn1ReversePrimitiveTranslate(context,getDimensions());
 
         }
     }
