@@ -2,9 +2,10 @@ package org.csc133.a2.gameobjects.Movables;
 
 import com.codename1.ui.geom.Point;
 import com.codename1.util.MathUtil;
+import org.csc133.a2.gameobjects.ComponentNode;
 import org.csc133.a2.gameobjects.GameObject;
 
-public abstract class Movable extends GameObject{
+public abstract class Movable extends ComponentNode {
 
     private double heading;
     private double speed;

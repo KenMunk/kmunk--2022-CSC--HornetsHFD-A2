@@ -31,7 +31,7 @@ public class IsBurning implements FireState {
                           Point screenOrigin){
 
         fire.localDrawCharred(context,parentOrigin,screenOrigin);
-        fire.localDrawCharred(context,parentOrigin,screenOrigin);
+        fire.localDrawBurns(context,parentOrigin,screenOrigin);
 
     }
 }

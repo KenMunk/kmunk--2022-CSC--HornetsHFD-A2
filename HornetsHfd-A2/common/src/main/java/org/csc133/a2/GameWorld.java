@@ -15,6 +15,7 @@ import com.codename1.util.MathUtil;
 
 import org.csc133.a2.gameobjects.*;
 import org.csc133.a2.gameobjects.Fixed.Building;
+import org.csc133.a2.gameobjects.Fixed.Fire;
 import org.csc133.a2.gameobjects.Fixed.Helipad;
 import org.csc133.a2.gameobjects.Fixed.River;
 import org.csc133.a2.gameobjects.Movables.Helicopter;
@@ -50,6 +51,7 @@ public class GameWorld {
         int maxX = thisDisplay.getDisplayWidth();
         int maxY = thisDisplay.getDisplayHeight();
 
+        /*
 
         Helipad helipad = new Helipad
         (
@@ -62,7 +64,7 @@ public class GameWorld {
 
         Helicopter player = new Helicopter(helipad);
 
-        River aRiver = new River(new Point(-50,300));
+        River aRiver = new River(new Point(maxX-400,300));
 
         gameObjects.add(aRiver);
         gameObjects.add(helipad);
@@ -89,20 +91,30 @@ public class GameWorld {
         (
             new Building
             (
-                new Point(maxX/3, maxY/30),
+                new Point(2*maxX/3, maxY/30),
                 new Dimension(maxX/3, maxY/8)
             )
         );
 
+        */
+
         FireCollection allFires = new FireCollection();
+
+
+        Fire testFire = new Fire();
+        testFire.setPos(new Point(600,200));
+        testFire.start();
+        allFires.add(testFire);
 
         gameObjects.add(allFires);
 
-        ingniteAllBuildings();
+        //ingniteAllBuildings();
+
 
         //Player will be singleton going forward
         //gameObjects.add(player);
-        gameState = new GamePlaying();
+        //gameState = new GamePlaying();
+        gameState = new GameTest();
         dialogState = false;
         //*/
 
@@ -354,6 +366,10 @@ public class GameWorld {
                         100, 100,
                         0,360);
         */
+
+        for(GameObject go : gameObjects){
+            go.draw(context, parentOrigin, screenOrigin);
+        }
 
 
     }

@@ -20,7 +20,7 @@ public class Fire extends Fixed{
         int radius;
 
         public Bubble(){
-            radius = 0;
+            radius = 2;
             //translate()
         }
 
@@ -36,12 +36,16 @@ public class Fire extends Fixed{
             setDimensions(new Dimension(radius, radius));
             context.setColor(getColor().getValue());
 
-            containerTranslate(context, parentOrigin);
             cn1ForwardPrimitiveTranslate(context, getDimensions());
+            if(radius > 1){
 
-            context.fillArc(0,0,
-            getDimensions().getWidth(), getDimensions().getHeight(),
-            0,360);
+                System.out.println("Drawing burn");
+                context.fillArc(0,0,
+                        getDimensions().getWidth(), getDimensions().getHeight(),
+                        0,360);
+            }
+
+            cn1ReversePrimitiveTranslate(context, getDimensions());
         }
 
     }
@@ -49,7 +53,7 @@ public class Fire extends Fixed{
     private class BurnBubble extends Bubble {
         public BurnBubble(){
             super();
-            setColor(ColorUtil.BLACK);
+            setColor(ColorUtil.GRAY);
         }
     }
 
@@ -78,6 +82,7 @@ public class Fire extends Fixed{
         initComponents();
         getComponents().add(new BurnBubble());
         getComponents().add(new FireBubble());
+        System.out.println("Fire components count = "+getComponents().size());
     }
 
     public void update(){
@@ -213,6 +218,12 @@ public class Fire extends Fixed{
                                  Point screenOrigin){
 
         int peakRadiusInt = this.peakRadius();
+        for(Component c : getComponents()){
+            if(c instanceof BurnBubble){
+                ((BurnBubble)c).setRadius(peakRadiusInt);
+                c.draw(context,getPos(),screenOrigin);
+            }
+        }
 
     }
 
@@ -248,7 +259,12 @@ public class Fire extends Fixed{
                                Point screenOrigin){
 
         int radiusInt = this.radius();
-        String radiusString = "" + this.size;
+        for(Component c : getComponents()){
+            if(c instanceof FireBubble){
+                ((FireBubble)c).setRadius(radiusInt);
+                c.draw(context,getPos(),screenOrigin);
+            }
+        }
 
     }
 

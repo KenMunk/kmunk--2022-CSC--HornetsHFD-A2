@@ -2,13 +2,14 @@ package org.csc133.a2.gameobjects.collections;
 
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
+import org.csc133.a2.gameobjects.Component;
 import org.csc133.a2.gameobjects.GameObject;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class GameObjectCollection<T> extends GameObject implements Iterable<T>{
+public class GameObjectCollection<T extends GameObject> extends GameObject implements Iterable<T>{
 
     ArrayList<T> gameObjects;
 
@@ -51,6 +52,26 @@ public class GameObjectCollection<T> extends GameObject implements Iterable<T>{
         return new GameObjectIterator();
     }
 
+
+
+    @Override
+    public void draw(Graphics context, Point parentOrigin,
+                     Point screenOrigin){
+        localDraw(context, parentOrigin,screenOrigin);
+
+    }
+
+    @Override
+    protected void localDraw(Graphics context, Point parentOrigin,
+                             Point screenOrigin){
+        if(size() > 0){
+
+            for(T object: gameObjects) {
+                object.draw(context, parentOrigin, screenOrigin);
+                //System.out.println("Attempting to draw");
+            }
+        }
+    }
 
 
 }

@@ -11,13 +11,5 @@ public class ComponentCollection extends GameObjectCollection<Component> {
         setPos(new Point(0,0));
     }
 
-    @Override
-    protected void localDraw(Graphics context, Point parentOrigin,
-                             Point screenOrigin){
-        for(Component aComponent: gameObjects){
-            localDraw(context, parentOrigin, screenOrigin);
-        }
-    }
-
 
 }

@@ -35,6 +35,7 @@ public class MapView extends Container {
     @Override
     public void paint(Graphics context){
         super.paint(context);
+        context.resetAffine();
 
         Point parentOrigin = new Point
         (

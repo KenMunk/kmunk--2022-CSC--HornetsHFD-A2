@@ -10,15 +10,14 @@ import org.csc133.a2.gameobjects.collections.ComponentCollection;
 public abstract class GameObject {
 
     private Point pos;
+    private float rotation;
     private Dimension dimensions;
     private ColorInt color;
-    private ComponentCollection components;
-
-    public GameObject(){
-        initComponents();
-    }
 
     public Point getPos(){
+        if(pos == null){
+            pos = new Point(0, 0);
+        }
         return(new Point(pos.getX(),pos.getY()));
     }
 
@@ -40,6 +39,10 @@ public abstract class GameObject {
     }
 
     public Dimension getDimensions(){
+        //[TODO] readdress the null dimension issue
+        if(dimensions == null){
+            dimensions = new Dimension(0,0);
+        }
         return(dimensions);
     }
 
@@ -94,7 +97,25 @@ public abstract class GameObject {
         Graphics context,
         Point containerOrigin,
         Point screenOrigin
-    ){localDraw(context, containerOrigin, screenOrigin);}
+    ){
+        //*
+        containerTranslate(context, containerOrigin);
+
+        Transform transform = Transform.makeIdentity();
+        context.getTransform(transform);
+
+        //local transforms
+        rotateTransform(transform);
+        localDraw(context, getPos(), screenOrigin);
+        undoRotateTransform(transform);
+
+
+        //undo the local transforms
+
+        undoContainerTranslate(context, containerOrigin);
+
+         //*/
+    }
 
     public void update(){
 
@@ -104,6 +125,31 @@ public abstract class GameObject {
                          Point screenOrigin){}
 
     protected void localTransforms(Transform transform){
+
+    }
+
+    protected void undoLocalTransforms(Transform transform){
+
+    }
+
+    public void setRotation(float nextRotation){
+        rotation = nextRotation;
+    }
+
+    public float getRotation(){
+        return(rotation);
+    }
+
+    public void incrementRotation(float rotationAdjustment){
+        rotation += rotationAdjustment;
+    }
+
+    protected void rotateTransform(Transform transform){
+        transform.rotate(rotation, 0, 0);
+    }
+
+    protected void undoRotateTransform(Transform transform){
+        transform.rotate(-rotation, 0,0);
     }
 
     protected void containerTranslate(Graphics context,
@@ -111,6 +157,14 @@ public abstract class GameObject {
         Transform transform = Transform.makeIdentity();
         context.getTransform(transform);
         transform.translate(parentOrigin.getX(), parentOrigin.getY());
+        context.setTransform(transform);
+    }
+
+    protected void undoContainerTranslate(Graphics context,
+                                          Point parentOrigin){
+        Transform transform = Transform.makeIdentity();
+        context.getTransform(transform);
+        transform.translate(-parentOrigin.getX(), -parentOrigin.getY());
         context.setTransform(transform);
     }
 
@@ -132,12 +186,6 @@ public abstract class GameObject {
         context.setTransform(transform);
     }
 
-    protected void initComponents(){
-        components = new ComponentCollection();
-    }
 
-    protected ComponentCollection getComponents(){
-        return(components);
-    }
 
 }
