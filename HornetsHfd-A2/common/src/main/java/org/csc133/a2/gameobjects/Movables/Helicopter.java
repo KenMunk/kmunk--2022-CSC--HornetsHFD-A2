@@ -157,6 +157,35 @@ public class Helicopter extends Movable implements Steerable {
         }
     }
 
+    private class HelicopterSkid extends HelicopterComponent{
+
+        int isLeft;
+
+        public HelicopterSkid(int color){
+            super(color);
+            isLeft = 1;
+
+        }
+
+        public void rightSide(){
+            isLeft = -1;
+        }
+
+        public void leftSide(){
+            isLeft = 1;
+        }
+
+        public void referenceBody(Dimension bodyDimensions){
+            Dimension skidDimensions = new Dimension();
+            skidDimensions.setHeight(5*bodyDimensions.getHeight()/3);
+            skidDimensions.setWidth(bodyDimensions.getWidth()/4);
+            setDimensions(skidDimensions);
+        }
+
+
+
+    }
+
     private final int MAX_FUEL = 25000;
     private final int MAX_SPEED = 10;
     private final int MAX_WATER = 1000;
