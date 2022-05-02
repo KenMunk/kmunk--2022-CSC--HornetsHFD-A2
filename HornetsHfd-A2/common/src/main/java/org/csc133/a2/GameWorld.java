@@ -103,28 +103,12 @@ public class GameWorld {
 
         FireCollection allFires = new FireCollection();
 
-
-        Fire testFire = new Fire();
-        testFire.setPos(new Point(600,200));
-        testFire.start();
-        allFires.add(testFire);
-
         gameObjects.add(allFires);
 
-        for(int p = 0; p<5; p++){
-            Path testPath = new Path(new Point(0,0));
-            for(int i = 0; i<50; i++){
-                Path nextPoint =
-                        new Path(new Point(new Random().nextInt(100),
-                                new Random().nextInt(100)-30));
-                Path oldPath = testPath;
-                nextPoint.add(oldPath);
-                testPath = nextPoint;
+        Helicopter testChopper = new Helicopter(new Point(maxX/2,
+                maxY/2));
 
-            }
-
-            gameObjects.add(testPath);
-        }
+        gameObjects.add(testChopper);
 
         //ingniteAllBuildings();
 

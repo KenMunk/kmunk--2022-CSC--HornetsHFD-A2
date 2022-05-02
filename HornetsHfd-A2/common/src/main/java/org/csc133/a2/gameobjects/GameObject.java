@@ -106,8 +106,10 @@ public abstract class GameObject {
 
         //local transforms
         rotateTransform(transform);
+        context.setTransform(transform);
         localDraw(context, getPos(), screenOrigin);
         undoRotateTransform(transform);
+        context.setTransform(transform);
 
 
         //undo the local transforms

@@ -3,12 +3,14 @@ package org.csc133.a2.gameobjects.Movables;
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Display;
 import com.codename1.ui.Graphics;
+import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
-import com.codename1.util.MathUtil;
+import org.csc133.a2.gameobjects.Component;
 import org.csc133.a2.gameobjects.Fixed.Fire;
 import org.csc133.a2.gameobjects.GameObject;
 import org.csc133.a2.gameobjects.Fixed.Helipad;
 import org.csc133.a2.gameobjects.Fixed.River;
+import org.csc133.a2.gameobjects.collections.ComponentCollection;
 import org.csc133.a2.interfaces.HelicopterIntakeState;
 import org.csc133.a2.interfaces.Steerable;
 import org.csc133.a2.states.IntakeCanDrink;
@@ -19,6 +21,54 @@ import java.util.ArrayList;
 
 public class Helicopter extends Movable implements Steerable {
 
+    private class HelicopterComponent extends Component{
+
+        public HelicopterComponent(int color){
+            setPos(new Point(0,0));
+            setColor(color);
+        }
+
+        public void drawHelicopterComponent(Graphics context){}
+
+        @Override
+        protected void localDraw(Graphics context, Point parentOrigin,
+                                 Point screenOrigin){
+            context.setColor(getColor().getValue());
+            drawHelicopterComponent(context);
+        }
+    }
+
+    private class HelicopterBody extends HelicopterComponent {
+
+        ComponentCollection componentSockets;
+
+        public HelicopterBody(int color){
+            super(color);
+            componentSockets = new ComponentCollection();
+            setDimensions(new Dimension(400,250));
+
+        }
+
+        @Override
+        public void drawHelicopterComponent(Graphics context){
+            context.drawRect(-getDimensions().getWidth()/2,
+                    (getDimensions().getWidth()/2) + 30,
+                    getDimensions().getWidth(),
+                    getDimensions().getHeight(), 3 );
+        }
+
+    }
+
+    private abstract class componentSocket extends Component{
+
+
+        @Override
+        protected void localDraw(Graphics context, Point parentOrigin,
+                                 Point screenOrigin){
+
+        }
+    }
+
     private final int MAX_FUEL = 25000;
     private final int MAX_SPEED = 10;
     private final int MAX_WATER = 1000;
@@ -28,19 +78,33 @@ public class Helicopter extends Movable implements Steerable {
 
     private HelicopterIntakeState waterIntakeState;
 
+    private ComponentCollection helicopterComponents;
+
+    public Helicopter(Point initialPos){
+        init(initialPos);
+    }
+
     public Helicopter(Helipad helipad){
+
+        init(helipad.getPos());
+
+    }
+
+    public void init(Point initialPos){
 
         this.waterLevel = this.MAX_WATER;
         this.fuelLevel = this.MAX_FUEL;
 
-        this.setPos( helipad.getPos());
+        this.setPos(initialPos);
 
         this.setHeading(0);
         this.setSpeed(0);
         setColor(ColorUtil.YELLOW);
 
-        waterIntakeState = new IntakeCannotDrink();
+        helicopterComponents = new ComponentCollection();
+        helicopterComponents.add(new HelicopterBody(ColorUtil.MAGENTA));
 
+        waterIntakeState = new IntakeCannotDrink();
     }
 
     private void attackFires(ArrayList<GameObject> aBunchOfFires){
@@ -149,6 +213,14 @@ public class Helicopter extends Movable implements Steerable {
                 offsetPoint.getX(),
                 offsetPoint.getY() +130
         );
+    }
+
+    @Override
+    protected void localDraw(Graphics context, Point parentOrigin,
+                             Point screenOrigin){
+        for(Component c: helicopterComponents){
+            c.draw(context,parentOrigin,screenOrigin);
+        }
     }
 
     @Override
