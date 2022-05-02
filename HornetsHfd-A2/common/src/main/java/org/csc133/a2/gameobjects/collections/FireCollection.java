@@ -96,5 +96,4 @@ public class FireCollection extends GameObjectCollection<Fire>{
         }
     }
 
-
 }

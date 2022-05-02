@@ -22,8 +22,11 @@ import org.csc133.a2.gameobjects.Movables.Helicopter;
 import org.csc133.a2.gameobjects.collections.FireCollection;
 import org.csc133.a2.gameobjects.collections.GameObjectCollection;
 import org.csc133.a2.gameobjects.collections.WorldObjectCollection;
+import org.csc133.a2.gameobjects.path.Path;
 import org.csc133.a2.interfaces.GameState;
 import org.csc133.a2.states.*;
+
+import java.util.Random;
 
 //using singleton design
 
@@ -107,6 +110,21 @@ public class GameWorld {
         allFires.add(testFire);
 
         gameObjects.add(allFires);
+
+        for(int p = 0; p<5; p++){
+            Path testPath = new Path(new Point(0,0));
+            for(int i = 0; i<50; i++){
+                Path nextPoint =
+                        new Path(new Point(new Random().nextInt(100),
+                                new Random().nextInt(100)-30));
+                Path oldPath = testPath;
+                nextPoint.add(oldPath);
+                testPath = nextPoint;
+
+            }
+
+            gameObjects.add(testPath);
+        }
 
         //ingniteAllBuildings();
 

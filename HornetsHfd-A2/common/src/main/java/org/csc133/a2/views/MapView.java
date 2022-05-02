@@ -23,10 +23,24 @@ public class MapView extends Container {
     public void displayTransform(Graphics context){
         Transform transform = Transform.makeIdentity();
         context.getTransform(transform);
+
+        Display currentDisplay = Display.getInstance();
+        int maxHeight = currentDisplay.getDisplayHeight();
+        int maxWidth = currentDisplay.getDisplayWidth();
+
+        float widthScale = getWidth()/((float)maxWidth);
+        float heightScale = getHeight()/((float)maxHeight);
+
         transform.translate(getAbsoluteX(), getAbsoluteY());
 
-        transform.translate(0,getHeight()-30);
-        transform.scale(1,-1f);
+        transform.translate(0,getHeight());
+
+        if(widthScale<=heightScale){
+            transform.scale(widthScale,-widthScale);
+        }
+        else{
+            transform.scale(heightScale,-heightScale);
+        }
 
         transform.translate(-getAbsoluteX(),-getAbsoluteY());
         context.setTransform(transform);

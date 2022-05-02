@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="992a1474-dcbe-4c7c-8ffe-80e7d6039e27" name="Changes" comment="local draw being implemented at the gameobject level to support component collections">
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/ComponentNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GameTest.java" afterDir="false" />
+    <list default="true" id="992a1474-dcbe-4c7c-8ffe-80e7d6039e27" name="Changes" comment="local coordinate system seems to be working&#10;implemented per-gameobject transforms and passthrough-transforms for collections&#10;component class objects render now">
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/path/Path.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/ComponentNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/ComponentNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/Fire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/Fixed.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/Fixed.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Movable.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Movable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/ComponentCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/ComponentCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/GameObjectCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/GameObjectCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/IsBurning.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/IsBurning.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/FireCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/FireCollection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/MapView.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/MapView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -1135,7 +1131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651300669309</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="local coordinate system seems to be working&#10;implemented per-gameobject transforms and passthrough-transforms for collections&#10;component class objects render now">
+      <created>1651459178797</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1651459178797</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1153,7 +1156,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed position rendering of helicopter and helipad&#10;&#10;Added helicopter water intake states but have yet to complete implementation&#10;&#10;Implemented helicopter stat readouts&#10;&#10;bug found (buttons are mapped to the arrow keys causing flashing)" />
     <MESSAGE value="Inplemented game states&#10;Implemented game loss state&#10;Implemented game loss condition&#10;Implemented building spark system&#10;Fixed the fire size and damage units&#10;Fixed building size arithmetic" />
     <MESSAGE value="Introducing helicopter control implementations&#10;&#10;Todo -- drink implementation&#10;     -- movement update implementation" />
     <MESSAGE value="Introducing helicopter movement&#10;&#10;TODO -- movement update implementation" />
@@ -1178,6 +1180,7 @@
     <MESSAGE value="Added a building burn state to facilitate the whole process of controlling where and when fires will spark.&#10;&#10;Moved most of the fire spreading mechanics to the building collection" />
     <MESSAGE value="Work on transforms started" />
     <MESSAGE value="local draw being implemented at the gameobject level to support component collections" />
-    <option name="LAST_COMMIT_MESSAGE" value="local draw being implemented at the gameobject level to support component collections" />
+    <MESSAGE value="local coordinate system seems to be working&#10;implemented per-gameobject transforms and passthrough-transforms for collections&#10;component class objects render now" />
+    <option name="LAST_COMMIT_MESSAGE" value="local coordinate system seems to be working&#10;implemented per-gameobject transforms and passthrough-transforms for collections&#10;component class objects render now" />
   </component>
 </project>

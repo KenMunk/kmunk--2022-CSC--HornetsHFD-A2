@@ -95,11 +95,11 @@ public abstract class GameObject {
     public void draw
     (
         Graphics context,
-        Point containerOrigin,
+        Point parentOrigin,
         Point screenOrigin
     ){
         //*
-        containerTranslate(context, containerOrigin);
+        containerTranslate(context, parentOrigin);
 
         Transform transform = Transform.makeIdentity();
         context.getTransform(transform);
@@ -112,7 +112,7 @@ public abstract class GameObject {
 
         //undo the local transforms
 
-        undoContainerTranslate(context, containerOrigin);
+        undoContainerTranslate(context, parentOrigin);
 
          //*/
     }

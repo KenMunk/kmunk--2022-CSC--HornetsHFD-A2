@@ -39,7 +39,7 @@ public class Fire extends Fixed{
             cn1ForwardPrimitiveTranslate(context, getDimensions());
             if(radius > 1){
 
-                System.out.println("Drawing burn");
+                //System.out.println("Drawing burn");
                 context.fillArc(0,0,
                         getDimensions().getWidth(), getDimensions().getHeight(),
                         0,360);

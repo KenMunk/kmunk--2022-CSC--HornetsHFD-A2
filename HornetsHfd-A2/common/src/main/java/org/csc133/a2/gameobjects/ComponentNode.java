@@ -24,11 +24,11 @@ public class ComponentNode extends GameObject{
     public void draw
             (
                     Graphics context,
-                    Point containerOrigin,
+                    Point parentOrigin,
                     Point screenOrigin
             ){
         //*
-        containerTranslate(context, containerOrigin);
+        containerTranslate(context, parentOrigin);
 
         Transform transform = Transform.makeIdentity();
         context.getTransform(transform);
@@ -36,11 +36,11 @@ public class ComponentNode extends GameObject{
         //local transforms
 
         getComponents().draw(context,getPos(), screenOrigin);
-        localDraw(context, containerOrigin, screenOrigin);
+        localDraw(context, parentOrigin, screenOrigin);
 
         //undo the local transforms
 
-        undoContainerTranslate(context, containerOrigin);
+        undoContainerTranslate(context, parentOrigin);
 
         //*/
     }
