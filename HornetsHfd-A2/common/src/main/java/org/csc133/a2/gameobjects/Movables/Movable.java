@@ -2,8 +2,7 @@ package org.csc133.a2.gameobjects.Movables;
 
 import com.codename1.ui.geom.Point;
 import com.codename1.util.MathUtil;
-import org.csc133.a2.gameobjects.ComponentNode;
-import org.csc133.a2.gameobjects.GameObject;
+import org.csc133.a2.gameobjects.Components.ComponentNode;
 
 public abstract class Movable extends ComponentNode {
 

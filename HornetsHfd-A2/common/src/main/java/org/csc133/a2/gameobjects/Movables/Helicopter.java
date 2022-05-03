@@ -6,7 +6,7 @@ import com.codename1.ui.Graphics;
 import com.codename1.ui.Transform;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
-import org.csc133.a2.gameobjects.Component;
+import org.csc133.a2.gameobjects.Components.Component;
 import org.csc133.a2.gameobjects.Fixed.Fire;
 import org.csc133.a2.gameobjects.GameObject;
 import org.csc133.a2.gameobjects.Fixed.Helipad;
@@ -18,7 +18,6 @@ import org.csc133.a2.states.IntakeCanDrink;
 import org.csc133.a2.states.IntakeCannotDrink;
 import org.csc133.a2.states.IntakeIsDry;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 public class Helicopter extends Movable implements Steerable {
@@ -358,8 +357,8 @@ public class Helicopter extends Movable implements Steerable {
 
         public HelicopterRotorBlur(int color){
             super(color);
-            rotorSpeed = 1.5f;
-            maxSpeed = 1.5f;
+            rotorSpeed = 0;
+            maxSpeed = 1.1f;
             setRotation(45);
         }
     }

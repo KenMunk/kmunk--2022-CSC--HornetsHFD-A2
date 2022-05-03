@@ -4,10 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="starting work on the skids&#10;moving forward, I need to build out the skid primitives and complete the position offset system">
+    <list default="true" id="992a1474-dcbe-4c7c-8ffe-80e7d6039e27" name="Changes" comment="Helicopter body renders at location... but more work is needed to finish out the build">
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Components/BoxOutline.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Components/ColoredComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Components/ShapePrimitive.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Components/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/ComponentNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Components/ComponentNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/Fire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/Fixed.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/Fixed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/River.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Helicopter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Helicopter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Movable.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Movable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/ComponentCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/ComponentCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/GameObjectCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/GameObjectCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/MapView.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/MapView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +94,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.14306152" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -803,7 +816,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="" />
+      <changelist id="992a1474-dcbe-4c7c-8ffe-80e7d6039e27" name="Changes" comment="Work on transforms started" />
       <created>1613589489573</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -1112,21 +1125,35 @@
       <option name="project" value="LOCAL" />
       <updated>1651124043188</updated>
     </task>
-    <task id="LOCAL-00044" summary="Helicopter Body tail and bubble built">
-      <created>1651528566542</created>
+    <task id="LOCAL-00044" summary="Work on transforms started">
+      <created>1651198607447</created>
       <option name="number" value="00044" />
       <option name="presentableId" value="LOCAL-00044" />
       <option name="project" value="LOCAL" />
-      <updated>1651528566542</updated>
+      <updated>1651198607447</updated>
     </task>
-    <task id="LOCAL-00045" summary="starting work on the skids&#10;moving forward, I need to build out the skid primitives and complete the position offset system">
-      <created>1651530695298</created>
+    <task id="LOCAL-00045" summary="local draw being implemented at the gameobject level to support component collections">
+      <created>1651300669309</created>
       <option name="number" value="00045" />
       <option name="presentableId" value="LOCAL-00045" />
       <option name="project" value="LOCAL" />
-      <updated>1651530695298</updated>
+      <updated>1651300669309</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="local coordinate system seems to be working&#10;implemented per-gameobject transforms and passthrough-transforms for collections&#10;component class objects render now">
+      <created>1651459178797</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1651459178797</updated>
+    </task>
+    <task id="LOCAL-00047" summary="transform based drawing tuned&#10;Ground work for the helicopter path system prepared&#10;test paths were used here to check if everything lines up as expected">
+      <created>1651468831982</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1651468831982</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1137,27 +1164,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="A3" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed position rendering of helicopter and helipad&#10;&#10;Added helicopter water intake states but have yet to complete implementation&#10;&#10;Implemented helicopter stat readouts&#10;&#10;bug found (buttons are mapped to the arrow keys causing flashing)" />
-    <MESSAGE value="Inplemented game states&#10;Implemented game loss state&#10;Implemented game loss condition&#10;Implemented building spark system&#10;Fixed the fire size and damage units&#10;Fixed building size arithmetic" />
     <MESSAGE value="Introducing helicopter control implementations&#10;&#10;Todo -- drink implementation&#10;     -- movement update implementation" />
     <MESSAGE value="Introducing helicopter movement&#10;&#10;TODO -- movement update implementation" />
     <MESSAGE value="Introducing helicopter movement&#10;&#10;TODO -- movement update implementation&#10;&#10;Cleared out issues with flicker" />
@@ -1179,8 +1192,10 @@
     <MESSAGE value="Still alot of refactoring needed for existing code." />
     <MESSAGE value="Initial building ignition added back in. [success]&#10;Loss updates added back in. [success]&#10;Fire state updates added back in.&#10;[success]&#10;[TODO] incorporate a building state system to automate the ignition and fire-spread process" />
     <MESSAGE value="Added a building burn state to facilitate the whole process of controlling where and when fires will spark.&#10;&#10;Moved most of the fire spreading mechanics to the building collection" />
-    <MESSAGE value="Helicopter Body tail and bubble built" />
-    <MESSAGE value="starting work on the skids&#10;moving forward, I need to build out the skid primitives and complete the position offset system" />
-    <option name="LAST_COMMIT_MESSAGE" value="starting work on the skids&#10;moving forward, I need to build out the skid primitives and complete the position offset system" />
+    <MESSAGE value="Work on transforms started" />
+    <MESSAGE value="local draw being implemented at the gameobject level to support component collections" />
+    <MESSAGE value="local coordinate system seems to be working&#10;implemented per-gameobject transforms and passthrough-transforms for collections&#10;component class objects render now" />
+    <MESSAGE value="transform based drawing tuned&#10;Ground work for the helicopter path system prepared&#10;test paths were used here to check if everything lines up as expected" />
+    <option name="LAST_COMMIT_MESSAGE" value="transform based drawing tuned&#10;Ground work for the helicopter path system prepared&#10;test paths were used here to check if everything lines up as expected" />
   </component>
 </project>

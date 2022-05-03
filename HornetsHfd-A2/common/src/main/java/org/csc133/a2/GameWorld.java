@@ -50,9 +50,8 @@ public class GameWorld {
 
         gameObjects = new WorldObjectCollection();
 
-        Display thisDisplay = Display.getInstance();
-        int maxX = thisDisplay.getDisplayWidth();
-        int maxY = thisDisplay.getDisplayHeight();
+        int maxX = 1920;
+        int maxY = 1440;
 
         /*
 

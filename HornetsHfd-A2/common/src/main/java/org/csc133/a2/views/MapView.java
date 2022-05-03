@@ -13,6 +13,7 @@ public class MapView extends Container {
 
     private GameWorld gameWorld;
     private ViewOffsets viewOffsets;
+    Point offsetOrigin;
 
     public MapView(GameWorld referenceOfGameWorld,
                    ViewOffsets viewOffsets){
@@ -25,24 +26,34 @@ public class MapView extends Container {
         context.getTransform(transform);
 
         Display currentDisplay = Display.getInstance();
-        int maxHeight = currentDisplay.getDisplayHeight();
-        int maxWidth = currentDisplay.getDisplayWidth();
+        float maxHeight = 1440;
+        float maxWidth = 1920;
 
-        float widthScale = getWidth()/((float)maxWidth);
-        float heightScale = getHeight()/((float)maxHeight);
+        float widthScale = getWidth()/(maxWidth);
+        float heightScale =
+                (getHeight()-viewOffsets.getTotalOffset())/(maxHeight);
 
-        transform.translate(getAbsoluteX(), getAbsoluteY());
-
-        transform.translate(0,getHeight());
+        float scaleFactor = 1;
 
         if(widthScale<=heightScale){
-            transform.scale(widthScale,-widthScale);
+            scaleFactor = widthScale;
         }
         else{
-            transform.scale(heightScale,-heightScale);
+            scaleFactor = heightScale;
         }
 
-        transform.translate(-getAbsoluteX(),-getAbsoluteY());
+        float offsetWidth = (getWidth() - (scaleFactor*maxWidth))/2;
+        float offsetHeight =
+                ((getHeight()-viewOffsets.getTotalOffset()) -
+                        (scaleFactor*maxHeight))/2;
+
+        offsetOrigin = new Point((int)offsetWidth,(int)offsetHeight);
+
+        transform.translate(getAbsoluteX(), getAbsoluteY());
+        transform.translate(0,getHeight());
+        transform.translate(offsetWidth,offsetHeight+45);
+        transform.scale(scaleFactor,-scaleFactor);
+        //transform.translate(-getAbsoluteX(),-getAbsoluteY());
         context.setTransform(transform);
     }
 
@@ -51,23 +62,7 @@ public class MapView extends Container {
         super.paint(context);
         context.resetAffine();
 
-        Point parentOrigin = new Point
-        (
-            this.getX(),
-            this.getY()
-        );
-        Point screenOrigin = new Point
-        (
-            getAbsoluteX(),
-            getAbsoluteY()
-        );
-
-        Display referenceDisplay = Display.getInstance();
-
-        int screenWidth = referenceDisplay.getDisplayWidth();
-        int screenHeight = referenceDisplay.getDisplayHeight();
-
-        context.setColor(ColorUtil.BLACK);
+        context.setColor(ColorUtil.GRAY);
 
         context.fillRect
         (
@@ -76,10 +71,33 @@ public class MapView extends Container {
             getWidth(),
             getHeight()+60
         );
+        //*/
 
         displayTransform(context);
 
+        int screenWidth = 1920;
+        int screenHeight = 1440;
 
+        context.setColor(ColorUtil.rgb(20,10,5));
+
+        context.fillRect
+        (
+            0,
+            0,
+            screenWidth,
+            screenHeight
+        );
+
+        Point parentOrigin = new Point
+                (
+                        this.getX(),
+                        this.getY()
+                );
+        Point screenOrigin = new Point
+                (
+                        getAbsoluteX(),
+                        getAbsoluteY()
+                );
 
         //[TODO] change the rendering paradigm
 

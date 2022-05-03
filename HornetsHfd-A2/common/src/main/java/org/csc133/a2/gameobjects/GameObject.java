@@ -1,5 +1,6 @@
 package org.csc133.a2.gameobjects;
 
+import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.Transform;
 import com.codename1.ui.geom.Dimension;
@@ -103,6 +104,10 @@ public abstract class GameObject {
         //local transforms
         containerTranslate(context, parentOrigin);
         rotateTransform(context);
+
+        if(color != null){
+            context.setColor(getColor().getValue());
+        }
 
         localDraw(context, getPos(), screenOrigin);
 

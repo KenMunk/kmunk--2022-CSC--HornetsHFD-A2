@@ -2,12 +2,10 @@ package org.csc133.a2.gameobjects.collections;
 
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
-import org.csc133.a2.gameobjects.Component;
 import org.csc133.a2.gameobjects.GameObject;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class GameObjectCollection<T extends GameObject> extends GameObject implements Iterable<T>{
 

@@ -22,8 +22,7 @@ public class River extends Fixed{
     }
 
     private void updateWidth(){
-        Display thisDisplay = Display.getInstance();
-        int displayHeight = thisDisplay.getDisplayHeight();
+        int displayHeight = 1440;
 
         int tempWidth = (displayHeight/10);
         this.width = tempWidth;
@@ -53,6 +52,12 @@ public class River extends Fixed{
                 20);
 
 
+
+    }
+
+    @Override
+    public void localDraw(Graphics context, Point parentOrigin,
+                          Point screenOrigin){
 
     }
 
