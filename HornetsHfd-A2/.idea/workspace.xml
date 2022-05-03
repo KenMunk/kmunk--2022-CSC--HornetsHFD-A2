@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="Helicopter Body tail and bubble built">
+    <list default="true" id="336d32c5-6f4b-4a8f-b637-9fea310958e7" name="Default Changelist" comment="starting work on the skids&#10;moving forward, I need to build out the skid primitives and complete the position offset system">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Helicopter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Helicopter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -1118,7 +1119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651528566542</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="starting work on the skids&#10;moving forward, I need to build out the skid primitives and complete the position offset system">
+      <created>1651530695298</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1651530695298</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1148,7 +1156,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adjusting the wording of the display for the buildings so that it makes more sense" />
     <MESSAGE value="Fixed position rendering of helicopter and helipad&#10;&#10;Added helicopter water intake states but have yet to complete implementation&#10;&#10;Implemented helicopter stat readouts&#10;&#10;bug found (buttons are mapped to the arrow keys causing flashing)" />
     <MESSAGE value="Inplemented game states&#10;Implemented game loss state&#10;Implemented game loss condition&#10;Implemented building spark system&#10;Fixed the fire size and damage units&#10;Fixed building size arithmetic" />
     <MESSAGE value="Introducing helicopter control implementations&#10;&#10;Todo -- drink implementation&#10;     -- movement update implementation" />
@@ -1173,6 +1180,7 @@
     <MESSAGE value="Initial building ignition added back in. [success]&#10;Loss updates added back in. [success]&#10;Fire state updates added back in.&#10;[success]&#10;[TODO] incorporate a building state system to automate the ignition and fire-spread process" />
     <MESSAGE value="Added a building burn state to facilitate the whole process of controlling where and when fires will spark.&#10;&#10;Moved most of the fire spreading mechanics to the building collection" />
     <MESSAGE value="Helicopter Body tail and bubble built" />
-    <option name="LAST_COMMIT_MESSAGE" value="Helicopter Body tail and bubble built" />
+    <MESSAGE value="starting work on the skids&#10;moving forward, I need to build out the skid primitives and complete the position offset system" />
+    <option name="LAST_COMMIT_MESSAGE" value="starting work on the skids&#10;moving forward, I need to build out the skid primitives and complete the position offset system" />
   </component>
 </project>

@@ -18,6 +18,7 @@ import org.csc133.a2.states.IntakeCanDrink;
 import org.csc133.a2.states.IntakeCannotDrink;
 import org.csc133.a2.states.IntakeIsDry;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Helicopter extends Movable implements Steerable {
@@ -29,9 +30,13 @@ public class Helicopter extends Movable implements Steerable {
             setColor(color);
         }
 
-        public void drawHelicopterComponent(Graphics context,
+        protected void drawHelicopterComponent(Graphics context,
                                             Point parentOrigin,
                                             Point screenOrigin){}
+
+        public void update(){
+
+        }
 
         @Override
         protected void localDraw(Graphics context, Point parentOrigin,
@@ -68,13 +73,29 @@ public class Helicopter extends Movable implements Steerable {
             );
             head.setPos(new Point(0,getDimensions().getHeight()/2));
 
+            int skidColor = ColorUtil.rgb(133,90,10);
 
+            HelicopterSkid leftSkid = new HelicopterSkid(skidColor);
+            leftSkid.referenceBody(getDimensions());
+            leftSkid.leftSide();
+
+            HelicopterSkid rightSkid = new HelicopterSkid(skidColor);
+            rightSkid.referenceBody(getDimensions());
+            rightSkid.rightSide();
+
+            HelicopterFins fins = new HelicopterFins(color);
+            fins.setFinBase(tail.getEndWidth());
+            fins.setPos(new Point(0,-getHeight()/2-tailBaseWidth*4));
+
+            componentSockets.add(fins);
+            componentSockets.add(leftSkid);
+            componentSockets.add(rightSkid);
             componentSockets.add(tail);
             componentSockets.add(head);
         }
 
         @Override
-        public void drawHelicopterComponent(Graphics context,
+        protected void drawHelicopterComponent(Graphics context,
                                             Point parentOrigin,
                                             Point screenOrigin){
             for(Component c : componentSockets){
@@ -105,12 +126,20 @@ public class Helicopter extends Movable implements Steerable {
 
         }
 
+        public int getBaseWidth(){
+            return(getWidth());
+        }
+
+        public int getEndWidth(){
+            return(getWidth()/3);
+        }
+
         @Override
-        public void drawHelicopterComponent(Graphics context,
+        protected void drawHelicopterComponent(Graphics context,
                                             Point parentOrigin,
                                             Point screenOrigin){
-            int halfWidth = getDimensions().getWidth()/2;
-            int halfEndWidth = halfWidth/3;
+            int halfWidth = getBaseWidth()/2;
+            int halfEndWidth = getEndWidth()/2;
             int height = -getDimensions().getHeight();
 
             context.drawLine(-halfWidth,0,-halfEndWidth,
@@ -130,7 +159,7 @@ public class Helicopter extends Movable implements Steerable {
         }
 
         @Override
-        public void drawHelicopterComponent(Graphics context,
+        protected void drawHelicopterComponent(Graphics context,
                                             Point parentOrigin,
                                             Point screenOrigin){
             context.drawLine(0,0,
@@ -169,21 +198,170 @@ public class Helicopter extends Movable implements Steerable {
 
         public void rightSide(){
             isLeft = -1;
+            updatePos();
         }
 
         public void leftSide(){
             isLeft = 1;
+            updatePos();
+        }
+
+        public void updatePos(){
+            setPos(new Point( isLeft*getPos().getX(), 0));
         }
 
         public void referenceBody(Dimension bodyDimensions){
             Dimension skidDimensions = new Dimension();
             skidDimensions.setHeight(5*bodyDimensions.getHeight()/3);
-            skidDimensions.setWidth(bodyDimensions.getWidth()/4);
+            skidDimensions.setWidth(bodyDimensions.getWidth()/6);
             setDimensions(skidDimensions);
+
+            setPos(new Point(bodyDimensions.getWidth()/2, 0));
+        }
+
+        @Override
+        protected void drawHelicopterComponent(Graphics context,
+                                            Point parentOrigin,
+                                            Point screenOrigin){
+            Transform transform = Transform.makeIdentity();
+            context.getTransform(transform);
+            transform.scale(isLeft,1);
+            context.setTransform(transform);
+
+            context.fillRect(3*getWidth()/4,
+                    -getHeight()/2,getWidth()/2,getHeight());
+
+            context.setColor(ColorUtil.GRAY);
+            context.drawRect(0,0,3*getWidth()/4,
+                    getHeight()/8,10);
+
+
+            transform.scale(isLeft,1);
+            context.setTransform(transform);
+        }
+
+    }
+
+    private class HelicopterFins extends HelicopterComponent{
+        int finBaseWidth;
+
+        public HelicopterFins(int color){
+            super(color);
+            finBaseWidth = 100;
+
+        }
+
+        public void setFinBase(int width){
+            finBaseWidth = width;
+            setDimensions(new Dimension(width*4,width*8));
+        }
+
+        @Override
+        protected void drawHelicopterComponent(Graphics context,
+                                            Point parentOrigin,
+                                            Point screenOrigin){
+
+            //first we build out the vertical stabilizer
+            context.drawRect(-finBaseWidth/2,-getHeight(),
+                    finBaseWidth,getHeight());
+            context.drawLine(0,0,-finBaseWidth/2,-getHeight()/2);
+            context.drawLine(0,0,finBaseWidth/2,-getHeight()/2+5);
+            context.drawLine(-finBaseWidth/2,-getHeight()/2, 0,
+                    -getHeight());
+            context.drawLine(finBaseWidth/2,-getHeight()/2-5, 0,
+                    -getHeight());
+
+            //then we build out the horizontal stabilizer
+            context.drawLine(-finBaseWidth/2,0,-getWidth(),
+                    -getHeight()/2);
+            context.drawLine(-getWidth(),
+                    -getHeight()/2,-getWidth(),
+                    -getHeight());
+            context.drawLine(-getWidth(),
+                    -getHeight(),
+                    -finBaseWidth/2,
+                    -getHeight());
+
+            context.setColor(ColorUtil.GRAY);
+            context.drawRect(finBaseWidth,-getHeight(),
+                    finBaseWidth/4,getHeight(),5);
+
         }
 
 
 
+    }
+
+    private class HelicopterRotor extends HelicopterComponent{
+
+        protected float rotorSpeed;
+        protected float maxSpeed;
+
+        public HelicopterRotor(int color){
+            super(color);
+            rotorSpeed = 0f;
+            maxSpeed = 3f;
+            setRotation(45);
+        }
+
+        public void setRadius(int radius){
+            setDimensions(new Dimension(radius*2,radius/20));
+        }
+
+        public void incrementRotorSpeed(){
+            rotorSpeed += 0.2f;
+            if(rotorSpeed>maxSpeed){
+                rotorSpeed = maxSpeed;
+            }
+        }
+
+        public void decrementRotorSpeed(){
+            rotorSpeed -= 0.1f;
+            if(rotorSpeed<0f){
+                rotorSpeed = 0;
+            }
+        }
+
+        public boolean isSpunUp(){
+            return(rotorSpeed>1.7f);
+        }
+
+        protected void spinRotor(){
+            incrementRotation(rotorSpeed);
+        }
+
+        @Override
+        public void update(){
+            spinRotor();
+        }
+
+        protected void drawHelicopterComponent(Graphics context,
+                                            Point parentOrigin,
+                                            Point screenOrigin){
+            spinRotor();
+            //cn1ForwardPrimitiveTranslate(context,getDimensions());
+            //context.setColor(ColorUtil.WHITE);
+            context.fillRect(-getWidth()/2,-2*getHeight()-5,
+                    getWidth(),
+                    getHeight());
+            //cn1ReversePrimitiveTranslate(context,getDimensions());
+            context.setColor(ColorUtil.LTGRAY);
+            context.drawArc(-10,-2*getHeight(),
+                            20,20,
+                            0,360);
+        }
+
+    }
+
+    private class HelicopterRotorBlur extends HelicopterRotor{
+
+
+        public HelicopterRotorBlur(int color){
+            super(color);
+            rotorSpeed = 1.5f;
+            maxSpeed = 1.5f;
+            setRotation(45);
+        }
     }
 
     private final int MAX_FUEL = 25000;
@@ -208,6 +386,10 @@ public class Helicopter extends Movable implements Steerable {
     }
 
     public void init(Point initialPos){
+        init(initialPos, ColorUtil.YELLOW);
+    }
+
+    public void init(Point initialPos, int color){
 
         this.waterLevel = this.MAX_WATER;
         this.fuelLevel = this.MAX_FUEL;
@@ -216,10 +398,20 @@ public class Helicopter extends Movable implements Steerable {
 
         this.setHeading(0);
         this.setSpeed(0);
-        setColor(ColorUtil.YELLOW);
+        setColor(color);
 
         helicopterComponents = new ComponentCollection();
-        helicopterComponents.add(new HelicopterBody(ColorUtil.MAGENTA));
+        helicopterComponents.add(new HelicopterBody(getColor().getValue()));
+        HelicopterRotor rotor =
+                new HelicopterRotor(getColor().getValue());
+        rotor.setPos(new Point(0,0));
+        rotor.setRadius(600);
+        HelicopterRotorBlur blur =
+                new HelicopterRotorBlur(getColor().getValue());
+        blur.setPos(new Point(0,0));
+        rotor.setRadius(580);
+        helicopterComponents.add(rotor);
+        helicopterComponents.add(blur);
 
         waterIntakeState = new IntakeCannotDrink();
     }
@@ -335,9 +527,26 @@ public class Helicopter extends Movable implements Steerable {
     @Override
     protected void localDraw(Graphics context, Point parentOrigin,
                              Point screenOrigin){
+        Transform transform = Transform.makeIdentity();
+        context.getTransform(transform);
+        transform.translate(getPos().getX(), getPos().getY());
+        context.setTransform(transform);
+
+        //Everything about the helicopter will be big to begin with
+        // for designing, but once things are finalized, the
+        // helicopter will be scaled down via hard code.
+        float scaleFactor = 8f;
+
+        scaleTransform(context,1/scaleFactor, 1/scaleFactor);
+
         for(Component c: helicopterComponents){
-            c.draw(context,parentOrigin,screenOrigin);
+            c.draw(context,new Point(0,0),screenOrigin);
         }
+
+        scaleTransform(context,scaleFactor, scaleFactor);
+
+        transform.translate(-getPos().getX(), -getPos().getY());
+        context.setTransform(transform);
     }
 
     @Override

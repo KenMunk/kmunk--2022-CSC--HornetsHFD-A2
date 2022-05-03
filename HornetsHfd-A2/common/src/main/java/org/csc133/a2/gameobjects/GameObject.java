@@ -99,21 +99,17 @@ public abstract class GameObject {
         Point screenOrigin
     ){
         //*
-        containerTranslate(context, parentOrigin);
-
-        Transform transform = Transform.makeIdentity();
-        context.getTransform(transform);
 
         //local transforms
-        rotateTransform(transform);
-        context.setTransform(transform);
+        containerTranslate(context, parentOrigin);
+        rotateTransform(context);
+
         localDraw(context, getPos(), screenOrigin);
-        undoRotateTransform(transform);
-        context.setTransform(transform);
 
 
         //undo the local transforms
 
+        undoRotateTransform(context);
         undoContainerTranslate(context, parentOrigin);
 
          //*/
@@ -144,14 +140,21 @@ public abstract class GameObject {
 
     public void incrementRotation(float rotationAdjustment){
         rotation += rotationAdjustment;
+        rotation %= 360;
     }
 
-    protected void rotateTransform(Transform transform){
-        transform.rotate(rotation, 0, 0);
+    protected void rotateTransform(Graphics context){
+        Transform transform = Transform.makeIdentity();
+        context.getTransform(transform);
+        transform.rotate(rotation, 0,0);
+        context.setTransform(transform);
     }
 
-    protected void undoRotateTransform(Transform transform){
+    protected void undoRotateTransform(Graphics context){
+        Transform transform = Transform.makeIdentity();
+        context.getTransform(transform);
         transform.rotate(-rotation, 0,0);
+        context.setTransform(transform);
     }
 
     protected void containerTranslate(Graphics context,
@@ -185,6 +188,22 @@ public abstract class GameObject {
         context.getTransform(transform);
         transform.translate(primitiveDimension.getWidth()/2,
                 primitiveDimension.getHeight()/2);
+        context.setTransform(transform);
+    }
+    
+    public int getWidth(){
+        return(getDimensions().getWidth());
+    }
+    
+    public int getHeight(){
+        return(getDimensions().getHeight());
+    }
+
+    public void scaleTransform(Graphics context, float scaleX,
+                               float scaleY){
+        Transform transform = Transform.makeIdentity();
+        context.getTransform(transform);
+        transform.scale(scaleX,scaleY);
         context.setTransform(transform);
     }
 
