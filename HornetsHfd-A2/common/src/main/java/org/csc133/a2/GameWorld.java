@@ -56,27 +56,25 @@ public class GameWorld {
         int maxX = 1920;
         int maxY = 1440;
 
-        /*
-
         Helipad helipad = new Helipad
         (
             new Point
             (
                 maxX/2,
-                maxY - (2*maxY/6)
+                (maxY/16)
             )
         );
 
-        Helicopter player = new Helicopter(helipad);
-
-        //*/
+        //Helicopter player = new Helicopter(helipad);
 
         River aRiver = new River(new Point(maxX/2,3*maxY/5));
 
         gameObjects.add(aRiver);
 
-        /*
+
         gameObjects.add(helipad);
+
+        /*
         gameObjects.getBuildings().add
         (
             new Building

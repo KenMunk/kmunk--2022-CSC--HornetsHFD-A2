@@ -472,58 +472,6 @@ public class Helicopter extends Movable implements Steerable {
     }
 
     @Override
-    public void draw(Graphics context, Point containerOrigin){
-        Display thisDisplay = Display.getInstance();
-
-        int heliSize = thisDisplay.getDisplayHeight()/40;
-        context.setColor(this.getColor().getValue());
-
-        Point offsetPoint = getOffsetPoint(containerOrigin);
-
-        context.fillArc
-        (
-                offsetPoint.getX()-heliSize,
-                offsetPoint.getY()-heliSize,
-                heliSize*2,
-                heliSize*2,
-                0,
-                360
-        );
-
-
-        int futureX = pointAdjustment().getX()*20 + offsetPoint.getX();
-        int futureY = pointAdjustment().getY()*20 + offsetPoint.getY();
-
-        context.drawLine
-        (
-                offsetPoint.getX(),
-                offsetPoint.getY(),
-                futureX,
-                futureY
-        );
-
-        String fuelString = "F : " + getFuel();
-        String waterString = "W : " + getWater();
-
-        context.drawChars
-        (
-            fuelString.toCharArray(),
-            0,
-            fuelString.length(),
-            offsetPoint.getX(),
-            offsetPoint.getY() +100
-        );
-        context.drawChars
-        (
-                waterString.toCharArray(),
-                0,
-                waterString.length(),
-                offsetPoint.getX(),
-                offsetPoint.getY() +130
-        );
-    }
-
-    @Override
     protected void localDraw(Graphics context, Point parentOrigin,
                              Point screenOrigin){
 

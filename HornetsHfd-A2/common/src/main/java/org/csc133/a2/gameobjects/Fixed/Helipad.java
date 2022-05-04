@@ -3,84 +3,51 @@ package org.csc133.a2.gameobjects.Fixed;
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Display;
 import com.codename1.ui.Graphics;
+import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
+import org.csc133.a2.gameobjects.Components.BoxOutline;
+import org.csc133.a2.gameobjects.Components.CircleOutline;
+import org.csc133.a2.gameobjects.Components.Component;
 import org.csc133.a2.gameobjects.Movables.Helicopter;
 
 public class Helipad extends Fixed {
 
-    Point upperBound;
-    Point lowerBound;
-    private int width;
-
     public Helipad(Point position){
         this.setPos(position);
-        this.updateBounds();
+        setDimensions(new Dimension((1920/15),(1920/15)));
+
+        Point centerPoint = new Point(0,0);
+
+        initComponents();
+
+        BoxOutline perimeter = new BoxOutline(ColorUtil.LTGRAY,
+                getDimensions(),5);
+        perimeter.setPos(centerPoint);
+
+        CircleOutline ring = new CircleOutline(ColorUtil.LTGRAY,
+                getDimensions(), 5);
+        perimeter.setPos(centerPoint);
+
+        getComponents().add(ring);
+        getComponents().add(perimeter);
+
     }
 
     @Override
     public boolean containsPoint(Point checkPoint){
         return(
 
-            this.upperBound.getX() > checkPoint.getX()
+            this.getPos().getX() - (getWidth()/2) > checkPoint.getX()
             &&
-            this.lowerBound.getX() < checkPoint.getX()
+            this.getPos().getY() - (getWidth()/2) < checkPoint.getX()
 
             &&
 
-            this.upperBound.getY() > checkPoint.getY()
+            this.getPos().getX() + (getWidth()/2) > checkPoint.getY()
             &&
-            this.lowerBound.getY() < checkPoint.getY()
+            this.getPos().getY() + (getWidth()/2) < checkPoint.getY()
 
         );
-    }
-
-    private void updateBounds(){
-        //Get display width
-        Display thisDisplay = Display.getInstance();
-
-        int width = thisDisplay.getDisplayWidth();
-        int height = thisDisplay.getDisplayHeight();
-
-        int offsetValue = width/30;
-        this.width = offsetValue*2;
-
-        //Create offset origin position
-
-        this.lowerBound = new Point(0, 0);
-        this.lowerBound.setX(this.getPos().getX() - offsetValue);
-        this.lowerBound.setY(this.getPos().getY() - offsetValue);
-
-        this.upperBound = new Point(0,0);
-        this.upperBound.setX(this.getPos().getX() + offsetValue);
-        this.upperBound.setY(this.getPos().getY() + offsetValue);
-
-    }
-
-    @Override
-    public void draw(Graphics gfxContext, Point containerOrigin){
-
-        //Draw the helipad
-        //this.updateBounds();
-
-        gfxContext.setColor(ColorUtil.GRAY);
-
-
-        gfxContext.drawRect(
-                this.lowerBound.getX() + containerOrigin.getX(),
-                this.lowerBound.getY() + containerOrigin.getY(),
-                this.width,
-                this.width,
-                5
-        );
-
-        gfxContext.drawArc(
-                this.lowerBound.getX() + containerOrigin.getX(),
-                this.lowerBound.getY() + containerOrigin.getY(),
-                this.width,
-                this.width,
-                0,360
-        );
-
     }
 
     public boolean holdsHelicopter(Helicopter aHelicopter){

@@ -46,31 +46,4 @@ public class River extends Fixed{
         );
     }
 
-    @Override
-    public void draw(Graphics gfxContext, Point containerPoint){
-
-        //Get the current display width and update river
-        this.updateWidth();
-
-        //then we render
-        gfxContext.setColor(ColorUtil.CYAN);
-        gfxContext.drawRect(this.getPos().getX() + containerPoint.getX(),
-                this.getPos().getY() + containerPoint.getY(),
-                Display.getInstance().getDisplayWidth()
-                        +100,
-                this.width,
-                20);
-
-
-
-    }
-
-    @Override
-    public void localDraw(Graphics context, Point parentOrigin,
-                          Point screenOrigin){
-        for(Component c: getComponents()){
-            c.draw(context, c.getPos(),screenOrigin);
-        }
-    }
-
 }
