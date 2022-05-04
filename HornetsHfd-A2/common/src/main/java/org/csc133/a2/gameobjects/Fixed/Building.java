@@ -6,11 +6,13 @@ import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
 import com.codename1.util.MathUtil;
+import org.csc133.a2.gameobjects.Components.BoxOutline;
 import org.csc133.a2.gameobjects.collections.FireCollection;
 import org.csc133.a2.interfaces.BuildingBurnState;
 import org.csc133.a2.states.BuildingDoneBurning;
 import org.csc133.a2.states.BuildingNotBurningYet;
 
+import javax.swing.*;
 import java.util.Random;
 
 public class Building extends Fixed{
@@ -28,6 +30,12 @@ public class Building extends Fixed{
         setInitialValue(getSize());
         setBurnState(new BuildingNotBurningYet());
 
+        initComponents();
+        BoxOutline buildingPerimeter =
+                new BoxOutline(getColor().getValue(),
+                        getDimensions(), 5);
+        getComponents().add(buildingPerimeter);
+
     }
 
     private void setInitialValue(int value){
@@ -44,8 +52,7 @@ public class Building extends Fixed{
 
     public int getSize(){
 
-        Dimension buildingDimension = getDimensions();
-        return((buildingDimension.getHeight() * buildingDimension.getWidth())/10);
+        return((getHeight() * getWidth())/10);
 
     }
 
@@ -91,7 +98,6 @@ public class Building extends Fixed{
     }
 
     public void updateBurns(FireCollection fireCollection){
-        //[TODO] refer to FireCollection calculateBurns
         burnCheck(fireCollection);
 
         burnAmount = fireCollection.calculateBurns(this);

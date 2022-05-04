@@ -65,7 +65,7 @@ public class GameObjectCollection<T extends GameObject> extends GameObject imple
         if(size() > 0){
 
             for(T object: gameObjects) {
-                object.draw(context, object.getPos(), screenOrigin);
+                object.draw(context, new Point(0,0), screenOrigin);
                 //System.out.println("Attempting to draw");
             }
         }

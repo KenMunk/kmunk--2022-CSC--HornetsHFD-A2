@@ -74,7 +74,7 @@ public class GameWorld {
 
         gameObjects.add(helipad);
 
-        /*
+
         gameObjects.getBuildings().add
         (
             new Building
@@ -88,7 +88,7 @@ public class GameWorld {
         (
             new Building
             (
-                new Point(maxX - 2*maxX/10, maxY/3),
+                new Point(maxX - (maxX/10), maxY/3),
                 new Dimension(maxY/6, maxY/4)
             )
         );
@@ -97,12 +97,13 @@ public class GameWorld {
         (
             new Building
             (
-                new Point(2*maxX/3, maxY/30),
+                new Point((3+ new Random().nextInt(4))*maxX/10,
+                        maxY - (maxY/10)),
                 new Dimension(maxX/3, maxY/8)
             )
         );
 
-        */
+        //*/
 
         FireCollection allFires = new FireCollection();
 
@@ -115,6 +116,26 @@ public class GameWorld {
 
 
         //ingniteAllBuildings();
+
+        for(int p = 0; p<5; p++){
+            Path testPath = new Path(new Point(0,0));
+            int getPosition = 0;
+            for(int i = 0; i<50; i++){
+                Path nextPoint =
+                        new Path(new Point(new Random().nextInt(100),
+                                new Random().nextInt(100)-30));
+                getPosition += nextPoint.getPos().getX();
+                if(getPosition>1920){
+                    break;
+                }
+                Path oldPath = testPath;
+                nextPoint.add(oldPath);
+                testPath = nextPoint;
+
+            }
+
+            gameObjects.add(testPath);
+        }
 
 
         //Player will be singleton going forward

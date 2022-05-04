@@ -40,7 +40,6 @@ public abstract class GameObject {
     }
 
     public Dimension getDimensions(){
-        //[TODO] readdress the null dimension issue
         if(dimensions == null){
             dimensions = new Dimension(0,0);
         }
