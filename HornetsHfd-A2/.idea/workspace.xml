@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="992a1474-dcbe-4c7c-8ffe-80e7d6039e27" name="Changes" comment="primitive component class made (dunno why I haven't done this yet)&#10;&#10;screen vtm tuned and centered (helicopter was not found to be properly center which necessitated this)">
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Components/CircleOutline.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Components/ShapeOutlinePrimitive.java" afterDir="false" />
+    <list default="true" id="992a1474-dcbe-4c7c-8ffe-80e7d6039e27" name="Changes" comment="primitive classes for circle outlines and box outlines complete and functional&#10;&#10;anomaly found in coordinate system for raw components of 75 pixels up">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Components/BoxOutline.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Components/BoxOutline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Components/ComponentNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Components/ComponentNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Helicopter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Helicopter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/River.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1152,7 +1147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651622259703</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="primitive classes for circle outlines and box outlines complete and functional&#10;&#10;anomaly found in coordinate system for raw components of 75 pixels up">
+      <created>1651632958008</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1651632958009</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1170,7 +1172,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Introducing helicopter movement&#10;&#10;TODO -- movement update implementation" />
     <MESSAGE value="Introducing helicopter movement&#10;&#10;TODO -- movement update implementation&#10;&#10;Cleared out issues with flicker" />
     <MESSAGE value="Realized problem with fire spread" />
     <MESSAGE value="made water viewable and implemented drinking and fighting" />
@@ -1195,6 +1196,7 @@
     <MESSAGE value="local coordinate system seems to be working&#10;implemented per-gameobject transforms and passthrough-transforms for collections&#10;component class objects render now" />
     <MESSAGE value="transform based drawing tuned&#10;Ground work for the helicopter path system prepared&#10;test paths were used here to check if everything lines up as expected" />
     <MESSAGE value="primitive component class made (dunno why I haven't done this yet)&#10;&#10;screen vtm tuned and centered (helicopter was not found to be properly center which necessitated this)" />
-    <option name="LAST_COMMIT_MESSAGE" value="primitive component class made (dunno why I haven't done this yet)&#10;&#10;screen vtm tuned and centered (helicopter was not found to be properly center which necessitated this)" />
+    <MESSAGE value="primitive classes for circle outlines and box outlines complete and functional&#10;&#10;anomaly found in coordinate system for raw components of 75 pixels up" />
+    <option name="LAST_COMMIT_MESSAGE" value="primitive classes for circle outlines and box outlines complete and functional&#10;&#10;anomaly found in coordinate system for raw components of 75 pixels up" />
   </component>
 </project>

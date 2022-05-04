@@ -3,7 +3,10 @@ package org.csc133.a2.gameobjects.Fixed;
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Display;
 import com.codename1.ui.Graphics;
+import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
+import org.csc133.a2.gameobjects.Components.BoxOutline;
+import org.csc133.a2.gameobjects.Components.Component;
 
 public class River extends Fixed{
 
@@ -18,6 +21,12 @@ public class River extends Fixed{
         //
         this.setPos(origin);
         this.updateWidth();
+        initComponents();
+
+        BoxOutline riverOutline = new BoxOutline(ColorUtil.BLUE,
+                getDimensions(),10);
+        riverOutline.setPos(new Point(0,0));
+        getComponents().add(riverOutline);
 
     }
 
@@ -26,13 +35,14 @@ public class River extends Fixed{
 
         int tempWidth = (displayHeight/10);
         this.width = tempWidth;
+        setDimensions(new Dimension(1920,width));
     }
 
     public boolean containsPoint(Point reference){
         return(
-                reference.getY() >= this.getPos().getY()
+                reference.getY() >= this.getPos().getY()-(getHeight()/2)
                         &&
-                        reference.getY() <= this.getPos().getY()+this.width
+                        reference.getY() <= this.getPos().getY()+(getHeight()/2)
         );
     }
 
@@ -58,7 +68,9 @@ public class River extends Fixed{
     @Override
     public void localDraw(Graphics context, Point parentOrigin,
                           Point screenOrigin){
-
+        for(Component c: getComponents()){
+            c.draw(context, c.getPos(),screenOrigin);
+        }
     }
 
 }

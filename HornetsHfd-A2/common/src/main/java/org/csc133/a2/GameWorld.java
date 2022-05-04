@@ -69,11 +69,14 @@ public class GameWorld {
 
         Helicopter player = new Helicopter(helipad);
 
-        River aRiver = new River(new Point(maxX-400,300));
+        //*/
+
+        River aRiver = new River(new Point(maxX/2,3*maxY/5));
 
         gameObjects.add(aRiver);
-        gameObjects.add(helipad);
 
+        /*
+        gameObjects.add(helipad);
         gameObjects.getBuildings().add
         (
             new Building
@@ -106,17 +109,6 @@ public class GameWorld {
         FireCollection allFires = new FireCollection();
 
         gameObjects.add(allFires);
-
-        BoxOutline testBox = new BoxOutline(ColorUtil.CYAN,
-                new Dimension(200,200),5);
-        testBox.setPos(new Point(maxX/2, (maxY/2)-75));
-        gameObjects.add(testBox);
-
-        CircleOutline testCircle =
-                new CircleOutline(ColorUtil.LTGRAY,
-                        new Dimension(200,200),5);
-        testCircle.setPos(new Point(maxX/2, (maxY/2)-75));
-        gameObjects.add(testCircle);
 
         Helicopter testChopper = new Helicopter(new Point(maxX/2,
                 maxY/2));
