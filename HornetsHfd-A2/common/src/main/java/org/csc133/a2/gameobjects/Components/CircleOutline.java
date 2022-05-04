@@ -1,17 +1,17 @@
 package org.csc133.a2.gameobjects.Components;
 
 import com.codename1.ui.Graphics;
-import com.codename1.ui.Transform;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
 
-public class BoxOutline extends ShapeOutlinePrimitive{
+public class CircleOutline extends ShapeOutlinePrimitive{
 
-    public BoxOutline(int color, Dimension dimensions){
+    public CircleOutline(int color, Dimension dimensions){
         super(color,dimensions,1);;
     }
 
-    public BoxOutline(int color, Dimension dimension, int thickness){
+    public CircleOutline(int color, Dimension dimension,
+                        int thickness){
         super(color, dimension, thickness);
     }
 
@@ -22,11 +22,14 @@ public class BoxOutline extends ShapeOutlinePrimitive{
 
         cn1ForwardPrimitiveTranslate(context,getDimensions());
 
-        context.drawRect(0,0,getWidth(),getHeight(),thickness);
+        for(int i = 0; i < thickness; i++){
+            context.drawArc(0+i,0+i,
+                            getWidth()-2*i,getHeight()-2*i,
+                            0,360);
+
+        }
 
         cn1ReversePrimitiveTranslate(context,getDimensions());
     }
-
-
 
 }

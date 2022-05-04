@@ -36,8 +36,10 @@ public class ComponentNode extends GameObject {
 
         //local transforms
 
+        localTransforms(context);
         getComponents().draw(context,getPos(), screenOrigin);
         localDraw(context, getPos(), screenOrigin);
+        undoLocalTransforms(context);
 
         //undo the local transforms
 

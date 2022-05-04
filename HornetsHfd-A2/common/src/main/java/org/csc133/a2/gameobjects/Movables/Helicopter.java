@@ -98,7 +98,7 @@ public class Helicopter extends Movable implements Steerable {
                                             Point parentOrigin,
                                             Point screenOrigin){
             for(Component c : componentSockets){
-                c.draw(context, c.getPos(), screenOrigin);
+                c.draw(context, new Point(0,0), screenOrigin);
             }
 
             context.drawRect(-getDimensions().getWidth()/2,
@@ -526,10 +526,6 @@ public class Helicopter extends Movable implements Steerable {
     @Override
     protected void localDraw(Graphics context, Point parentOrigin,
                              Point screenOrigin){
-        Transform transform = Transform.makeIdentity();
-        context.getTransform(transform);
-        transform.translate(getPos().getX(), getPos().getY());
-        context.setTransform(transform);
 
         //Everything about the helicopter will be big to begin with
         // for designing, but once things are finalized, the
@@ -543,9 +539,6 @@ public class Helicopter extends Movable implements Steerable {
         }
 
         scaleTransform(context,scaleFactor, scaleFactor);
-
-        transform.translate(-getPos().getX(), -getPos().getY());
-        context.setTransform(transform);
     }
 
     @Override

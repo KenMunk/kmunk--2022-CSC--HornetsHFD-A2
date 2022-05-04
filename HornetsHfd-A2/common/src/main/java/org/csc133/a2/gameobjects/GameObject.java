@@ -109,8 +109,9 @@ public abstract class GameObject {
             context.setColor(getColor().getValue());
         }
 
+        localTransforms(context);
         localDraw(context, getPos(), screenOrigin);
-
+        undoLocalTransforms(context);
 
         //undo the local transforms
 
@@ -127,12 +128,20 @@ public abstract class GameObject {
     protected void localDraw(Graphics context, Point parentOrigin,
                          Point screenOrigin){}
 
-    protected void localTransforms(Transform transform){
+    protected void localTransforms(Graphics context){
 
+        Transform transform = Transform.makeIdentity();
+        context.getTransform(transform);
+        transform.translate(getPos().getX(),getPos().getY());
+        context.setTransform(transform);
     }
 
-    protected void undoLocalTransforms(Transform transform){
+    protected void undoLocalTransforms(Graphics context){
 
+        Transform transform = Transform.makeIdentity();
+        context.getTransform(transform);
+        transform.translate(-getPos().getX(),-getPos().getY());
+        context.setTransform(transform);
     }
 
     public void setRotation(float nextRotation){

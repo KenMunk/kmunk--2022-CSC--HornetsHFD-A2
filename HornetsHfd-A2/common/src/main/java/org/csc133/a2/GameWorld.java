@@ -14,6 +14,8 @@ import com.codename1.util.MathUtil;
 //import java.math.RoundingMode;
 
 import org.csc133.a2.gameobjects.*;
+import org.csc133.a2.gameobjects.Components.BoxOutline;
+import org.csc133.a2.gameobjects.Components.CircleOutline;
 import org.csc133.a2.gameobjects.Fixed.Building;
 import org.csc133.a2.gameobjects.Fixed.Fire;
 import org.csc133.a2.gameobjects.Fixed.Helipad;
@@ -26,6 +28,7 @@ import org.csc133.a2.gameobjects.path.Path;
 import org.csc133.a2.interfaces.GameState;
 import org.csc133.a2.states.*;
 
+import javax.swing.*;
 import java.util.Random;
 
 //using singleton design
@@ -104,10 +107,22 @@ public class GameWorld {
 
         gameObjects.add(allFires);
 
+        BoxOutline testBox = new BoxOutline(ColorUtil.CYAN,
+                new Dimension(200,200),5);
+        testBox.setPos(new Point(maxX/2, (maxY/2)-75));
+        gameObjects.add(testBox);
+
+        CircleOutline testCircle =
+                new CircleOutline(ColorUtil.LTGRAY,
+                        new Dimension(200,200),5);
+        testCircle.setPos(new Point(maxX/2, (maxY/2)-75));
+        gameObjects.add(testCircle);
+
         Helicopter testChopper = new Helicopter(new Point(maxX/2,
                 maxY/2));
 
         gameObjects.add(testChopper);
+
 
         //ingniteAllBuildings();
 
