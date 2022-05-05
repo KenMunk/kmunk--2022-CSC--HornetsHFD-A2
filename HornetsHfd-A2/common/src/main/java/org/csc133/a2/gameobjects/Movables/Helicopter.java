@@ -12,8 +12,10 @@ import org.csc133.a2.gameobjects.GameObject;
 import org.csc133.a2.gameobjects.Fixed.Helipad;
 import org.csc133.a2.gameobjects.Fixed.River;
 import org.csc133.a2.gameobjects.collections.ComponentCollection;
+import org.csc133.a2.interfaces.HelicopterEngineState;
 import org.csc133.a2.interfaces.HelicopterIntakeState;
 import org.csc133.a2.interfaces.Steerable;
+import org.csc133.a2.states.HelicopterEngineOff;
 import org.csc133.a2.states.IntakeCanDrink;
 import org.csc133.a2.states.IntakeCannotDrink;
 import org.csc133.a2.states.IntakeIsDry;
@@ -358,6 +360,8 @@ public class Helicopter extends Movable implements Steerable {
     private final int MAX_SPEED = 10;
     private final int MAX_WATER = 1000;
 
+    private HelicopterEngineState engineState;
+
     private int waterLevel;
     private int fuelLevel;
 
@@ -383,6 +387,8 @@ public class Helicopter extends Movable implements Steerable {
 
         this.waterLevel = this.MAX_WATER;
         this.fuelLevel = this.MAX_FUEL;
+
+        engineState = new HelicopterEngineOff();
 
         this.setPos(initialPos);
 
@@ -559,6 +565,12 @@ public class Helicopter extends Movable implements Steerable {
         if(getSpeed() < 0){
             setSpeed(0);
         }
+    }
+
+    @Override
+    public void update(){
+
+
     }
 
     public boolean isStopped(){

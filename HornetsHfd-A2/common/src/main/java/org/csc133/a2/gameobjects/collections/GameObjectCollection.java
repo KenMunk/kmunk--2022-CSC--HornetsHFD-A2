@@ -71,5 +71,17 @@ public class GameObjectCollection<T extends GameObject> extends GameObject imple
         }
     }
 
+    @Override
+    public void update(){
+        if(size() > 0){
+
+            for(T object: gameObjects) {
+                object.update();
+                //System.out.println("Attempting to draw");
+            }
+        }
+
+    }
+
 
 }
