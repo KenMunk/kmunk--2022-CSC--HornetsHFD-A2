@@ -325,6 +325,8 @@ public class Helicopter extends Movable implements Steerable {
             return(rotorSpeed>1.7f);
         }
 
+        public boolean isSpinning() { return(rotorSpeed > 0);}
+
         protected void spinRotor(){
             incrementRotation(rotorSpeed);
         }
@@ -350,17 +352,6 @@ public class Helicopter extends Movable implements Steerable {
                             0,360);
         }
 
-    }
-
-    private class HelicopterRotorBlur extends HelicopterRotor{
-
-
-        public HelicopterRotorBlur(int color){
-            super(color);
-            rotorSpeed = 0;
-            maxSpeed = 1.1f;
-            setRotation(45);
-        }
     }
 
     private final int MAX_FUEL = 25000;
@@ -405,12 +396,7 @@ public class Helicopter extends Movable implements Steerable {
                 new HelicopterRotor(getColor().getValue());
         rotor.setPos(new Point(0,0));
         rotor.setRadius(600);
-        HelicopterRotorBlur blur =
-                new HelicopterRotorBlur(getColor().getValue());
-        blur.setPos(new Point(0,0));
-        rotor.setRadius(580);
         helicopterComponents.add(rotor);
-        helicopterComponents.add(blur);
 
         waterIntakeState = new IntakeCannotDrink();
     }
@@ -431,6 +417,40 @@ public class Helicopter extends Movable implements Steerable {
         waterIntakeState = new IntakeIsDry();
 
         this.waterLevel = 0;
+    }
+
+    public void spinRotorUp(){
+        for(Component part: getComponents()){
+            if(part instanceof HelicopterRotor){
+                ((HelicopterRotor)part).incrementRotorSpeed();
+            }
+        }
+    }
+
+    public void spinRotorDown(){
+        for(Component part: getComponents()){
+            if(part instanceof HelicopterRotor){
+                ((HelicopterRotor)part).decrementRotorSpeed();
+            }
+        }
+    }
+
+    public boolean isReady(){
+        for(Component part: getComponents()){
+            if(part instanceof HelicopterRotor){
+                return((HelicopterRotor)part).isSpunUp();
+            }
+        }
+        return(false);
+    }
+
+    public boolean isRunning(){
+        for(Component part: getComponents()){
+            if(part instanceof HelicopterRotor){
+                return((HelicopterRotor)part).isSpinning();
+            }
+        }
+        return(false);
     }
 
     public void burnFuel(){
