@@ -77,7 +77,6 @@ public class GameObjectCollection<T extends GameObject> extends GameObject imple
 
             for(T object: gameObjects) {
                 object.update();
-                //System.out.println("Attempting to draw");
             }
         }
 
