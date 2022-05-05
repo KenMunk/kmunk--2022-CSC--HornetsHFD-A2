@@ -11,6 +11,7 @@ public class HelicopterEngineRunning implements HelicopterEngineState {
         HelicopterEngineState returnState = this;
 
         //move
+        chopper.move();
 
         return(returnState);
     }
@@ -19,14 +20,11 @@ public class HelicopterEngineRunning implements HelicopterEngineState {
     public HelicopterEngineState toggle(Helicopter chopper){
         HelicopterEngineState returnState = this;
 
-        if(chopper.getSpeed() == 0){
+        if(chopper.getSpeed() < 0.01f){
             returnState = new HelicopterEngineStopping();
         }
 
         return(returnState);
     }
-
-    public void draw(Graphics context, Point parentOrigin,
-                     Point screenOrigin){}
 
 }

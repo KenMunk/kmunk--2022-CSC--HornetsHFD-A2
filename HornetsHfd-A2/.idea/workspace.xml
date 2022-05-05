@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="992a1474-dcbe-4c7c-8ffe-80e7d6039e27" name="Changes" comment="Built out the ground work for the helicopter engine state system">
+    <list default="true" id="992a1474-dcbe-4c7c-8ffe-80e7d6039e27" name="Changes" comment="Added gameobject updating as a recursive function to collections">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Helicopter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Helicopter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/GameObjectCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/GameObjectCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/HelicopterEngineState.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/HelicopterEngineState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/HelicopterEngineOff.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/HelicopterEngineOff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/HelicopterEngineRunning.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/HelicopterEngineRunning.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/HelicopterEngineStarting.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/HelicopterEngineStarting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/HelicopterEngineStopping.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/HelicopterEngineStopping.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -811,20 +815,6 @@
       <workItem from="1646609319994" duration="11947000" />
       <workItem from="1646657740788" duration="28746000" />
     </task>
-    <task id="LOCAL-00004" summary="Refactoring State names again">
-      <created>1646278963471</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1646278963471</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Priority shift -- pushing to get the views done first">
-      <created>1646280217755</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1646280217755</updated>
-    </task>
     <task id="LOCAL-00006" summary="Views staged, need to figure out what's going on with the painting...">
       <created>1646288919174</created>
       <option name="number" value="00006" />
@@ -1154,7 +1144,21 @@
       <option name="project" value="LOCAL" />
       <updated>1651718708066</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Built out the ground work for the helicopter engine state system">
+      <created>1651719615920</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1651719615921</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Added gameobject updating as a recursive function to collections">
+      <created>1651719686094</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1651719686094</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1172,7 +1176,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added helicopter stop check" />
     <MESSAGE value="Helicopter now burns fuel and the landing check works" />
     <MESSAGE value="Game dialogs work now" />
     <MESSAGE value="Making the helicopter run out of fuel" />
@@ -1197,6 +1200,7 @@
     <MESSAGE value="Helipad now renders" />
     <MESSAGE value="cleaning up code of deprecated code now that the deprecated code has been replaced" />
     <MESSAGE value="Built out the ground work for the helicopter engine state system" />
-    <option name="LAST_COMMIT_MESSAGE" value="Built out the ground work for the helicopter engine state system" />
+    <MESSAGE value="Added gameobject updating as a recursive function to collections" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added gameobject updating as a recursive function to collections" />
   </component>
 </project>

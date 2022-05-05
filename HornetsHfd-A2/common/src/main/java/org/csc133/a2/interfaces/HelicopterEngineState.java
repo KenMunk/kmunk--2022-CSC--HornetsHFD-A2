@@ -11,7 +11,4 @@ public interface HelicopterEngineState {
 
     public HelicopterEngineState toggle(Helicopter chopper);
 
-    public void draw(Graphics context, Point parentOrigin,
-                     Point screenOrigin);
-
 }

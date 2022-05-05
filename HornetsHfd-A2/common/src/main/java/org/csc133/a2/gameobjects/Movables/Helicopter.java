@@ -570,7 +570,12 @@ public class Helicopter extends Movable implements Steerable {
     @Override
     public void update(){
 
+        engineState = engineState.updateRotor(this);
 
+    }
+
+    public void toggleEngine(){
+        engineState = engineState.toggle(this);
     }
 
     public boolean isStopped(){

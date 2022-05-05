@@ -21,7 +21,4 @@ public class HelicopterEngineOff implements HelicopterEngineState {
         return(returnState);
     }
 
-    public void draw(Graphics context, Point parentOrigin,
-                     Point screenOrigin){}
-
 }
