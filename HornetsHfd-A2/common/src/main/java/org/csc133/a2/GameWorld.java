@@ -109,11 +109,12 @@ public class GameWorld {
 
         gameObjects.add(allFires);
 
+        /*
         Helicopter testChopper = new Helicopter(new Point(maxX/2,
                 maxY/2));
 
         gameObjects.add(testChopper);
-
+        //*/
 
         //ingniteAllBuildings();
 

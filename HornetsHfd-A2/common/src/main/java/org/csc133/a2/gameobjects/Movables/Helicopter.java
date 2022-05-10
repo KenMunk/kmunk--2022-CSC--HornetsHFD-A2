@@ -369,21 +369,21 @@ public class Helicopter extends Movable implements Steerable {
 
     private ComponentCollection helicopterComponents;
 
-    public Helicopter(Point initialPos){
+    protected Helicopter(Point initialPos){
         init(initialPos);
     }
 
-    public Helicopter(Helipad helipad){
+    protected Helicopter(Helipad helipad){
 
         init(helipad.getPos());
 
     }
 
-    public void init(Point initialPos){
+    protected void init(Point initialPos){
         init(initialPos, ColorUtil.YELLOW);
     }
 
-    public void init(Point initialPos, int color){
+    protected void init(Point initialPos, int color){
 
         this.waterLevel = this.MAX_WATER;
         this.fuelLevel = this.MAX_FUEL;
