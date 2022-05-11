@@ -13,7 +13,7 @@ public abstract class GameObject {
     protected Point pos;
     private float rotation;
     private Dimension dimensions;
-    private ColorInt color;
+    protected ColorInt color;
 
     public Point getPos(){
         if(pos == null){

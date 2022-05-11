@@ -17,6 +17,7 @@ import org.csc133.a2.gameobjects.Fixed.BuildingSystem.Building;
 import org.csc133.a2.gameobjects.Fixed.Helipad;
 import org.csc133.a2.gameobjects.Fixed.River;
 import org.csc133.a2.gameobjects.Movables.Helicopter;
+import org.csc133.a2.gameobjects.Movables.PlayableHelicopter;
 import org.csc133.a2.gameobjects.collections.FireCollection;
 import org.csc133.a2.gameobjects.collections.GameObjectCollection;
 import org.csc133.a2.gameobjects.collections.WorldObjectCollection;
@@ -68,6 +69,7 @@ public class GameWorld {
 
 
         gameObjects.add(helipad);
+        PlayableHelicopter.spawnAt(helipad);
 
 
         gameObjects.getBuildings().add
@@ -393,6 +395,8 @@ public class GameWorld {
         for(GameObject go : gameObjects){
             go.draw(context, parentOrigin, screenOrigin);
         }
+
+        PlayableHelicopter.drawSingleton(context,parentOrigin,screenOrigin);
 
 
     }
