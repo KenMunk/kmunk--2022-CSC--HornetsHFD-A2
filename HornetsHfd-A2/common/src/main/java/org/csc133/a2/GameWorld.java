@@ -138,8 +138,8 @@ public class GameWorld {
 
         //Player will be singleton going forward
         //gameObjects.add(player);
-        //gameState = new GamePlaying();
-        gameState = new GameTest();
+        gameState = new GamePlaying();
+        //gameState = new GameTest();
         dialogState = false;
         //*/
 
@@ -175,13 +175,7 @@ public class GameWorld {
     }
 
     public Helicopter getPlayer(){
-        Helicopter playerHelicopter;
-        //[TODO] return to this after making a player singleton
-        //First helicopter found is player helicopter
-
-        playerHelicopter = null;
-
-        return(playerHelicopter);
+        return(PlayableHelicopter.getInstance());
     }
     
     public Helipad getHelipad(){
@@ -191,34 +185,35 @@ public class GameWorld {
     public void accelerateHelicopter() {
 
         //[TODO] return to this after making a player singleton
-        //getPlayer().toAccelerate();
+        PlayableHelicopter.getInstance().toAccelerate();
 
     }
 
     public void turnHelicopterLeft() {
         //[TODO] return to this after making a player singleton
-        //getPlayer().toTurnLeft();
+        PlayableHelicopter.getInstance().toTurnLeft();
     }
 
     public void turnHelicopterRight() {
         //[TODO] return to this after making a player singleton
 
-        //getPlayer().toTurnRight();
+        PlayableHelicopter.getInstance().toTurnRight();
     }
 
     public void helicopterDump() {
         //[TODO] return to this after making a player singleton
-        //getPlayer().fight(gameObject);
+        //PlayableHelicopter.getInstance().fight(gameObjects
+        // .getFires());
     }
 
     public void helicopterDrink() {
         //[TODO] return to this after making a player singleton
-        //getPlayer().toDrink();
+        PlayableHelicopter.getInstance().toDrink();
     }
 
     public void helicopterBrake() {
         //[TODO] return to this after making a player singleton
-        //getPlayer().toSlowDown();
+        PlayableHelicopter.getInstance().toSlowDown();
     }
 
     public void exit() {
@@ -314,13 +309,13 @@ public class GameWorld {
     public void updateHelicopter(){
         //[TODO] return to this after making a player singleton
 
-        /*
-        getPlayer().flightUpdate();
-        if(getPlayer().fuelOut()){
+        //*
+        PlayableHelicopter.getInstance().flightUpdate();
+        if(PlayableHelicopter.getInstance().fuelOut()){
             gameState = new GameLoss();
             openDialog();
         }
-        //getPlayer().riverCheck(gameObject);
+        //PlayableHelicopter.getInstance().riverCheck(gameObject);
         //*/
     }
 
@@ -339,7 +334,7 @@ public class GameWorld {
     
     public void helicopterLandingCheck(){
         //[TODO] return to this after making a player singleton
-        /*
+        //*
         if
         (
             (getFireCount() == 0)

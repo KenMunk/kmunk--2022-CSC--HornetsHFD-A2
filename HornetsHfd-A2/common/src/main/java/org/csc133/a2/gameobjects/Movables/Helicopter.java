@@ -481,7 +481,7 @@ public class Helicopter extends Movable implements Steerable {
         }
     }
 
-    protected boolean fuelOut(){
+    public boolean fuelOut(){
         return(this.fuelLevel <= 0);
     }
 
