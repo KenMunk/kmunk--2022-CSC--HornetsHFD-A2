@@ -18,13 +18,18 @@ public class Fire extends Fixed{
 
         int radius;
 
-        public Bubble(){
-            radius = 2;
-            //translate()
+        public Bubble(int newRadius, int color){
+            init(newRadius, color);
+        }
+
+        private void init(int newRadius, int color){
+            setRadius(newRadius);
+            setColor(color);
         }
 
         public void setRadius(int newRadius){
             radius = newRadius;
+            setDimensions(new Dimension(radius*2, radius*2));
         }
 
         @Override
@@ -32,8 +37,7 @@ public class Fire extends Fixed{
                                  Point parentOrigin,
                                  Point screenOrigin){
 
-            setDimensions(new Dimension(radius, radius));
-            context.setColor(getColor().getValue());
+            //context.setColor(getColor().getValue());
 
             cn1ForwardPrimitiveTranslate(context, getDimensions());
             if(radius > 1){
@@ -51,15 +55,13 @@ public class Fire extends Fixed{
 
     private class BurnBubble extends Bubble {
         public BurnBubble(){
-            super();
-            setColor(ColorUtil.GRAY);
+            super(2,ColorUtil.GRAY);
         }
     }
 
     private class FireBubble extends Bubble{
         public FireBubble(){
-            super();
-            setColor(ColorUtil.MAGENTA);
+            super(2, ColorUtil.MAGENTA);
         }
     }
 
@@ -261,9 +263,15 @@ public class Fire extends Fixed{
         for(Component c : getComponents()){
             if(c instanceof FireBubble){
                 ((FireBubble)c).setRadius(radiusInt);
-                c.draw(context,getPos(),screenOrigin);
+                c.draw(context,new Point(0,0),screenOrigin);
             }
         }
+
+        scaleTransform(context,1,-1);
+        context.drawChars(getPos().toString().toCharArray(),0,
+                getPos().toString().length(),
+                0, -100);
+        undoScaleTransform(context, 1,-1);
 
     }
 

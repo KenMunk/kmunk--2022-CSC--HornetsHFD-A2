@@ -116,7 +116,7 @@ public class GameWorld {
         gameObjects.add(testChopper);
         //*/
 
-        //ingniteAllBuildings();
+        ingniteAllBuildings();
 
         for(int p = 0; p<5; p++){
             Path testPath = new Path(new Point(0,0));

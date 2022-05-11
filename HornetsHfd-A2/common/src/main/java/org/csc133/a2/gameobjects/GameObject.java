@@ -220,6 +220,14 @@ public abstract class GameObject {
         context.setTransform(transform);
     }
 
+    public void undoScaleTransform(Graphics context, float scaleX,
+                               float scaleY){
+        Transform transform = Transform.makeIdentity();
+        context.getTransform(transform);
+        transform.scale(1/scaleX,1/scaleY);
+        context.setTransform(transform);
+    }
+
 
 
 }
