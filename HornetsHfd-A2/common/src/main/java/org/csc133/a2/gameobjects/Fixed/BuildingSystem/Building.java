@@ -1,21 +1,18 @@
-package org.csc133.a2.gameobjects.Fixed;
+package org.csc133.a2.gameobjects.Fixed.BuildingSystem;
 
 import com.codename1.charts.util.ColorUtil;
-import com.codename1.ui.Font;
-import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
 import com.codename1.util.MathUtil;
 import org.csc133.a2.gameobjects.Components.BoxOutline;
+import org.csc133.a2.gameobjects.Fixed.FireSystem.Fire;
+import org.csc133.a2.gameobjects.Fixed.Fixed;
 import org.csc133.a2.gameobjects.collections.FireCollection;
 import org.csc133.a2.interfaces.BuildingBurnState;
-import org.csc133.a2.states.BuildingDoneBurning;
-import org.csc133.a2.states.BuildingNotBurningYet;
 
-import javax.swing.*;
 import java.util.Random;
 
-public class Building extends Fixed{
+public class Building extends Fixed {
 
     private int initialValue;
     private int burnAmount;
@@ -124,7 +121,7 @@ public class Building extends Fixed{
         return(destroyedPercentage);
     }
 
-    public void setFireInBuilding(Fire fire){
+    protected void setFireInBuilding(Fire fire){
         int fireX =
                 new Random().nextInt(getWidth()) - (getWidth()/2);
         int fireY =

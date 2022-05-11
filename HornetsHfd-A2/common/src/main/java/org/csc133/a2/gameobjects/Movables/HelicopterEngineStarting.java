@@ -1,8 +1,5 @@
-package org.csc133.a2.states;
+package org.csc133.a2.gameobjects.Movables;
 
-import com.codename1.ui.Graphics;
-import com.codename1.ui.geom.Point;
-import org.csc133.a2.gameobjects.Movables.Helicopter;
 import org.csc133.a2.interfaces.HelicopterEngineState;
 
 public class HelicopterEngineStarting implements HelicopterEngineState {

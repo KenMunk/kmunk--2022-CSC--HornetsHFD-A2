@@ -1,4 +1,4 @@
-package org.csc133.a2.states;
+package org.csc133.a2.gameobjects.Movables;
 
 import org.csc133.a2.interfaces.HelicopterIntakeState;
 

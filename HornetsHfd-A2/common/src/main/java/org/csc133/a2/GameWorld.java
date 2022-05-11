@@ -1,6 +1,5 @@
 package org.csc133.a2;
 
-import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.*;
 //import com.codename1.ui.layouts.*;
 //import com.codename1.io.*;
@@ -14,10 +13,7 @@ import com.codename1.util.MathUtil;
 //import java.math.RoundingMode;
 
 import org.csc133.a2.gameobjects.*;
-import org.csc133.a2.gameobjects.Components.BoxOutline;
-import org.csc133.a2.gameobjects.Components.CircleOutline;
-import org.csc133.a2.gameobjects.Fixed.Building;
-import org.csc133.a2.gameobjects.Fixed.Fire;
+import org.csc133.a2.gameobjects.Fixed.BuildingSystem.Building;
 import org.csc133.a2.gameobjects.Fixed.Helipad;
 import org.csc133.a2.gameobjects.Fixed.River;
 import org.csc133.a2.gameobjects.Movables.Helicopter;
@@ -28,7 +24,6 @@ import org.csc133.a2.gameobjects.path.Path;
 import org.csc133.a2.interfaces.GameState;
 import org.csc133.a2.states.*;
 
-import javax.swing.*;
 import java.util.Random;
 
 //using singleton design

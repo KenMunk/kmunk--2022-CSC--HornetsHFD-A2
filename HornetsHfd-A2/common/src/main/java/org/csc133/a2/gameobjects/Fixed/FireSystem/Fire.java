@@ -1,18 +1,16 @@
-package org.csc133.a2.gameobjects.Fixed;
+package org.csc133.a2.gameobjects.Fixed.FireSystem;
 
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.gameobjects.Components.Component;
+import org.csc133.a2.gameobjects.Fixed.Fixed;
 import org.csc133.a2.interfaces.FireState;
-import org.csc133.a2.states.IsBurning;
-import org.csc133.a2.states.IsExtinguished;
-import org.csc133.a2.states.IsNotStarted;
 
 import java.util.Random;
 
-public class Fire extends Fixed{
+public class Fire extends Fixed {
 
     private class Bubble extends Component {
 
@@ -179,17 +177,6 @@ public class Fire extends Fixed{
     }
 
     @Override
-    public void draw(Graphics gfxContext, Point containerOrigin){
-
-        currentState.drawUpdate
-        (
-            this,
-            gfxContext,
-            containerOrigin
-        );
-    }
-
-    @Override
     protected void localDraw(Graphics context, Point parentOrigin,
                                  Point screenOrigin){
         currentState.localDraw(this,context, parentOrigin,
@@ -197,66 +184,22 @@ public class Fire extends Fixed{
 
     }
 
-    @Deprecated
-    public void drawCharred(Graphics gfxContext,
-                           Point containerOrigin){
-
-        int peakRadiusInt = this.peakRadius();
-        gfxContext.setColor(ColorUtil.BLACK);
-        gfxContext.fillArc(
-                this.getPos().getX() + containerOrigin.getX()
-                        - (peakRadiusInt),
-                this.getPos().getY() + containerOrigin.getY()
-                        - (peakRadiusInt),
-                peakRadiusInt*2+1,
-                peakRadiusInt*2+1,
-                0,360
-        );
-
-    }
-
-    public void localDrawCharred(Graphics context, Point parentOrigin,
+    protected void localDrawCharred(Graphics context,
+                                  Point parentOrigin,
                                  Point screenOrigin){
 
         int peakRadiusInt = this.peakRadius();
         for(Component c : getComponents()){
             if(c instanceof BurnBubble){
-                ((BurnBubble)c).setRadius(peakRadiusInt);
-                c.draw(context,getPos(),screenOrigin);
+                ((BurnBubble)c).setRadius(peakRadiusInt-1);
+                c.draw(context,new Point(0,0),screenOrigin);
             }
         }
 
     }
 
-    @Deprecated
-    public void drawBurns(Graphics gfxContext, Point containerOrigin){
-
-        int radiusInt = this.radius();
-        String radiusString = "" + this.size;
-
-        gfxContext.setColor(ColorUtil.MAGENTA);
-
-        gfxContext.fillArc(
-                this.getPos().getX() + containerOrigin.getX()
-                        - (radiusInt),
-                this.getPos().getY() + containerOrigin.getY()
-                        - (radiusInt),
-                radiusInt*2+1,radiusInt*2+1,
-                0,360
-        );
-
-        gfxContext.setColor(ColorUtil.MAGENTA);
-        gfxContext.drawChars(radiusString.toCharArray(),0,
-                radiusString.length(),
-                this.getPos().getX()+containerOrigin.getX()
-                        +radiusInt+20,
-                this.getPos().getY()+containerOrigin.getY()
-                        +radiusInt+20
-        );
-
-    }
-
-    public void localDrawBurns(Graphics context, Point parentOrigin,
+    protected void localDrawBurns(Graphics context,
+                                  Point parentOrigin,
                                Point screenOrigin){
 
         int radiusInt = this.radius();
@@ -270,7 +213,7 @@ public class Fire extends Fixed{
         scaleTransform(context,1,-1);
         context.drawChars(getPos().toString().toCharArray(),0,
                 getPos().toString().length(),
-                0, -100);
+                0, -100 + radiusInt);
         undoScaleTransform(context, 1,-1);
 
     }

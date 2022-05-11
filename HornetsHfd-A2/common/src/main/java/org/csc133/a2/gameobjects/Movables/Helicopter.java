@@ -1,13 +1,12 @@
 package org.csc133.a2.gameobjects.Movables;
 
 import com.codename1.charts.util.ColorUtil;
-import com.codename1.ui.Display;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.Transform;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.gameobjects.Components.Component;
-import org.csc133.a2.gameobjects.Fixed.Fire;
+import org.csc133.a2.gameobjects.Fixed.FireSystem.Fire;
 import org.csc133.a2.gameobjects.GameObject;
 import org.csc133.a2.gameobjects.Fixed.Helipad;
 import org.csc133.a2.gameobjects.Fixed.River;
@@ -15,10 +14,6 @@ import org.csc133.a2.gameobjects.collections.ComponentCollection;
 import org.csc133.a2.interfaces.HelicopterEngineState;
 import org.csc133.a2.interfaces.HelicopterIntakeState;
 import org.csc133.a2.interfaces.Steerable;
-import org.csc133.a2.states.HelicopterEngineOff;
-import org.csc133.a2.states.IntakeCanDrink;
-import org.csc133.a2.states.IntakeCannotDrink;
-import org.csc133.a2.states.IntakeIsDry;
 
 import java.util.ArrayList;
 
@@ -425,7 +420,7 @@ public class Helicopter extends Movable implements Steerable {
         this.waterLevel = 0;
     }
 
-    public void spinRotorUp(){
+    protected void spinRotorUp(){
         for(Component part: getComponents()){
             if(part instanceof HelicopterRotor){
                 ((HelicopterRotor)part).incrementRotorSpeed();
@@ -433,7 +428,7 @@ public class Helicopter extends Movable implements Steerable {
         }
     }
 
-    public void spinRotorDown(){
+    protected void spinRotorDown(){
         for(Component part: getComponents()){
             if(part instanceof HelicopterRotor){
                 ((HelicopterRotor)part).decrementRotorSpeed();
@@ -441,7 +436,7 @@ public class Helicopter extends Movable implements Steerable {
         }
     }
 
-    public boolean isReady(){
+    protected boolean isReady(){
         for(Component part: getComponents()){
             if(part instanceof HelicopterRotor){
                 return((HelicopterRotor)part).isSpunUp();
@@ -450,7 +445,7 @@ public class Helicopter extends Movable implements Steerable {
         return(false);
     }
 
-    public boolean isRunning(){
+    protected boolean isRunning(){
         for(Component part: getComponents()){
             if(part instanceof HelicopterRotor){
                 return((HelicopterRotor)part).isSpinning();
@@ -459,7 +454,7 @@ public class Helicopter extends Movable implements Steerable {
         return(false);
     }
 
-    public void burnFuel(){
+    protected void burnFuel(){
         if(this.fuelLevel > 0){
             //this.fuelLevel -= MathUtil.pow(getSpeed(),2) + 5;
             this.fuelLevel -= (this.getSpeed() * 5);
@@ -486,7 +481,7 @@ public class Helicopter extends Movable implements Steerable {
         }
     }
 
-    public boolean fuelOut(){
+    protected boolean fuelOut(){
         return(this.fuelLevel <= 0);
     }
 

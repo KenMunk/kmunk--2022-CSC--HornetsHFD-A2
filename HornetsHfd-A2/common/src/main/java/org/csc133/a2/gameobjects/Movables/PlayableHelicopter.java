@@ -13,4 +13,11 @@ public class PlayableHelicopter extends Helicopter{
     private PlayableHelicopter(Helipad helipad) {
         super(helipad);
     }
+
+    public PlayableHelicopter getInstance(Helipad helipad){
+        if(player == null){
+            player = new PlayableHelicopter(helipad);
+        }
+        return(player);
+    }
 }

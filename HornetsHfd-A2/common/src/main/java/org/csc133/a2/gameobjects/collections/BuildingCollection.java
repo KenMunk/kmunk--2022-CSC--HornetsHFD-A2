@@ -2,7 +2,7 @@ package org.csc133.a2.gameobjects.collections;
 
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
-import org.csc133.a2.gameobjects.Fixed.Building;
+import org.csc133.a2.gameobjects.Fixed.BuildingSystem.Building;
 
 import java.util.Random;
 

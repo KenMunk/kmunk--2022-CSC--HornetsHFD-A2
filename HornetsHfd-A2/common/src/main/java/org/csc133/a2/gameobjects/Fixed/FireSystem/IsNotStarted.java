@@ -1,8 +1,7 @@
-package org.csc133.a2.states;
+package org.csc133.a2.gameobjects.Fixed.FireSystem;
 
 import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Point;
-import org.csc133.a2.gameobjects.Fixed.Fire;
 import org.csc133.a2.interfaces.FireState;
 
 public class IsNotStarted implements FireState {
@@ -12,16 +11,6 @@ public class IsNotStarted implements FireState {
 
         //Do nothing?
 
-    }
-
-    @Override
-    public void drawUpdate
-    (
-        Fire context,
-        Graphics gfxContext,
-        Point containerOrigin
-    ){
-        //Do nothing
     }
 
 
