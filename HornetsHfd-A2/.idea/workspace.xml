@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="992a1474-dcbe-4c7c-8ffe-80e7d6039e27" name="Changes" comment="Helicopter singletons staged">
+    <list default="true" id="992a1474-dcbe-4c7c-8ffe-80e7d6039e27" name="Changes" comment="Playable Helicopter incorporated into the GameWorld, some aspects are still broken review commented out sections&#10;&#10;Flaw found: Movement is inverse of expectations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Components/ComponentNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Components/ComponentNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Helicopter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Helicopter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Movable.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Movable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/Steerable.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/Steerable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -811,13 +813,6 @@
       <workItem from="1646609319994" duration="11947000" />
       <workItem from="1646657740788" duration="28746000" />
     </task>
-    <task id="LOCAL-00009" summary="Glass Cockpit complete&#10;Added HudSegments class and variants&#10;Started some work on GameObjects (distraction)">
-      <created>1646685067896</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1646685067896</updated>
-    </task>
     <task id="LOCAL-00010" summary="Finishing up the foundations and cross referencing A1 to limit repeat work while avoiding errors from A1">
       <created>1646688747295</created>
       <option name="number" value="00010" />
@@ -1154,7 +1149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652297441353</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Playable Helicopter incorporated into the GameWorld, some aspects are still broken review commented out sections&#10;&#10;Flaw found: Movement is inverse of expectations">
+      <created>1652306360477</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1652306360477</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1172,7 +1174,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Dialog state system abandoned in favor of basic boolean state." />
     <MESSAGE value="privatized fires" />
     <MESSAGE value="code cleanup (deleting unused classes)&#10;code cleanup (privatizing privatable methods)&#10;code compliance (added helicopter info under helicopter)" />
     <MESSAGE value="Abstractifying gameobject, fixed, and movable, removing Drawable." />
@@ -1197,6 +1198,7 @@
     <MESSAGE value="added movement capabilities to the helicopter" />
     <MESSAGE value="Fire circles now render within the expected fire locations" />
     <MESSAGE value="Protecting more functions and data by shifting where the states are with respect to their host class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Protecting more functions and data by shifting where the states are with respect to their host class" />
+    <MESSAGE value="Playable Helicopter incorporated into the GameWorld, some aspects are still broken review commented out sections&#10;&#10;Flaw found: Movement is inverse of expectations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Playable Helicopter incorporated into the GameWorld, some aspects are still broken review commented out sections&#10;&#10;Flaw found: Movement is inverse of expectations" />
   </component>
 </project>

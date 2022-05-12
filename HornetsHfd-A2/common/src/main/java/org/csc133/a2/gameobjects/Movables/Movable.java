@@ -6,34 +6,37 @@ import org.csc133.a2.gameobjects.Components.ComponentNode;
 
 public abstract class Movable extends ComponentNode {
 
-    private double heading;
-    private double speed;
+    private float heading;
+    private float speed;
 
-    public void setSpeed(double speed){
+    public void setSpeed(float speed){
         this.speed = speed;
     }
 
-    public double getSpeed(){
+    public float getSpeed(){
         return(speed);
     }
 
-    public void adjustSpeed(double byAmount){
+    public void adjustSpeed(float byAmount){
         this.speed += byAmount;
     }
 
-    public void setHeading(double heading){
+    public void setHeading(float heading){
         this.heading = heading;
     }
 
-    public void adjustHeading(double byAmount){
+    public void adjustHeading(float byAmount){
         this.heading += byAmount;
         this.heading %= 360;
         if(this.heading < 0){
             this.heading = 359-this.heading;
         }
+
+        System.out.println("Updated rotation: " + getHeading());
+        this.setRotation((heading*3.14f)/180);
     }
 
-    public double getHeading(){
+    public float getHeading(){
         return(heading);
     }
 
@@ -47,8 +50,7 @@ public abstract class Movable extends ComponentNode {
             Math.cos
             (
                 (this.getHeading()-90) * 3.14/180
-            )
-            * (-1)
+            ) * (-1)
         )+output.getX();
 
         int yOut = (int) MathUtil.round
@@ -58,7 +60,7 @@ public abstract class Movable extends ComponentNode {
                 Math.sin
                     (
                         (this.getHeading()-90) * 3.14/180
-                    )
+                    ) * (-1)
         )+output.getY();
 
         output.setX(xOut);

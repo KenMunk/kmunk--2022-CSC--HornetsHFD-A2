@@ -170,9 +170,11 @@ public class Helicopter extends Movable implements Steerable {
             transform.translate(0,getDimensions().getWidth()*1.42f);
             transform.scale(1,-1);
             context.setTransform(transform);
+
             context.drawArc(0,0,
                     getDimensions().getWidth(),
                     getDimensions().getWidth(),0,180);
+
             transform.scale(1,-1);
             transform.translate(0,-getDimensions().getWidth()*1.42f);
             context.setTransform(transform);
@@ -325,7 +327,7 @@ public class Helicopter extends Movable implements Steerable {
         public boolean isSpinning() { return(rotorSpeed > 0);}
 
         protected void spinRotor(){
-            incrementRotation(rotorSpeed);
+            incrementRotation((rotorSpeed));
         }
 
         @Override
@@ -511,12 +513,12 @@ public class Helicopter extends Movable implements Steerable {
     }
 
     @Override
-    public void turnLeft(double amount) {
+    public void turnLeft(float amount) {
         adjustHeading(amount);
     }
 
     @Override
-    public void turnRight(double amount) {
+    public void turnRight(float amount) {
         adjustHeading(-amount);
     }
 
