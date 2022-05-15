@@ -166,15 +166,18 @@ public class Fire extends Fixed{
     }
 
     public boolean nearPosition(Point pos){
+        return nearPosition(pos,200);
 
+    }
+
+    public boolean nearPosition(Point pos, int margin){
         boolean isNear = radiusContainsPoint
-        (
-            pos,
-            (this.radius())+200
-        );
+                (
+                        pos,
+                        (this.radius())+margin
+                );
 
         return(isNear);
-
     }
 
     @Override
@@ -240,6 +243,14 @@ public class Fire extends Fixed{
         Point screenOrigin
     ) {
         localDraw(context, parentOrigin, screenOrigin);
+    }
+
+    @Override
+    public void pointerPressed(Point location){
+        if(nearPosition(location,0)){
+            System.out.println("Fire at pos (" + getPos() + ") has " +
+                    "been selected");
+        }
     }
 
 
