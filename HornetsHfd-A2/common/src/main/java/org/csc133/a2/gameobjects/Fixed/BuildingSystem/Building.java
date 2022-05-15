@@ -1,6 +1,7 @@
 package org.csc133.a2.gameobjects.Fixed.BuildingSystem;
 
 import com.codename1.charts.util.ColorUtil;
+import com.codename1.ui.Graphics;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
 import com.codename1.util.MathUtil;
@@ -97,7 +98,7 @@ public class Building extends Fixed {
     public void updateBurns(FireCollection fireCollection){
         burnCheck(fireCollection);
 
-        burnAmount = fireCollection.calculateBurns(this)*10;
+        burnAmount = fireCollection.calculateBurns(this)*13;
         if(burnAmount > getSize()){
             stopAllBurns(fireCollection);
             setBurnState(new BuildingDoneBurning());

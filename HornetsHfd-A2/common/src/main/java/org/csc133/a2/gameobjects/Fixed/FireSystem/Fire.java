@@ -214,9 +214,11 @@ public class Fire extends Fixed{
             }
         }
 
+        String currentSize = ""+getSize();
+
         scaleTransform(context,1,-1);
-        context.drawChars(getPos().toString().toCharArray(),0,
-                getPos().toString().length(),
+        context.drawChars(currentSize.toCharArray(),0,
+                currentSize.length(),
                 0, -100 + radiusInt);
         undoScaleTransform(context, 1,-1);
 
