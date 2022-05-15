@@ -65,7 +65,6 @@ public class GameWorld {
         //Helicopter player = new Helicopter(helipad);
 
         River aRiver = new River(new Point(maxX/2,3*maxY/5));
-        gameObjects.add(new ClickIndicator(new Point(0,0)));
         gameObjects.add(aRiver);
 
 
@@ -135,6 +134,8 @@ public class GameWorld {
 
             gameObjects.add(testPath);
         }
+
+        gameObjects.add(new ClickIndicator(new Point(0,0)));
 
 
         //Player will be singleton going forward
@@ -404,9 +405,18 @@ public class GameWorld {
         for(GameObject go : gameObjects){
             go.pointerPressed(location);
         }
-        gameObjects.add(new ClickIndicator(location));
 
-
+        boolean alreadyHasIndicator = false;
+        for(GameObject go : gameObjects){
+            if( go instanceof ClickIndicator){
+                go.setPos(location);
+                alreadyHasIndicator = true;
+                break;
+            }
+        }
+        if(!alreadyHasIndicator){
+            gameObjects.add(new ClickIndicator(location));
+        }
 
     }
 }

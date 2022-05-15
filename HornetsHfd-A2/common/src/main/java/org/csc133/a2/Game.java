@@ -104,6 +104,7 @@ public class Game extends Form implements Runnable{
         gameWorld.update();
         middleMapView.update();
         topGlassCockpit.update();
+        bottomControlCluster.updateEngineButton();
     }
 
     @Override

@@ -24,8 +24,8 @@ public class ToggleEngine extends Command {
         PlayableHelicopter.getInstance().toggleEngine();
         if (currentState !=
                 PlayableHelicopter.getInstance().isPowered()){
-            thisPanel.engineButtonSwitch();
             currentState = PlayableHelicopter.getInstance().isPowered();
+            thisPanel.engineButtonSwitch(currentState);
         }
     }
 }

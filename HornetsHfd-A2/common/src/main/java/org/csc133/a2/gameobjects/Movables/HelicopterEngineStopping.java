@@ -9,6 +9,7 @@ public class HelicopterEngineStopping implements HelicopterEngineState {
 
         chopper.spinRotorDown();
 
+
         if(!chopper.isRunning()){
             returnState = new HelicopterEngineOff();
         }
@@ -21,5 +22,10 @@ public class HelicopterEngineStopping implements HelicopterEngineState {
         HelicopterEngineState returnState = new HelicopterEngineStarting();
 
         return(returnState);
+    }
+
+    @Override
+    public String toString(){
+        return("Engine is stopping");
     }
 }

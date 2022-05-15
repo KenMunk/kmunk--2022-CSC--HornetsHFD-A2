@@ -9,6 +9,7 @@ public class HelicopterEngineRunning implements HelicopterEngineState {
 
         //move
         chopper.move();
+        chopper.burnFuel();
 
         return(returnState);
     }
@@ -24,4 +25,8 @@ public class HelicopterEngineRunning implements HelicopterEngineState {
         return(returnState);
     }
 
+    @Override
+    public String toString(){
+        return("Engine is running");
+    }
 }

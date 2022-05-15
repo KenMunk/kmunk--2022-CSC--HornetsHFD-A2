@@ -11,4 +11,6 @@ public interface HelicopterEngineState {
 
     public HelicopterEngineState toggle(Helicopter chopper);
 
+    @Override
+    public String toString();
 }

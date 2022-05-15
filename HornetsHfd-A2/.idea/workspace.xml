@@ -4,17 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="992a1474-dcbe-4c7c-8ffe-80e7d6039e27" name="Changes" comment="Helicopter now moves and rotates as expected... kinda">
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Components/CircleSolid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/ClickIndicator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/path/ControlPoint.java" afterDir="false" />
+    <list default="true" id="992a1474-dcbe-4c7c-8ffe-80e7d6039e27" name="Changes" comment="Gameworld is now clickable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/FireSystem/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/FireSystem/Fire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/GameObjectCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/collections/GameObjectCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/path/ControlGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/path/ControlGrid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/MapView.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/MapView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/commands/ToggleEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/commands/ToggleEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/BuildingSystem/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/BuildingSystem/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Helicopter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Helicopter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/HelicopterEngineOff.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/HelicopterEngineOff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/HelicopterEngineRunning.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/HelicopterEngineRunning.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/HelicopterEngineStarting.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/HelicopterEngineStarting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/HelicopterEngineStopping.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/HelicopterEngineStopping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/HelicopterEngineState.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/HelicopterEngineState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ControlCluster.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ControlCluster.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -818,13 +820,6 @@
       <workItem from="1646609319994" duration="11947000" />
       <workItem from="1646657740788" duration="28746000" />
     </task>
-    <task id="LOCAL-00011" summary="River and helibase completed(ish)">
-      <created>1646693138670</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1646693138670</updated>
-    </task>
     <task id="LOCAL-00012" summary="Enabled flexible UI scaling for map view so that the map view isn't as hard coded.">
       <created>1646805434344</created>
       <option name="number" value="00012" />
@@ -1161,7 +1156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652397633185</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Gameworld is now clickable">
+      <created>1652596949278</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1652596949278</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1179,7 +1181,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="code cleanup (deleting unused classes)&#10;code cleanup (privatizing privatable methods)&#10;code compliance (added helicopter info under helicopter)" />
     <MESSAGE value="Abstractifying gameobject, fixed, and movable, removing Drawable." />
     <MESSAGE value="Starting work on the GameObjectCollection" />
     <MESSAGE value="Removing potentially confusing code for a fresh slate for the iterables tomorrow." />
@@ -1204,6 +1205,7 @@
     <MESSAGE value="Protecting more functions and data by shifting where the states are with respect to their host class" />
     <MESSAGE value="Playable Helicopter incorporated into the GameWorld, some aspects are still broken review commented out sections&#10;&#10;Flaw found: Movement is inverse of expectations" />
     <MESSAGE value="Helicopter now moves and rotates as expected... kinda" />
-    <option name="LAST_COMMIT_MESSAGE" value="Helicopter now moves and rotates as expected... kinda" />
+    <MESSAGE value="Gameworld is now clickable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gameworld is now clickable" />
   </component>
 </project>

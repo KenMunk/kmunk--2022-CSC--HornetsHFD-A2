@@ -8,6 +8,7 @@ public class HelicopterEngineStarting implements HelicopterEngineState {
         HelicopterEngineState returnState = this;
 
         chopper.spinRotorUp();
+        chopper.burnFuel();
 
         if(chopper.isReady()){
             returnState = new HelicopterEngineRunning();
@@ -20,6 +21,12 @@ public class HelicopterEngineStarting implements HelicopterEngineState {
         HelicopterEngineState returnState = new HelicopterEngineStopping();
 
         return(returnState);
+    }
+
+
+    @Override
+    public String toString(){
+        return("Engine is starting");
     }
 
 }

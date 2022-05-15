@@ -12,10 +12,17 @@ public class HelicopterEngineOff implements HelicopterEngineState {
     }
 
     public HelicopterEngineState toggle(Helicopter chopper){
+        System.out.println("Attempting to start the helicopter");
+
         HelicopterEngineState returnState =
                 new HelicopterEngineStarting();
 
         return(returnState);
+    }
+
+    @Override
+    public String toString(){
+        return("Engine is off");
     }
 
 }

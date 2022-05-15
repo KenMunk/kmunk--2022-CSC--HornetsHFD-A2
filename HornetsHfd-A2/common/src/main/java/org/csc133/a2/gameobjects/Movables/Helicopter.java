@@ -301,7 +301,7 @@ public class Helicopter extends Movable implements Steerable {
         public HelicopterRotor(int color){
             super(color);
             rotorSpeed = 0f;
-            maxSpeed = 3f;
+            maxSpeed = 2.7f;
             setRotation(45);
         }
 
@@ -310,7 +310,7 @@ public class Helicopter extends Movable implements Steerable {
         }
 
         public void incrementRotorSpeed(){
-            rotorSpeed += 0.2f;
+            rotorSpeed += 0.02f;
             System.out.println("RotorSpeed = " + rotorSpeed);
             if(rotorSpeed>maxSpeed){
                 rotorSpeed = maxSpeed;
@@ -318,14 +318,14 @@ public class Helicopter extends Movable implements Steerable {
         }
 
         public void decrementRotorSpeed(){
-            rotorSpeed -= 0.1f;
+            rotorSpeed -= 0.01f;
             if(rotorSpeed<0f){
                 rotorSpeed = 0;
             }
         }
 
         public boolean isSpunUp(){
-            return(rotorSpeed>1.7f);
+            return(rotorSpeed>maxSpeed*0.9f);
         }
 
         public boolean isSpinning() { return(rotorSpeed > 0);}
@@ -423,8 +423,9 @@ public class Helicopter extends Movable implements Steerable {
         this.waterLevel = 0;
     }
 
-    protected void spinRotorUp(){
+    public void spinRotorUp(){
         for(Component part: getComponents()){
+            System.out.println("Trying to find rotor");
             if(part instanceof HelicopterRotor){
                 System.out.println("Attempting to spin rotor up");
                 ((HelicopterRotor)part).incrementRotorSpeed();
@@ -432,7 +433,7 @@ public class Helicopter extends Movable implements Steerable {
         }
     }
 
-    protected void spinRotorDown(){
+    public void spinRotorDown(){
         for(Component part: getComponents()){
             if(part instanceof HelicopterRotor){
                 ((HelicopterRotor)part).decrementRotorSpeed();
@@ -440,7 +441,7 @@ public class Helicopter extends Movable implements Steerable {
         }
     }
 
-    protected boolean isReady(){
+    public boolean isReady(){
         for(Component part: getComponents()){
             if(part instanceof HelicopterRotor){
                 return((HelicopterRotor)part).isSpunUp();
@@ -491,8 +492,7 @@ public class Helicopter extends Movable implements Steerable {
 
     public void flightUpdate(){
         if(!fuelOut()){
-            move();
-            burnFuel();
+            engineState = engineState.updateRotor(this);
         }
     }
 
@@ -565,7 +565,9 @@ public class Helicopter extends Movable implements Steerable {
     }
 
     public void toggleEngine(){
+        System.out.println("Attempt to toggle helicopter engine");
         engineState = engineState.toggle(this);
+        System.out.println("New engine state is = " + engineState);
     }
 
     public boolean isPowered(){

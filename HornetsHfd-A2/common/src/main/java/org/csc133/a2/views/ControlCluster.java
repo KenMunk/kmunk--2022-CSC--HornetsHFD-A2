@@ -12,6 +12,7 @@ import com.codename1.ui.plaf.Style;
 import com.codename1.util.MathUtil;
 import org.csc133.a2.GameWorld;
 import org.csc133.a2.commands.*;
+import org.csc133.a2.gameobjects.Movables.PlayableHelicopter;
 
 import javax.swing.border.Border;
 import java.util.ArrayList;
@@ -27,7 +28,6 @@ public class ControlCluster extends Container {
 
     //Center Buttons
     private Button toggleBtn;
-    boolean starting;
     private Button exitBtn;
 
     //Right Side Buttons
@@ -53,8 +53,6 @@ public class ControlCluster extends Container {
 
     public ControlCluster(GameWorld referenceOfGameWorld){
 
-        starting = false;
-
         gameWorld = GameWorld.getInstance();
 
         leftBtn = this.buttonMaker
@@ -74,8 +72,8 @@ public class ControlCluster extends Container {
             "Fight"
         );
 
-        toggleBtn = this.buttonMaker(new ToggleEngine(this),"Start " +
-                "Engine");
+        toggleBtn = this.buttonMaker(new ToggleEngine(this),
+                    "Start");
 
         exitBtn = this.buttonMaker(
             new Exit(gameWorld),
@@ -164,6 +162,30 @@ public class ControlCluster extends Container {
         buttonStyle.setFgColor(ColorUtil.BLUE);
     }
 
+    private void setEngineButtonStyle(Button b, boolean engineReady){
+
+        Style buttonStyle = b.getStyle();
+
+        buttonStyle.setBgColor(ColorUtil.rgb(200,200,200));
+        if(engineReady){
+            buttonStyle.setFgColor(ColorUtil.rgb(0,150,0));
+        }
+        else{
+            buttonStyle.setFgColor(ColorUtil.rgb(150,0,0));
+        }
+        buttonStyle.setBgTransparency(255);
+        buttonStyle.setFont
+                (
+                        Font.createSystemFont
+                                (
+                                        Font.FACE_MONOSPACE,
+                                        Font.STYLE_BOLD,
+                                        //The font size could really be resizable
+                                        Font.SIZE_MEDIUM
+                                )
+                );
+    }
+
     @Override
     public void paint(Graphics context){
         super.paint(context);
@@ -191,15 +213,22 @@ public class ControlCluster extends Container {
         return(getParent());
     }
 
-    public void engineButtonSwitch(){
-        if(starting){
-            toggleBtn.setText("Stop Engine");
-            starting = false;
+    public void engineButtonSwitch(boolean isStarting){
+        if(isStarting){
+            toggleBtn.setText("Stop");
         }
         else{
-            toggleBtn.setText("Start Engine");
-            starting = true;
+            toggleBtn.setText("Start");
         }
+    }
+
+    public void updateEngineButton(){
+        setEngineButtonStyle
+        (
+            toggleBtn,
+            PlayableHelicopter.getInstance().isReady()
+        );
+        toggleBtn.repaint();
     }
 
 
