@@ -10,7 +10,7 @@ import org.csc133.a2.interfaces.FireState;
 
 import java.util.Random;
 
-public class Fire extends Fixed {
+public class Fire extends Fixed{
 
     private class Bubble extends Component {
 
@@ -241,5 +241,6 @@ public class Fire extends Fixed {
     ) {
         localDraw(context, parentOrigin, screenOrigin);
     }
+
 
 }

@@ -258,6 +258,8 @@ public abstract class GameObject {
         context.setTransform(transform);
     }
 
+    public void pointerPressed(Point location){
 
+    }
 
 }

@@ -14,6 +14,7 @@ import com.codename1.util.MathUtil;
 
 import org.csc133.a2.gameobjects.*;
 import org.csc133.a2.gameobjects.Fixed.BuildingSystem.Building;
+import org.csc133.a2.gameobjects.Fixed.ClickIndicator;
 import org.csc133.a2.gameobjects.Fixed.Helipad;
 import org.csc133.a2.gameobjects.Fixed.River;
 import org.csc133.a2.gameobjects.Movables.Helicopter;
@@ -64,7 +65,7 @@ public class GameWorld {
         //Helicopter player = new Helicopter(helipad);
 
         River aRiver = new River(new Point(maxX/2,3*maxY/5));
-
+        gameObjects.add(new ClickIndicator(new Point(0,0)));
         gameObjects.add(aRiver);
 
 
@@ -397,5 +398,15 @@ public class GameWorld {
 
     public void setWorldDimensions(Dimension worldDimensions){
         worldDimensions = worldDimensions;
+    }
+
+    public void pointerPressed(Point location){
+        for(GameObject go : gameObjects){
+            go.pointerPressed(location);
+        }
+        gameObjects.add(new ClickIndicator(location));
+
+
+
     }
 }

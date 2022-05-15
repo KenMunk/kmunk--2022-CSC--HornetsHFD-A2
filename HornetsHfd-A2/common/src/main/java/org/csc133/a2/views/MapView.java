@@ -14,11 +14,15 @@ public class MapView extends Container {
     private GameWorld gameWorld;
     private ViewOffsets viewOffsets;
     Point offsetOrigin;
+    float offsetSide;
+    float scaleFactor;
 
     public MapView(GameWorld referenceOfGameWorld,
                    ViewOffsets viewOffsets){
         gameWorld = referenceOfGameWorld;
         this.viewOffsets = viewOffsets;
+        offsetSide = 0;
+        scaleFactor = 1;
     }
 
     public void displayTransform(Graphics context){
@@ -33,7 +37,7 @@ public class MapView extends Container {
         float heightScale =
                 (getHeight()-viewOffsets.getTotalOffset())/(maxHeight);
 
-        float scaleFactor = 1;
+        scaleFactor = 1;
 
         if(widthScale<=heightScale){
             scaleFactor = widthScale;
@@ -43,6 +47,7 @@ public class MapView extends Container {
         }
 
         float offsetWidth = (getWidth() - (scaleFactor*maxWidth))/2;
+        offsetSide = offsetWidth;
         float offsetHeight =
                 ((getHeight()-viewOffsets.getTotalOffset()) -
                         (scaleFactor*maxHeight))/2;
@@ -104,7 +109,8 @@ public class MapView extends Container {
         //Since this is where the border between codenameone
         //coordinate standards and local coordinate standards
 
-        GameWorld.getInstance().draw(context,parentOrigin,screenOrigin);
+        GameWorld.getInstance().draw(context,new Point(0,0),
+                screenOrigin);
 
         context.resetAffine();
 
@@ -151,5 +157,33 @@ public class MapView extends Container {
         return(getParent());
     }
 
+    public void pointerPressed(int x, int y){
+        x = x - getAbsoluteX()-(int)offsetSide;
+        y = y - getAbsoluteY()+10;
+
+        int widthScaled = (int)(1920 * scaleFactor);
+        int heightScaled = (int)(1440 * scaleFactor);
+
+        float floatX = (x/(float)widthScaled);
+        float floatY = 1-((y)/(float)heightScaled);
+
+        int worldX = (int)(1920 * floatX);
+        int worldY = (int)(1440 * floatY);
+
+
+        System.out.println
+        (
+            "Press detected at: (" +
+            worldX + ", " +
+            worldY + ")"
+        );
+
+        if(
+           worldX >= 0 && worldY >= 0 && worldX<=1920 && worldY<= 1440
+        ){
+
+            gameWorld.pointerPressed(new Point(worldX,worldY));
+        }
+    }
 
 }

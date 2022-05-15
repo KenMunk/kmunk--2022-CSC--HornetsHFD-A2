@@ -25,6 +25,17 @@ public class GameObjectCollection<T extends GameObject> extends GameObject imple
         }
     }
 
+    public T getAt(int i){
+        int x = 0;
+        for(T value : gameObjects){
+            if(x==i){
+                return(value);
+            }
+            x++;
+        }
+        throw(new ArrayIndexOutOfBoundsException());
+    }
+
     public GameObjectCollection(){
         gameObjects = new ArrayList<>();
     }
@@ -82,5 +93,12 @@ public class GameObjectCollection<T extends GameObject> extends GameObject imple
 
     }
 
+
+    @Override
+    public void pointerPressed(Point location){
+        for(T entry : gameObjects){
+            entry.pointerPressed(location);
+        }
+    }
 
 }
