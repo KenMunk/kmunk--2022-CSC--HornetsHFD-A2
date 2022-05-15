@@ -39,13 +39,14 @@ public class Fire extends Fixed {
 
             cn1ForwardPrimitiveTranslate(context, getDimensions());
             if(radius > 1){
-
                 //System.out.println("Drawing burn");
-                context.fillArc(0,0,
-                        getDimensions().getWidth(), getDimensions().getHeight(),
-                        0,360);
+                context.fillArc(
+                    0,0,
+                    getDimensions().getWidth(),
+                    getDimensions().getHeight(),
+                    0,360
+                );
             }
-
             cn1ReversePrimitiveTranslate(context, getDimensions());
         }
 
@@ -228,6 +229,17 @@ public class Fire extends Fixed {
 
     public boolean isReady(){
         return(currentState instanceof IsNotStarted);
+    }
+
+
+    @Override
+    protected void drawAllLocal
+    (
+        Graphics context,
+        Point parentOrigin,
+        Point screenOrigin
+    ) {
+        localDraw(context, parentOrigin, screenOrigin);
     }
 
 }

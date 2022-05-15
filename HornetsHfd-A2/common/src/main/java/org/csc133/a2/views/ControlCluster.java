@@ -26,6 +26,8 @@ public class ControlCluster extends Container {
     private Button leftBtn;
 
     //Center Buttons
+    private Button toggleBtn;
+    boolean starting;
     private Button exitBtn;
 
     //Right Side Buttons
@@ -44,9 +46,14 @@ public class ControlCluster extends Container {
                     new Container(new GridLayout(1,3))
             );
 
+    private final Container centerSideButtons =
+            (
+                    new Container(new GridLayout(1,3))
+            );
+
     public ControlCluster(GameWorld referenceOfGameWorld){
 
-
+        starting = false;
 
         gameWorld = GameWorld.getInstance();
 
@@ -66,6 +73,9 @@ public class ControlCluster extends Container {
             new Fight(gameWorld),
             "Fight"
         );
+
+        toggleBtn = this.buttonMaker(new ToggleEngine(this),"Start " +
+                "Engine");
 
         exitBtn = this.buttonMaker(
             new Exit(gameWorld),
@@ -90,6 +100,7 @@ public class ControlCluster extends Container {
         setButtonStyle(leftBtn);
         setButtonStyle(rightBtn);
         setButtonStyle(fightBtn);
+        setButtonStyle(toggleBtn);
         setButtonStyle(exitBtn);
         setButtonStyle(accelBtn);
         setButtonStyle(drinkBtn);
@@ -98,6 +109,10 @@ public class ControlCluster extends Container {
         leftSideButtons.add(leftBtn);
         leftSideButtons.add(rightBtn);
         leftSideButtons.add(fightBtn);
+
+        centerSideButtons.add(toggleBtn);
+        centerSideButtons.add(new Container());
+        centerSideButtons.add(exitBtn);
 
         rightSideButtons.add(drinkBtn);
         rightSideButtons.add(brakeBtn);
@@ -111,7 +126,7 @@ public class ControlCluster extends Container {
 
         this.add(leftSideButtons);
         this.add(emptyContainer.get(0));
-        this.add(exitBtn);
+        this.add(centerSideButtons);
         this.add(emptyContainer.get(1));
         this.add(rightSideButtons);
 
@@ -174,6 +189,17 @@ public class ControlCluster extends Container {
     @Override
     public Component getNextFocusRight(){
         return(getParent());
+    }
+
+    public void engineButtonSwitch(){
+        if(starting){
+            toggleBtn.setText("Stop Engine");
+            starting = false;
+        }
+        else{
+            toggleBtn.setText("Start Engine");
+            starting = true;
+        }
     }
 
 

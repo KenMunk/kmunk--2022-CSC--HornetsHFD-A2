@@ -202,8 +202,7 @@ public class GameWorld {
 
     public void helicopterDump() {
         //[TODO] return to this after making a player singleton
-        //PlayableHelicopter.getInstance().fight(gameObjects
-        // .getFires());
+        PlayableHelicopter.getInstance().fight(gameObjects.getFires());
     }
 
     public void helicopterDrink() {
@@ -315,7 +314,7 @@ public class GameWorld {
             gameState = new GameLoss();
             openDialog();
         }
-        //PlayableHelicopter.getInstance().riverCheck(gameObject);
+        PlayableHelicopter.getInstance().riverCheck(gameObjects);
         //*/
     }
 

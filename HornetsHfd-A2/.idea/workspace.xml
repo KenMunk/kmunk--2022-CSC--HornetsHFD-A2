@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="992a1474-dcbe-4c7c-8ffe-80e7d6039e27" name="Changes" comment="Playable Helicopter incorporated into the GameWorld, some aspects are still broken review commented out sections&#10;&#10;Flaw found: Movement is inverse of expectations">
+    <list default="true" id="992a1474-dcbe-4c7c-8ffe-80e7d6039e27" name="Changes" comment="Helicopter now moves and rotates as expected... kinda">
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/commands/ToggleEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Components/ComponentNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Components/ComponentNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/FireSystem/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/FireSystem/Fire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/GameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Helicopter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Helicopter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Movable.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Movable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/Steerable.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/interfaces/Steerable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ControlCluster.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ControlCluster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewFuel.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewFuel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewHeading.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewHeading.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewSpeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewSpeed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewWater.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewWater.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -783,20 +790,20 @@
     </configuration>
     <list>
       <item itemvalue="Maven.Android Build" />
+      <item itemvalue="Maven.Codename One Settings" />
+      <item itemvalue="Maven.Cross-platform (JavaSE) Desktop App" />
+      <item itemvalue="Maven.Generate Native Interfaces" />
+      <item itemvalue="Maven.Gradle Android Project" />
       <item itemvalue="Maven.Javascript Build" />
       <item itemvalue="Maven.Mac Desktop Build" />
-      <item itemvalue="Maven.Windows Desktop Build" />
-      <item itemvalue="Maven.Windows Device Build (UWP)" />
-      <item itemvalue="Maven.iOS Debug Build" />
-      <item itemvalue="Maven.iOS Release Build" />
-      <item itemvalue="Maven.Cross-platform (JavaSE) Desktop App" />
-      <item itemvalue="Maven.Gradle Android Project" />
-      <item itemvalue="Maven.Xcode iOS Project" />
-      <item itemvalue="Maven.Codename One Settings" />
-      <item itemvalue="Maven.Generate Native Interfaces" />
-      <item itemvalue="Maven.Update Codename One" />
       <item itemvalue="Maven.Run as Desktop App" />
       <item itemvalue="Maven.Run in Simulator" />
+      <item itemvalue="Maven.Update Codename One" />
+      <item itemvalue="Maven.Windows Desktop Build" />
+      <item itemvalue="Maven.Windows Device Build (UWP)" />
+      <item itemvalue="Maven.Xcode iOS Project" />
+      <item itemvalue="Maven.iOS Debug Build" />
+      <item itemvalue="Maven.iOS Release Build" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -812,13 +819,6 @@
       <updated>1613589489573</updated>
       <workItem from="1646609319994" duration="11947000" />
       <workItem from="1646657740788" duration="28746000" />
-    </task>
-    <task id="LOCAL-00010" summary="Finishing up the foundations and cross referencing A1 to limit repeat work while avoiding errors from A1">
-      <created>1646688747295</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1646688747295</updated>
     </task>
     <task id="LOCAL-00011" summary="River and helibase completed(ish)">
       <created>1646693138670</created>
@@ -1156,7 +1156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652306360477</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Helicopter now moves and rotates as expected... kinda">
+      <created>1652397633184</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1652397633185</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1174,7 +1181,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="privatized fires" />
     <MESSAGE value="code cleanup (deleting unused classes)&#10;code cleanup (privatizing privatable methods)&#10;code compliance (added helicopter info under helicopter)" />
     <MESSAGE value="Abstractifying gameobject, fixed, and movable, removing Drawable." />
     <MESSAGE value="Starting work on the GameObjectCollection" />
@@ -1199,6 +1205,7 @@
     <MESSAGE value="Fire circles now render within the expected fire locations" />
     <MESSAGE value="Protecting more functions and data by shifting where the states are with respect to their host class" />
     <MESSAGE value="Playable Helicopter incorporated into the GameWorld, some aspects are still broken review commented out sections&#10;&#10;Flaw found: Movement is inverse of expectations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Playable Helicopter incorporated into the GameWorld, some aspects are still broken review commented out sections&#10;&#10;Flaw found: Movement is inverse of expectations" />
+    <MESSAGE value="Helicopter now moves and rotates as expected... kinda" />
+    <option name="LAST_COMMIT_MESSAGE" value="Helicopter now moves and rotates as expected... kinda" />
   </component>
 </project>

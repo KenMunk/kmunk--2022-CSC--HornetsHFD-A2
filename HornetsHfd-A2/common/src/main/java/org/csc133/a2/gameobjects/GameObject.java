@@ -5,6 +5,7 @@ import com.codename1.ui.Graphics;
 import com.codename1.ui.Transform;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
+import com.codename1.ui.geom.Point2D;
 import org.csc133.a2.ColorInt;
 import org.csc133.a2.gameobjects.collections.ComponentCollection;
 
@@ -13,6 +14,7 @@ public abstract class GameObject {
     protected Point pos;
     private float rotation;
     private Dimension dimensions;
+    private Point2D scale;
     protected ColorInt color;
 
     public Point getPos(){
@@ -20,6 +22,21 @@ public abstract class GameObject {
             pos = new Point(0, 0);
         }
         return(new Point(pos.getX(),pos.getY()));
+    }
+
+    public void setScale(Point2D newScale){
+        scale = newScale;
+    }
+
+    private void initScale(){
+        setScale(new Point2D(1,1));
+    }
+
+    public Point2D getScale(){
+        if(scale == null){
+            initScale();
+        }
+        return(scale);
     }
 
     public Point setPos(Point newPos) {
@@ -109,7 +126,13 @@ public abstract class GameObject {
         }
 
         localTransforms(context);
-        localDraw(context, getPos(), screenOrigin);
+        scaleTransform(context, (float)getScale().getX(),
+                (float)getScale().getY());
+
+        drawAllLocal(context, parentOrigin, screenOrigin);
+
+        undoScaleTransform(context, (float)getScale().getX(),
+                (float)getScale().getY());
         undoLocalTransforms(context);
 
         //undo the local transforms
@@ -118,6 +141,13 @@ public abstract class GameObject {
         undoContainerTranslate(context, parentOrigin);
 
          //*/
+    }
+
+    protected void drawAllLocal(
+            Graphics context,
+            Point parentOrigin,
+            Point screenOrigin){
+        localDraw(context, getPos(), screenOrigin);
     }
 
     public void update(){
@@ -159,14 +189,14 @@ public abstract class GameObject {
     protected void rotateTransform(Graphics context){
         Transform transform = Transform.makeIdentity();
         context.getTransform(transform);
-        transform.rotate(rotation, 0,0);
+        transform.rotate(rotation, getPos().getX(),getPos().getY());
         context.setTransform(transform);
     }
 
     protected void undoRotateTransform(Graphics context){
         Transform transform = Transform.makeIdentity();
         context.getTransform(transform);
-        transform.rotate(-rotation, 0,0);
+        transform.rotate(-rotation, getPos().getX(),getPos().getY());
         context.setTransform(transform);
     }
 

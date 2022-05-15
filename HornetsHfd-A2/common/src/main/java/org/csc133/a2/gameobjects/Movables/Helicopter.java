@@ -5,12 +5,15 @@ import com.codename1.ui.Graphics;
 import com.codename1.ui.Transform;
 import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
+import com.codename1.ui.geom.Point2D;
 import org.csc133.a2.gameobjects.Components.Component;
 import org.csc133.a2.gameobjects.Fixed.FireSystem.Fire;
 import org.csc133.a2.gameobjects.GameObject;
 import org.csc133.a2.gameobjects.Fixed.Helipad;
 import org.csc133.a2.gameobjects.Fixed.River;
 import org.csc133.a2.gameobjects.collections.ComponentCollection;
+import org.csc133.a2.gameobjects.collections.FireCollection;
+import org.csc133.a2.gameobjects.collections.GameObjectCollection;
 import org.csc133.a2.interfaces.HelicopterEngineState;
 import org.csc133.a2.interfaces.HelicopterIntakeState;
 import org.csc133.a2.interfaces.Steerable;
@@ -308,6 +311,7 @@ public class Helicopter extends Movable implements Steerable {
 
         public void incrementRotorSpeed(){
             rotorSpeed += 0.2f;
+            System.out.println("RotorSpeed = " + rotorSpeed);
             if(rotorSpeed>maxSpeed){
                 rotorSpeed = maxSpeed;
             }
@@ -364,8 +368,6 @@ public class Helicopter extends Movable implements Steerable {
 
     private HelicopterIntakeState waterIntakeState;
 
-    private ComponentCollection helicopterComponents;
-
     protected Helicopter(Point initialPos){
         init(initialPos);
     }
@@ -387,33 +389,32 @@ public class Helicopter extends Movable implements Steerable {
 
         engineState = new HelicopterEngineOff();
 
+        float scaleFactor = 1/8f;
+
+        setScale(new Point2D(scaleFactor,scaleFactor));
+
         this.setPos(initialPos);
 
         this.setHeading(0);
         this.setSpeed(0);
         setColor(color);
 
-        helicopterComponents = new ComponentCollection();
-        helicopterComponents.add(new HelicopterBody(getColor().getValue()));
+        getComponents().add(new HelicopterBody(getColor().getValue()));
         HelicopterRotor rotor =
                 new HelicopterRotor(getColor().getValue());
         rotor.setPos(new Point(0,0));
         rotor.setRadius(600);
-        helicopterComponents.add(rotor);
+        getComponents().add(rotor);
 
         waterIntakeState = new IntakeCannotDrink();
     }
 
-    private void attackFires(ArrayList<GameObject> aBunchOfFires){
+    private void attackFires(FireCollection aBunchOfFires){
 
-        for(GameObject go: aBunchOfFires){
-            if(go instanceof Fire){
+        for(Fire aFire: aBunchOfFires){
 
-                Fire aFire = (Fire)go;
-
-                if(aFire.nearPosition(this.getPos())){
-                    aFire.extinguish(this.waterLevel);
-                }
+            if(aFire.nearPosition(this.getPos())){
+                aFire.extinguish(this.waterLevel);
             }
         }
 
@@ -425,6 +426,7 @@ public class Helicopter extends Movable implements Steerable {
     protected void spinRotorUp(){
         for(Component part: getComponents()){
             if(part instanceof HelicopterRotor){
+                System.out.println("Attempting to spin rotor up");
                 ((HelicopterRotor)part).incrementRotorSpeed();
             }
         }
@@ -467,7 +469,7 @@ public class Helicopter extends Movable implements Steerable {
         }
     }
 
-    public void riverCheck(ArrayList<GameObject> potentialRiver){
+    public void riverCheck(GameObjectCollection<GameObject> potentialRiver){
         for(GameObject go : potentialRiver){
             if(go instanceof River){
                 if(go.containsPoint(getPos())){
@@ -501,15 +503,6 @@ public class Helicopter extends Movable implements Steerable {
         //Everything about the helicopter will be big to begin with
         // for designing, but once things are finalized, the
         // helicopter will be scaled down via hard code.
-        float scaleFactor = 8f;
-
-        scaleTransform(context,1/scaleFactor, 1/scaleFactor);
-
-        for(Component c: helicopterComponents){
-            c.draw(context,new Point(0,0),screenOrigin);
-        }
-
-        scaleTransform(context,scaleFactor, scaleFactor);
     }
 
     @Override
@@ -549,8 +542,8 @@ public class Helicopter extends Movable implements Steerable {
         turnRight(15);
     }
 
-    public void fight(ArrayList<GameObject> gameObject) {
-        attackFires(gameObject);
+    public void fight(FireCollection fires) {
+        attackFires(fires);
     }
 
     public void toDrink() {
@@ -573,6 +566,13 @@ public class Helicopter extends Movable implements Steerable {
 
     public void toggleEngine(){
         engineState = engineState.toggle(this);
+    }
+
+    public boolean isPowered(){
+        return(
+            (engineState instanceof HelicopterEngineStarting)
+            |
+            (engineState instanceof  HelicopterEngineRunning));
     }
 
     public boolean isStopped(){
