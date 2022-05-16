@@ -23,9 +23,11 @@ public abstract class Movable extends ComponentNode {
 
     public void setHeading(float heading){
         this.heading = heading;
+        this.setRotation((heading*3.14f)/180);
     }
 
     public void adjustHeading(float byAmount){
+        System.out.println("Starting heading: " + heading);
         this.heading += byAmount;
         this.heading %= 360;
         if(this.heading < 0){
@@ -40,7 +42,7 @@ public abstract class Movable extends ComponentNode {
         return(heading);
     }
 
-    Point pointAdjustment(){
+    public Point pointAdjustment(){
         Point output = new Point(0,0);
 
         int xOut = (int) MathUtil.round

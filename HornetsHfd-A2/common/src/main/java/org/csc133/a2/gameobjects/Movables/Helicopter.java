@@ -357,16 +357,20 @@ public class Helicopter extends Movable implements Steerable {
 
     }
 
-    private final int MAX_FUEL = 25000;
+    private int MAX_FUEL = 50000;
     private final int MAX_SPEED = 10;
     private final int MAX_WATER = 1000;
 
-    private HelicopterEngineState engineState;
+    protected HelicopterEngineState engineState;
 
     private int waterLevel;
     private int fuelLevel;
 
     private HelicopterIntakeState waterIntakeState;
+
+    public void initFuel(int maxFuel){
+        MAX_FUEL = maxFuel;
+    }
 
     protected Helicopter(Point initialPos){
         init(initialPos);
@@ -383,6 +387,8 @@ public class Helicopter extends Movable implements Steerable {
     }
 
     protected void init(Point initialPos, int color){
+
+        initComponents();
 
         this.waterLevel = this.MAX_WATER;
         this.fuelLevel = this.MAX_FUEL;
@@ -404,12 +410,13 @@ public class Helicopter extends Movable implements Steerable {
                 new HelicopterRotor(getColor().getValue());
         rotor.setPos(new Point(0,0));
         rotor.setRadius(600);
+        setDimensions(new Dimension(1200,1200));
         getComponents().add(rotor);
 
         waterIntakeState = new IntakeCannotDrink();
     }
 
-    private void attackFires(FireCollection aBunchOfFires){
+    protected void attackFires(FireCollection aBunchOfFires){
 
         for(Fire aFire: aBunchOfFires){
 
@@ -503,6 +510,18 @@ public class Helicopter extends Movable implements Steerable {
         //Everything about the helicopter will be big to begin with
         // for designing, but once things are finalized, the
         // helicopter will be scaled down via hard code.
+
+        String fuelString = "F   " + getFuel();
+        String waterString = "W   " + getWater();
+
+        undoScaleTransform(context, (float)getScale().getX(),
+                -(float)getScale().getY());
+
+        context.drawString(fuelString,50,0);
+        context.drawString(waterString, 50,
+                30);
+        scaleTransform(context, (float)getScale().getX(),
+                -(float)getScale().getY());
     }
 
     @Override
@@ -535,11 +554,14 @@ public class Helicopter extends Movable implements Steerable {
     }
 
     public void toTurnLeft() {
-        turnLeft(15);
+        System.out.println("Turning Left");
+        turnLeft(5);
     }
 
     public void toTurnRight() {
-        turnRight(15);
+
+        System.out.println("Turning Right");
+        turnRight(5);
     }
 
     public void fight(FireCollection fires) {

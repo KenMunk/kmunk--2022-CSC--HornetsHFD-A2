@@ -6,11 +6,13 @@ import org.csc133.a2.gameobjects.collections.GameObjectCollection;
 
 public class ControlGrid extends GameObjectCollection<ControlPoint> {
 
-    public ControlGrid(){
+    private static ControlGrid gridInstance;
+
+    private ControlGrid(){
         int segmentWidth = 1920/5;
         int halfWidth = 1920/2;
-        int segmentHeight = 1080/5;
-        int halfHeight = 1920/2;
+        int segmentHeight = 1440/5;
+        int halfHeight = 1440/2;
 
         add(new ControlPoint(new Point(segmentWidth,segmentHeight)));
         add(new ControlPoint(new Point(segmentWidth*4,
@@ -21,6 +23,13 @@ public class ControlGrid extends GameObjectCollection<ControlPoint> {
         add(new ControlPoint(new Point(segmentWidth,
                 segmentHeight*4)));
         add(new ControlPoint(new Point(halfWidth,halfHeight)));
+    }
+
+    public static ControlGrid getInstance(){
+        if(gridInstance == null){
+            gridInstance = new ControlGrid();
+        }
+        return(gridInstance);
     }
 
     public ControlPoint shortestControlPoint(Point initial, Point end){

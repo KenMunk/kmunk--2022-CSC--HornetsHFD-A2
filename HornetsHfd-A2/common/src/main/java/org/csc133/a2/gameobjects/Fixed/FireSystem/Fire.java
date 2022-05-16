@@ -6,6 +6,7 @@ import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.geom.Point;
 import org.csc133.a2.gameobjects.Components.Component;
 import org.csc133.a2.gameobjects.Fixed.Fixed;
+import org.csc133.a2.gameobjects.path.Navigator;
 import org.csc133.a2.interfaces.FireState;
 
 import java.util.Random;
@@ -252,6 +253,8 @@ public class Fire extends Fixed{
         if(nearPosition(location,0)){
             System.out.println("Fire at pos (" + getPos() + ") has " +
                     "been selected");
+            Navigator.getInstance().addPriority(getPos());
+            Navigator.getInstance().checkFlightPriority();
         }
     }
 

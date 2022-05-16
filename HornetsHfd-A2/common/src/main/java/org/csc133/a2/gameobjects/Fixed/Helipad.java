@@ -56,6 +56,8 @@ public class Helipad extends Fixed {
             radiusContainsPoint(aHelicopter.getPos(),300)
             &&
             aHelicopter.isStopped()
+            &&
+            !aHelicopter.isPowered()
         );
     }
 

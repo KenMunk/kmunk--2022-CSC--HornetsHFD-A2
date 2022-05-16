@@ -19,9 +19,12 @@ import org.csc133.a2.gameobjects.Fixed.Helipad;
 import org.csc133.a2.gameobjects.Fixed.River;
 import org.csc133.a2.gameobjects.Movables.Helicopter;
 import org.csc133.a2.gameobjects.Movables.PlayableHelicopter;
+import org.csc133.a2.gameobjects.Movables.UnPlayableHelicopter;
 import org.csc133.a2.gameobjects.collections.FireCollection;
 import org.csc133.a2.gameobjects.collections.GameObjectCollection;
 import org.csc133.a2.gameobjects.collections.WorldObjectCollection;
+import org.csc133.a2.gameobjects.path.ControlGrid;
+import org.csc133.a2.gameobjects.path.Navigator;
 import org.csc133.a2.gameobjects.path.Path;
 import org.csc133.a2.interfaces.GameState;
 import org.csc133.a2.states.*;
@@ -64,12 +67,21 @@ public class GameWorld {
 
         //Helicopter player = new Helicopter(helipad);
 
-        River aRiver = new River(new Point(maxX/2,3*maxY/5));
+        River aRiver = River.getInstance(new Point(maxX/2,3*maxY/5));
         gameObjects.add(aRiver);
 
 
         gameObjects.add(helipad);
+        Navigator.init();
         PlayableHelicopter.spawnAt(helipad);
+        UnPlayableHelicopter.spawnAt
+        (
+            new Point
+            (
+                helipad.getPos().getX()+200,
+                    helipad.getPos().getY()
+            )
+        );
 
 
         gameObjects.getBuildings().add
@@ -115,25 +127,8 @@ public class GameWorld {
 
         ingniteAllBuildings();
 
-        for(int p = 0; p<5; p++){
-            Path testPath = new Path(new Point(0,0));
-            int getPosition = 0;
-            for(int i = 0; i<50; i++){
-                Path nextPoint =
-                        new Path(new Point(new Random().nextInt(100),
-                                new Random().nextInt(100)-30));
-                getPosition += nextPoint.getPos().getX();
-                if(getPosition>1920){
-                    break;
-                }
-                Path oldPath = testPath;
-                nextPoint.add(oldPath);
-                testPath = nextPoint;
 
-            }
-
-            gameObjects.add(testPath);
-        }
+        gameObjects.add(ControlGrid.getInstance());
 
         gameObjects.add(new ClickIndicator(new Point(0,0)));
 
@@ -312,6 +307,7 @@ public class GameWorld {
 
         //*
         PlayableHelicopter.getInstance().flightUpdate();
+        UnPlayableHelicopter.getInstance().flightUpdate();
         if(PlayableHelicopter.getInstance().fuelOut()){
             gameState = new GameLoss();
             openDialog();
@@ -331,6 +327,11 @@ public class GameWorld {
 
         return(buildingValue - getFireDamage());
 
+    }
+
+    public void lost(){
+        gameState = new GameLoss();
+        openDialog();
     }
     
     public void helicopterLandingCheck(){
@@ -392,6 +393,9 @@ public class GameWorld {
             go.draw(context, parentOrigin, screenOrigin);
         }
 
+        Navigator.getInstance().draw(context,parentOrigin,
+                screenOrigin);
+        UnPlayableHelicopter.drawSingleton(context,parentOrigin,screenOrigin);
         PlayableHelicopter.drawSingleton(context,parentOrigin,screenOrigin);
 
 

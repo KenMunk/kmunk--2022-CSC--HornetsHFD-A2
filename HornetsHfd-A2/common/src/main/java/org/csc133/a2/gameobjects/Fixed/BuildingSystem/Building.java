@@ -98,7 +98,7 @@ public class Building extends Fixed {
     public void updateBurns(FireCollection fireCollection){
         burnCheck(fireCollection);
 
-        burnAmount = fireCollection.calculateBurns(this)*13;
+        burnAmount = fireCollection.calculateBurns(this)*5;
         if(burnAmount > getSize()){
             stopAllBurns(fireCollection);
             setBurnState(new BuildingDoneBurning());

@@ -22,7 +22,9 @@ public class ComponentNode extends GameObject {
     }
 
     @Override
-    protected void drawAllLocal(Graphics context, Point parentOrigin, Point screenOrigin) {
+    protected void drawAllLocal(Graphics context,
+                                Point parentOrigin,
+                                Point screenOrigin) {
         super.drawAllLocal(context, parentOrigin, screenOrigin);
 
         getComponents().draw(context,getPos(), screenOrigin);
