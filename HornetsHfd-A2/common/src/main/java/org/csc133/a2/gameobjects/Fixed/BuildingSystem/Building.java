@@ -54,34 +54,6 @@ public class Building extends Fixed {
 
     }
 
-    /*
-    public int calculateBurns(ArrayList<GameObject> potentialFires){
-        int burns = 0;
-
-        //[TODO] come back for review
-        for(GameObject pF: potentialFires){
-
-            if(pF instanceof Fire){
-
-                if(containsPoint(pF.getPos())){
-
-                    Fire aFire = (Fire)pF;
-                    int someBurns = aFire.getPeakSize();
-                    burns+=someBurns;
-
-                }
-
-            }
-
-        }
-
-        if(burns > getSize()){
-            stopAllBurns(potentialFires);
-        }
-
-        return(burns);
-    }//*/
-
     private void stopAllBurns(FireCollection fireCollection){
 
         fireCollection.stopBurnsInObject(this);

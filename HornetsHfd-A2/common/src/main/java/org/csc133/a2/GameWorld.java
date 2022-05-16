@@ -65,8 +65,6 @@ public class GameWorld {
             )
         );
 
-        //Helicopter player = new Helicopter(helipad);
-
         River aRiver = River.getInstance(new Point(maxX/2,3*maxY/5));
         gameObjects.add(aRiver);
 
@@ -118,13 +116,6 @@ public class GameWorld {
 
         gameObjects.add(allFires);
 
-        /*
-        Helicopter testChopper = new Helicopter(new Point(maxX/2,
-                maxY/2));
-
-        gameObjects.add(testChopper);
-        //*/
-
         ingniteAllBuildings();
 
 
@@ -132,11 +123,7 @@ public class GameWorld {
 
         gameObjects.add(new ClickIndicator(new Point(0,0)));
 
-
-        //Player will be singleton going forward
-        //gameObjects.add(player);
         gameState = new GamePlaying();
-        //gameState = new GameTest();
         dialogState = false;
         //*/
 
@@ -181,34 +168,32 @@ public class GameWorld {
 
     public void accelerateHelicopter() {
 
-        //[TODO] return to this after making a player singleton
         PlayableHelicopter.getInstance().toAccelerate();
 
     }
 
     public void turnHelicopterLeft() {
-        //[TODO] return to this after making a player singleton
+        
         PlayableHelicopter.getInstance().toTurnLeft();
     }
 
     public void turnHelicopterRight() {
-        //[TODO] return to this after making a player singleton
 
         PlayableHelicopter.getInstance().toTurnRight();
     }
 
     public void helicopterDump() {
-        //[TODO] return to this after making a player singleton
+        
         PlayableHelicopter.getInstance().fight(gameObjects.getFires());
     }
 
     public void helicopterDrink() {
-        //[TODO] return to this after making a player singleton
+        
         PlayableHelicopter.getInstance().toDrink();
     }
 
     public void helicopterBrake() {
-        //[TODO] return to this after making a player singleton
+        
         PlayableHelicopter.getInstance().toSlowDown();
     }
 
@@ -217,17 +202,17 @@ public class GameWorld {
     }
 
     public double getHelicopterHeading(){
-        //[TODO] return to this after making a player singleton
+        
         return(getPlayer().getHeading());
     }
 
     public double getHelicopterSpeed(){
-        //[TODO] return to this after making a player singleton
+        
         return(getPlayer().getSpeed());
     }
 
     public int getHelicopterFuel(){
-        //[TODO] return to this after making a player singleton
+        
         return(getPlayer().getFuel());
     }
 
@@ -303,7 +288,7 @@ public class GameWorld {
     }
 
     public void updateHelicopter(){
-        //[TODO] return to this after making a player singleton
+        
 
         //*
         PlayableHelicopter.getInstance().flightUpdate();
@@ -317,7 +302,7 @@ public class GameWorld {
     }
 
     public int getHelicopterWater() {
-        //[TODO] return to this after making a player singleton
+        
         return(getPlayer().getWater());
     }
 
@@ -335,7 +320,7 @@ public class GameWorld {
     }
     
     public void helicopterLandingCheck(){
-        //[TODO] return to this after making a player singleton
+        
         //*
         if
         (
@@ -381,14 +366,6 @@ public class GameWorld {
     public void draw(Graphics context, Point parentOrigin,
                      Point screenOrigin) {
 
-        /*
-        context.setColor(ColorUtil.CYAN);
-
-        context.fillArc(0, 100,
-                        100, 100,
-                        0,360);
-        */
-
         for(GameObject go : gameObjects){
             go.draw(context, parentOrigin, screenOrigin);
         }
@@ -399,10 +376,6 @@ public class GameWorld {
         PlayableHelicopter.drawSingleton(context,parentOrigin,screenOrigin);
 
 
-    }
-
-    public void setWorldDimensions(Dimension worldDimensions){
-        worldDimensions = worldDimensions;
     }
 
     public void pointerPressed(Point location){

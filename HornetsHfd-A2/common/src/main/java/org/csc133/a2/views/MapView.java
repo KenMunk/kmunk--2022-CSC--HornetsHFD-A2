@@ -104,8 +104,6 @@ public class MapView extends Container {
                         getAbsoluteY()
                 );
 
-        //[TODO] change the rendering paradigm
-
         //Since this is where the border between codenameone
         //coordinate standards and local coordinate standards
 
@@ -113,22 +111,6 @@ public class MapView extends Container {
                 screenOrigin);
 
         context.resetAffine();
-
-        /*
-        for
-        (
-                GameObject aGameObject
-                :
-                GameWorld.getInstance().getGameObjects()
-        ){
-
-            aGameObject.draw(context,new Point(getAbsoluteX(),
-                    getAbsoluteY()-130));
-
-        }//*/
-
-
-
 
     }
 
@@ -157,6 +139,7 @@ public class MapView extends Container {
         return(getParent());
     }
 
+    @Override
     public void pointerPressed(int x, int y){
         x = x - getAbsoluteX()-(int)offsetSide;
         y = y - getAbsoluteY()+10;

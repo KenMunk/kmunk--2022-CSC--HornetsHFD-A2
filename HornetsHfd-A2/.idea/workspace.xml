@@ -4,20 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="992a1474-dcbe-4c7c-8ffe-80e7d6039e27" name="Changes" comment="Fires now show their current size instead of debug coordinate position">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="992a1474-dcbe-4c7c-8ffe-80e7d6039e27" name="Changes" comment="NPC helicopter now self-navigates">
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/GameWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Components/ComponentNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Components/ComponentNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/BuildingSystem/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/BuildingSystem/Building.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/FireSystem/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/FireSystem/Fire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/Helipad.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/Helipad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Fixed/River.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Helicopter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Helicopter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Movable.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/Movable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/UnPlayableHelicopter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/Movables/UnPlayableHelicopter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/path/ControlGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/path/ControlGrid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/path/FlightPath.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/path/FlightPath.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/path/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/gameobjects/path/Navigator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GameWin.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/states/GameWin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/MapView.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/MapView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewFuel.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewFuel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewHeading.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewHeading.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewSpeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewSpeed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewWater.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/org/csc133/a2/views/ViewWater.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -821,13 +816,6 @@
       <workItem from="1646609319994" duration="11947000" />
       <workItem from="1646657740788" duration="28746000" />
     </task>
-    <task id="LOCAL-00015" summary="Building class value and destruction methods implemented">
-      <created>1646960603622</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1646960603622</updated>
-    </task>
     <task id="LOCAL-00016" summary="Fire class mostly implemented&#10;Fire class renders properly&#10;Fire class instances properly&#10;&#10;[needs attention]&#10;Fire class not updating properly,&#10;this might be attributed to the fact that the object updates are being pushed as the original object rather than the permutations.">
       <created>1646980845343</created>
       <option name="number" value="00016" />
@@ -1164,7 +1152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652604147444</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="NPC helicopter now self-navigates">
+      <created>1652675049329</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1652675049330</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1182,7 +1177,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactoring the GameWorld and related classes with the new game object collection architecture in order to reduce the overall code volume" />
     <MESSAGE value="Added the world object collection extension of the GameObjectCollection which allows for the organized addition of gameobjects to the world space&#10;&#10;Nested objects still render, operation seems to be a success." />
     <MESSAGE value="Still alot of refactoring needed for existing code." />
     <MESSAGE value="Initial building ignition added back in. [success]&#10;Loss updates added back in. [success]&#10;Fire state updates added back in.&#10;[success]&#10;[TODO] incorporate a building state system to automate the ignition and fire-spread process" />
@@ -1207,6 +1201,7 @@
     <MESSAGE value="Engine states now operate as expected" />
     <MESSAGE value="Fire selection has been staged" />
     <MESSAGE value="Fires now show their current size instead of debug coordinate position" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fires now show their current size instead of debug coordinate position" />
+    <MESSAGE value="NPC helicopter now self-navigates" />
+    <option name="LAST_COMMIT_MESSAGE" value="NPC helicopter now self-navigates" />
   </component>
 </project>

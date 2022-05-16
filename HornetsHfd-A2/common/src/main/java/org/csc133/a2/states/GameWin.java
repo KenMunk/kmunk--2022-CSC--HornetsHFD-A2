@@ -6,7 +6,7 @@ import org.csc133.a2.interfaces.GameState;
 public class GameWin implements GameState {
 
     public void update(GameWorld context){
-        // [TODO] stuff to do when we are in a win state
+        //really isn't much to do here
     }
 
     public String dialogTitle(){
